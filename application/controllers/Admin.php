@@ -23,14 +23,13 @@ class Admin extends CI_Controller
   {
     $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
     $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
-    $this->form_validation->set_rules('gambar', 'Gamabar', 'required|trim');
+    $this->form_validation->set_rules('gambar', 'Gambar', 'required|trim');
     $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[4]');
-
 
 
     if ($this->form_validation->run() == false) {
       $data['user1'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-      $data['data'] = $this->db->get('user', ['role_id' => 1])->result_array();
+      $data['data'] = $this->db->get_where('user', ['role_id' => 1])->result_array();
       $data['title'] = 'Data Admin';
       $this->load->view('template/sidebar', $data);
       $this->load->view('template/header', $data);

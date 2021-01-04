@@ -3,17 +3,15 @@
     <div class="row">
       <div class="col-12 col-md-6">
         <h3>Data Admin</h3>
-        <p class="text-subtitle text-muted">Data Admin Ini Merupkan Data Laporan Data Admin.</p>
+        <p class="text-subtitle text-muted">Data Admin Ini Merupkan Merupkan Data Admin Yang Bisa Akses Sistem Ini.</p>
       </div>
       <?php
 
-
-      $error = "Data Ada Yang Belum Lengkap";
       if (isset($_POST['submit'])) {
         if (form_error('nama') && (form_error('email')) && (form_error('password')) && (form_error('gambar'))) {
           $error;
         }
-        echo $error;
+        $error = "Oops..! Data Ada Yang Salah.";
       }
       ?>
     </div>
@@ -23,8 +21,14 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <a href="http://" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalDataAdmin"><i class="fas fa-plus"></i> Data Admin</a>
+          <a href="http://" class="btn btn-primary mr-2" data-toggle="modal" data-target="#exampleModalDataAdmin"><i class="fas fa-plus"></i> Data Admin</a>
+          <?php
+          if (isset($_POST['submit'])) {
+            echo $error;
+          }
+          ?>
         </div>
+
         <div class="card-content">
           <!-- table striped -->
           <div class="table-responsive">

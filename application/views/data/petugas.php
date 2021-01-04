@@ -5,6 +5,15 @@
         <h3>Data Petugas</h3>
         <p class="text-subtitle text-muted">Data Petugas Ini Merupkan Data Petugas Yang Bisa Akses Sistem Ini.</p>
       </div>
+      <?php
+
+      if (isset($_POST['submit'])) {
+        if (form_error('nama') && (form_error('email')) && (form_error('password')) && (form_error('gambar'))) {
+          $error;
+        }
+        $error = "Oops..! Data Ada Yang Salah.";
+      }
+      ?>
     </div>
   </div>
   <!-- Striped rows start -->
@@ -13,6 +22,11 @@
       <div class="card">
         <div class="card-header">
           <a href="http://" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalDataPetugas"><i class="fas fa-plus"></i> Data Petugas</a>
+          <?php
+          if (isset($_POST['submit'])) {
+            echo $error;
+          }
+          ?>
         </div>
         <div class="card-content">
           <!-- table striped -->
@@ -86,22 +100,23 @@
         <form action="<?= base_url('petugas/tambahPetugas') ?>" method="post">
           <div class="form-group">
             <label for="nama">Nama</label>
-            <input type="text" name="nama" id="nama" placeholder="Masukan Nama" class="form-control">
-            <?= form_error('nama'); ?>
+            <input type="text" name="nama" id="nama" placeholder="Masukan Nama" class="form-control" value="<?= set_value('nama'); ?>">
+            <?= form_error('nama', '<small class="text-danger ml-2">', '</small>'); ?>
           </div>
           <div class="form-group">
             <label for="email">email</label>
-            <input type="text" name="email" id="email" placeholder="Masukan Email" class="form-control">
+            <input type="text" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>">
           </div>
-          <div class="form-group">
-            <label for="gambar">gambar</label>
-            <input type="text" name="gambar" id="gambar" placeholder="Masukan gambar" class="form-control">
-            <?= form_error('gambar'); ?>
-          </div>
+          <?= form_error('email', '<small class="text-danger ml-2">', '</small>'); ?>
           <div class="form-group">
             <label for="password">password</label>
             <input type="text" name="password" id="password" placeholder="Masukan password" class="form-control">
-            <?= form_error('gambar'); ?>
+            <?= form_error('password', '<small class="text-danger ml-2">', '</small>'); ?>
+          </div>
+          <div class="form-group">
+            <label for="gambar">gambar</label>
+            <input type="text" name="gambar" id="gambar" placeholder="Masukan gambar" class="form-control" value="<?= set_value('gambar'); ?>">
+            <?= form_error('gambar', '<small class="text-danger ml-2">', '</small>'); ?>
           </div>
           <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Save Data</button>

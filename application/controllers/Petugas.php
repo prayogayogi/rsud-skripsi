@@ -23,7 +23,7 @@ class Petugas extends CI_Controller
   {
     $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
     $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
-    $this->form_validation->set_rules('gambar', 'Gamabar', 'required|trim');
+    $this->form_validation->set_rules('gambar', 'Gambar', 'required|trim');
     $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[4]');
 
 
