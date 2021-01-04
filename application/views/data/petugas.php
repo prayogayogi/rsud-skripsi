@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12 col-md-6">
         <h3>Data Petugas</h3>
-        <p class="text-subtitle text-muted">Data Petugas Ini Merupkan Data Laporan Data Petugas.</p>
+        <p class="text-subtitle text-muted">Data Petugas Ini Merupkan Data Petugas Yang Bisa Akses Sistem Ini.</p>
       </div>
     </div>
   </div>
@@ -58,7 +58,7 @@
                     <td>
                       <a href="<?= base_url('petugas/hapus/') . $admin['id']; ?>" class="btn btn-danger btn-sm" name="hapus" onclick="return confirm ('Kamu Yakin Inggin Menghapus..?')"><i class="fas fa-trash-alt"></i></a>
                       <br><br>
-                      <a href="<?= base_url('petugas/hapus/') . $admin['id']; ?>" class="btn btn-primary btn-sm" name="edit"><i class="fas fa-edit"></i></a>
+                      <a href="<?= base_url('petugas/edit/') . $admin['id']; ?>" class="btn btn-primary btn-sm" name="edit"><i class="fas fa-edit"></i></a>
                     </td>
                   <tr>
                   <?php endforeach; ?>
@@ -105,7 +105,6 @@
           </div>
           <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Save Data</button>
-
         </form>
       </div>
     </div>

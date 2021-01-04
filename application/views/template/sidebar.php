@@ -49,7 +49,7 @@
               </li>
             <?php } ?>
             <li class="sidebar-item  ">
-              <a href="#" class='sidebar-link'>
+              <a href="<?= base_url('laporan/admin'); ?>" class='sidebar-link'>
                 <i data-feather="grid" width="20"></i>
                 <span>Laporan</span>
               </a>

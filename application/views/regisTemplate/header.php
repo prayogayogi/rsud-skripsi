@@ -7,7 +7,7 @@
   <title><?= $title ?></title>
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/css/bootstrap.css">
 
-  <!-- <link rel="shortcut icon" href="<?= base_url() ?>assets/assets/images/favicon.svg" type="image/x-icon"> -->
+  <link rel="shortcut icon" href="<?= base_url() ?>assets/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/css/app.css">
 </head>
 
