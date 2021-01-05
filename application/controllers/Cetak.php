@@ -13,6 +13,6 @@ class Cetak extends CI_Controller
   {
     $data['title'] = 'Print';
     $data['data'] = $this->m_master->tampil_data()->result_array();
-    $this->load->view('print/adminPrint', $data);
+    $this->load->view('cetak/adminCetak', $data);
   }
 }
