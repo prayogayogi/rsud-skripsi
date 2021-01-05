@@ -109,21 +109,43 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($user as $row) : ?>
+                  <?php foreach ($user as $row) :
+                  ?>
                     <tr>
                       <td><?= $row['nama']; ?></td>
-                      <td><span class="badge bg-success"><?= $row['gol_darah']; ?></span></td>
+                      <!-- gol A -->
+                      <?php if ($row['gol_darah'] == "A") { ?>
+                        <td><span class="badge bg-success">
+                            <?= $row['gol_darah']; ?>
+                          </span></td>
+                      <?php } ?>
+                      <!-- gol B -->
+                      <?php if ($row['gol_darah'] == "B") { ?>
+                        <td><span class="badge bg-primary">
+                            <?= $row['gol_darah']; ?>
+                          </span></td>
+                      <?php } ?>
+                      <!-- gol AB -->
+                      <?php if ($row['gol_darah'] == "AB") { ?>
+                        <td><span class="badge bg-danger">
+                            <?= $row['gol_darah']; ?>
+                          </span></td>
+                      <?php } ?>
+                      <!-- gol O -->
+                      <?php if ($row['gol_darah'] == "O") { ?>
+                        <td><span class="badge bg-warning">
+                            <?= $row['gol_darah']; ?>
+                          </span></td>
+                      <?php } ?>
                       <td><?= $row['gender'] ?></td>
                       <td><?= $row['alamat'] ?></td>
                       <td><?= $row['no_hp'] ?></td>
                       <?php
-                      if (time() >= ($row['tgl_donor'] + 7776000)) {
-                        $bisa = "bisa";
-                      } else {
-                        $bisa = "tidak bisa";
-                      }
-                      ?>
-                      <td> <span class="badge badge-pill badge-info bg-info"><?= $bisa; ?></span></td>
+                      if (time() >= ($row['tgl_donor'] + 7776000)) { ?>
+                        <td> <span class="badge badge-pill badge-info bg-info">Bisa</span></td>
+                      <?php } else { ?>
+                        <td> <span class="badge badge-pill badge-info bg-danger"> Tidak bisa</span></td>
+                      <?php } ?>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
