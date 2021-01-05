@@ -15,6 +15,12 @@ class M_master extends CI_Model
     $this->db->insert('user', $data);
   }
 
+  function dataAdmin()
+  {
+    return $this->db->get_where('user', ['email' => $this->session->userdata('email')]);
+  }
+
+
 
   public function inputDataPendonor()
   {

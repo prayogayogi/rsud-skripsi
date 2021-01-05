@@ -11,7 +11,7 @@ class Admin extends CI_Controller
 
   public function index()
   {
-    $data['user1'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['data'] = $this->db->get_where('user', ['role_id' => 1])->result_array();
     $data['title'] = 'Data Admin';
     $this->load->view('template/sidebar', $data);
@@ -28,7 +28,7 @@ class Admin extends CI_Controller
 
 
     if ($this->form_validation->run() == false) {
-      $data['user1'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+      $data['user1'] = $this->m_master->dataAdmin()->row_array();
       $data['data'] = $this->db->get_where('user', ['role_id' => 1])->result_array();
       $data['title'] = 'Data Admin';
       $this->load->view('template/sidebar', $data);

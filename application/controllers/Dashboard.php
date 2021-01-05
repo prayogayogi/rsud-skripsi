@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller
   public function index()
   {
     // $data['data'] = $this->db->get_where('data', ['gol_darah' => "AB"])->result_array();
-    $data['user1'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['user'] = $this->m_master->tampil_data()->result_array();
     $data['title'] = 'Dashboard';
     $this->load->view('template/sidebar', $data);
@@ -26,7 +26,7 @@ class Dashboard extends CI_Controller
   public function tambah_data_pendonor()
   {
     $data['pendonor'] = $this->m_master->tampil_data()->result_array();
-    $data['user1'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['title'] = 'Tambah Data Pendonor';
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
@@ -54,7 +54,7 @@ class Dashboard extends CI_Controller
   public function cariData()
   {
 
-    $data['user1'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['user'] = $this->m_master->tampil_data()->result_array();
     $data['title'] = 'Dashboard';
     if ($this->input->post('kyword')) {
