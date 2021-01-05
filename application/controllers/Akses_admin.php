@@ -2,6 +2,11 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class Akses_admin extends CI_Controller
 {
+  public function __construct()
+  {
+    parent::__construct();
+    $this->load->model('m_master');
+  }
   public function index()
   {
     $data['user1'] = $this->m_master->dataAdmin()->row_array();

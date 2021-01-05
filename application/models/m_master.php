@@ -3,25 +3,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_master extends CI_Model
 {
-
+  // tampil data
   public function tampil_data()
   {
     return $this->db->get('data');
   }
 
 
+  // input user
   public function input_user($data)
   {
     $this->db->insert('user', $data);
   }
 
+
+  // data admin
   function dataAdmin()
   {
     return $this->db->get_where('user', ['email' => $this->session->userdata('email')]);
   }
 
 
-
+  // input data pendonor
   public function inputDataPendonor()
   {
     $data = [
@@ -40,18 +43,21 @@ class M_master extends CI_Model
   }
 
 
+  // hapus data
   public function hapus($id)
   {
     $this->db->delete('data', $id);
   }
 
 
+  // input admin
   public function inputAdmin($data)
   {
     $this->db->insert('user', $data);
   }
 
 
+  // cari data
   public function cariData()
   {
     $kyword = $this->input->post('kyword', true);

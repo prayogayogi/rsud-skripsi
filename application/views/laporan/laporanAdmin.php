@@ -6,7 +6,7 @@
       </h1>
     </section>
     <section class="content">
-      <a href="<?= base_url('print/admin'); ?>" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-print mr-2"></i>Cetak Data</a>
+      <a href="<?= base_url('cetak/admin'); ?>" class="btn btn-primary"><i class="fa fa-print mr-2"></i>Cetak Data</a>
       <!-- <div class="navbar-from float-right ">
         <?= form_open('dashboard/cari') ?>
         <input type=" text" placeholder="Cari" class="form" name="cari">
