@@ -5,7 +5,7 @@
         <div class="card-body">
           <div class="text-center mb-5">
             <h3>Sign In</h3>
-            <img src="<?= base_url() ?>assets/mukomuko.png" alt="logo" style="width: 80px; height:80px; margin-right:25px;" class="mb-3">
+            <img src="<?= base_url() ?>assets/logo resud.png" alt="logo" style="width: 80px; height:80px; margin-right:25px;" class="mb-3">
             <p>Please Sign To Rsud MukoMuko.</p>
             <small class="mt-3"><?= $this->session->flashdata('pesan'); ?></small>
           </div>

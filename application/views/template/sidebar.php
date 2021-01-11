@@ -3,7 +3,7 @@
     <div id="sidebar" class='active'>
       <div class="sidebar-wrapper active">
         <div class="sidebar-header text-center">
-          <a href="<?= base_url('dashboard'); ?>"><img src="<?= base_url() ?>assets/mukomuko.png" alt="logo" style="width: 100px; height:100px; margin-right:25px;"></a>
+          <a href="<?= base_url('dashboard'); ?>"><img src="<?= base_url() ?>assets/logo resud.png" alt="logo" style="width: 100px; height:100px; margin-right:25px;"></a>
           <!-- ini bagian untuk bagian untuk foto -->
         </div>
         <div class="sidebar-menu">
