@@ -72,7 +72,7 @@
                     <td>
                       <a href="<?= base_url('admin/hapus/') . $admin['id']; ?>" class="btn btn-danger btn-sm" name="hapus" onclick="return confirm ('Anda Yakin Inggin Hapus..?')"><i class="fas fa-trash-alt"></i></a>
                       <br><br>
-                      <a href="<?= base_url('admin/hapus/') . $admin['id']; ?>" class="btn btn-primary btn-sm" name="edit"><i class="fas fa-edit"></i></a>
+                      <a href="<?= base_url('admin/edit/') . $admin['id']; ?>" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalEditAdmin" name="edit"><i class="fas fa-edit"></i></a>
                     </td>
                   <tr>
                   <?php endforeach; ?>
@@ -120,6 +120,51 @@
         </div>
         <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" name="submit" class="btn btn-primary">Save Data</button>
+        <?= form_close(); ?>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal edit data -->
+<div class="modal fade" id="exampleModalEditAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Form Update Data Admin</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?= form_open_multipart('admin/tambahAdmin') ?>
+        <?php foreach ($data as $edit) : ?>
+          <input type="hidden" name=id <?= $edit['id']; ?>>
+          <div class="form-group">
+            <label for="nama">Nama</label>
+            <input type="text" value="<?= $edit['nama']; ?>" name="nama" id="nama" placeholder="Masukan Nama" class="form-control" value="<?= set_value('nama'); ?>">
+            <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
+          </div>
+          <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" value="<?= $edit['email']; ?>" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>">
+            <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
+          </div>
+          <div class="form-group">
+            <label for="password">password</label>
+            <input type="text" value="<?= $edit['password']; ?>" name="password" id="password" placeholder="Masukan password" class="form-control">
+            <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+          </div>
+          <div class="form-group">
+            <label for="gambar">gambar</label>
+            <input type="file" name="gambar" id="gambar" placeholder="Masukan gambar" class="form-control">
+            <img class="img-thumbnail mt-3 mb-3" src="<?= base_url('assets/gambar/admin/') . $edit['gambar']; ?>" width="50px" alt="gambarEditData">
+            <?= form_error('gambar', '<small class="text-danger">', '</small>'); ?>
+          </div>
+        <?php endforeach; ?>
+        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" name="submit" class="btn btn-primary">Update Data</button>
         <?= form_close(); ?>
       </div>
     </div>
