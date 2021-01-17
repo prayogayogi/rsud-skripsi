@@ -42,7 +42,8 @@
               <td><?= date('d-m-Y', $data['tgl_donor']); ?></td>
               <td> <a href="<?= base_url('auth/ubah/') . $data['id']; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                 <br><br>
-                <a href="<?= base_url('dashboard/hapus/') . $data['id']; ?>" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                <a href="<?= base_url('dashboard/hapus/') . $data['id']; ?>" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
+              </td>
               <?php
               if (time() >= ($data['tgl_donor'] + 7776000)) {
                 $bisa = "bisa";
@@ -76,11 +77,11 @@
               </div>
               <div class="form-group">
                 <label for="gender">Jenis Gol Darah</label>
-                <div class="input-group mb-3">
+                <div class="input-group ">
                   <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01" name="gol_darah">Pilih</label>
                   </div>
-                  <select class="custom-select" id="inputGroupSelect01" name="gol_darah">
+                  <select class="custom-select form-control" id="inputGroupSelect01" name="gol_darah">
                     <option selected>Pilih Gol Darah</option>
                     <option value="A">Gol A</option>
                     <option value="B">Gol B</option>
@@ -104,7 +105,7 @@
                   <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01" name="gender">Pilih</label>
                   </div>
-                  <select class="custom-select" id="inputGroupSelect01" name="gender">
+                  <select class="custom-select form-control" id="inputGroupSelect01" name="gender">
                     <option selected>Pilih Jenis Kelamin</option>
                     <option value="Laki-Laki">Laki-Laki</option>
                     <option value="Perempuan">Perempuan</option>

@@ -36,7 +36,7 @@
                 <tr>
                   <th>Nama</th>
                   <th>Email</th>
-                  <th>Gamabar</th>
+                  <th>Gambar</th>
                   <th>Setatus</th>
                   <th>Tgl Kerja</th>
                   <th>Action</th>
@@ -47,7 +47,7 @@
                   <tr>
                     <td class="text-bold-500"><?= $admin['nama'] ?></td>
                     <td><?= $admin['email']; ?></td>
-                    <td class="text-bold-500"><?= $admin['gambar']; ?></td>
+                    <td class="text-bold-500"><img src="<?= base_url('assets/gambar/petugas/') . $admin['gambar']; ?>" width="50px" alt=""></td>
                     <?php
                     $aktif = $admin['role_id'];
                     if ($aktif == 1) {
@@ -97,30 +97,30 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="<?= base_url('petugas/tambahPetugas') ?>" method="post">
-          <div class="form-group">
-            <label for="nama">Nama</label>
-            <input type="text" name="nama" id="nama" placeholder="Masukan Nama" class="form-control" value="<?= set_value('nama'); ?>">
-            <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
-          </div>
-          <div class="form-group">
-            <label for="email">email</label>
-            <input type="text" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>">
-            <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
-          </div>
-          <div class="form-group">
-            <label for="password">password</label>
-            <input type="text" name="password" id="password" placeholder="Masukan password" class="form-control">
-            <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
-          </div>
-          <div class="form-group">
-            <label for="gambar">gambar</label>
-            <input type="text" name="gambar" id="gambar" placeholder="Masukan gambar" class="form-control">
-            <?= form_error('gambar', '<small class="text-danger">', '</small>'); ?>
-          </div>
-          <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" name="submit" class="btn btn-primary">Save Data</button>
-        </form>
+        <?= form_open_multipart('petugas/tambahPetugas'); ?>
+        <div class="form-group">
+          <label for="nama">Nama</label>
+          <input type="text" name="nama" id="nama" placeholder="Masukan Nama" class="form-control" value="<?= set_value('nama'); ?>">
+          <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
+        </div>
+        <div class="form-group">
+          <label for="email">email</label>
+          <input type="text" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>">
+          <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
+        </div>
+        <div class="form-group">
+          <label for="password">password</label>
+          <input type="text" name="password" id="password" placeholder="Masukan password" class="form-control">
+          <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+        </div>
+        <div class="form-group">
+          <label for="gambar">gambar</label>
+          <input type="file" name="gambar" id="gambar" placeholder="Masukan gambar" class="form-control">
+          <?= form_error('gambar', '<small class="text-danger">', '</small>'); ?>
+        </div>
+        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" name="submit" class="btn btn-primary">Save Data</button>
+        <?= form_close(); ?>
       </div>
     </div>
   </div>

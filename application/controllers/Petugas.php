@@ -23,8 +23,20 @@ class Petugas extends CI_Controller
   {
     $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
     $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
-    $this->form_validation->set_rules('gambar', 'Gambar', 'required|trim');
     $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[4]');
+    $gambar = $_FILES['gambar'];
+    if ($gambar) {
+      $config['allowed_types']  = 'gif|jpg|png';
+      $config['max_size']       = '2048';
+      $config['upload_path']    = './assets/gambar/petugas/';
+      $this->load->library('upload', $config);
+
+      if ($this->upload->do_upload('gambar')) {
+        $foto = $this->upload->data('file_name', TRUE);
+      } else {
+        echo "error";
+      }
+    }
 
 
     if ($this->form_validation->run() == false) {
@@ -39,7 +51,7 @@ class Petugas extends CI_Controller
       $data = [
         'nama' => $this->input->post('nama'),
         'email' => $this->input->post('email'),
-        'gambar' => $this->input->post('gambar'),
+        'gambar' => $foto,
         'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
         'role_id' => 2,
         'aktif' => 1,

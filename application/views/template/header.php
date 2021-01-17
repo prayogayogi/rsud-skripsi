@@ -27,7 +27,7 @@
           <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <div class="avatar mr-0">
               <p class="mr-4 mt-1">Hallo <?= $user1['nama']; ?></p>
-              <img src="<?php echo base_url('assets') ?>/assets/images/avatar/profile.jpg" alt="" srcset="">
+              <img src="<?= base_url('assets/gambar/admin/') . $user1['gambar']; ?>" width="50px" alt="gambar">
             </div>
         <li class="dropdown mr-2">
           <div class="d-lg-inline-block">
