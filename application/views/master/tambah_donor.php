@@ -6,7 +6,7 @@
       </h1>
     </section>
     <section class="content">
-      <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus mr-2"></i>Tambah Pendonor</button>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus mr-2"></i>Tambah Data</button>
       <!-- <div class="navbar-from float-right ">
         <?= form_open('dashboard/cari') ?>
         <input type=" text" placeholder="Cari" class="form" name="cari">

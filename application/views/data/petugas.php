@@ -72,7 +72,7 @@
                     <td>
                       <a href="<?= base_url('petugas/hapus/') . $admin['id']; ?>" class="btn btn-danger btn-sm" name="hapus" onclick="return confirm ('Kamu Yakin Inggin Menghapus..?')"><i class="fas fa-trash-alt"></i></a>
                       <br><br>
-                      <a href="<?= base_url('petugas/edit/') . $admin['id']; ?>" class="btn btn-primary btn-sm" name="edit"><i class="fas fa-edit"></i></a>
+                      <a href="<?= base_url('petugas/edit/') . $admin['id']; ?>" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalEditPetugas" name="edit"><i class="fas fa-edit"></i></a>
                     </td>
                   <tr>
                   <?php endforeach; ?>
@@ -120,6 +120,46 @@
         </div>
         <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" name="submit" class="btn btn-primary">Save Data</button>
+        <?= form_close(); ?>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModalEditPetugas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Form Update Data Petugas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?= form_open_multipart('petugas/tambahPetugas'); ?>
+        <div class="form-group">
+          <label for="nama">Nama</label>
+          <input type="text" name="nama" id="nama" placeholder="Masukan Nama" class="form-control" value="<?= set_value('nama'); ?>">
+          <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
+        </div>
+        <div class="form-group">
+          <label for="email">email</label>
+          <input type="text" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>">
+          <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
+        </div>
+        <div class="form-group">
+          <label for="password">password</label>
+          <input type="text" name="password" id="password" placeholder="Masukan password" class="form-control">
+          <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+        </div>
+        <div class="form-group">
+          <label for="gambar">gambar</label>
+          <input type="file" name="gambar" id="gambar" placeholder="Masukan gambar" class="form-control">
+          <?= form_error('gambar', '<small class="text-danger">', '</small>'); ?>
+        </div>
+        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" name="submit" class="btn btn-primary">Update Data</button>
         <?= form_close(); ?>
       </div>
     </div>

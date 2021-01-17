@@ -72,7 +72,7 @@
                     <td>
                       <a href="<?= base_url('admin/hapus/') . $admin['id']; ?>" class="btn btn-danger btn-sm" name="hapus" onclick="return confirm ('Anda Yakin Inggin Hapus..?')"><i class="fas fa-trash-alt"></i></a>
                       <br><br>
-                      <a href="<?= base_url('admin/edit/') . $admin['id']; ?>" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalEditAdmin" name="edit"><i class="fas fa-edit"></i></a>
+                      <a href="<?= base_url('admin/edit') . $admin['id']; ?>" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalEditAdmin" name="edit"><i class="fas fa-edit"></i></a>
                     </td>
                   <tr>
                   <?php endforeach; ?>
@@ -162,9 +162,10 @@
             <img class="img-thumbnail mt-3 mb-3" src="<?= base_url('assets/gambar/admin/') . $edit['gambar']; ?>" width="50px" alt="gambarEditData">
             <?= form_error('gambar', '<small class="text-danger">', '</small>'); ?>
           </div>
+          <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="submit" class="btn btn-primary">Update Data</button>
         <?php endforeach; ?>
-        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" name="submit" class="btn btn-primary">Update Data</button>
+
         <?= form_close(); ?>
       </div>
     </div>

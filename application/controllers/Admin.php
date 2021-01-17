@@ -34,7 +34,7 @@ class Admin extends CI_Controller
       if ($this->upload->do_upload('gambar')) {
         $foto = $this->upload->data('file_name', TRUE);
       } else {
-        echo "error";
+        $foto = "default.jpg";
       }
     }
 
@@ -61,6 +61,11 @@ class Admin extends CI_Controller
     }
   }
 
+
+  // edit 
+  public function edit($id)
+  {
+  }
 
   // hapus
   public function hapus($id)
