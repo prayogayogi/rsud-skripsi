@@ -139,7 +139,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <?= form_open_multipart('admin/tambahAdmin') ?>
+          <?= form_open_multipart('admin/editAdmin') ?>
           <input type="hidden" name="id" value="<?= $admin['id']; ?>">
           <div class="form-group">
             <label for="nama">Nama</label>
@@ -152,8 +152,13 @@
             <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
           </div>
           <div class="form-group">
-            <label for="password">password</label>
-            <input type="text" value="<?= $admin['password']; ?>" name="password" id="password" placeholder="Masukan password" class="form-control">
+            <label for="password">password Lama</label>
+            <input type="password" name="passwordLama" id="password" placeholder="Masukan password" class="form-control">
+            <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+          </div>
+          <div class="form-group">
+            <label for="password">password Baru</label>
+            <input type="password" name="passwordBaru" id="password" placeholder="Masukan password" class="form-control">
             <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
           </div>
           <div class="form-group">

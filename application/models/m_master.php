@@ -56,6 +56,13 @@ class M_master extends CI_Model
     $this->db->insert('user', $data);
   }
 
+  // editDataAdmin
+  public function editDataAdmin($data, $where)
+  {
+    $this->db->where($where);
+    $this->db->update('user', $data);
+  }
+
 
   // cari data
   public function cariData()

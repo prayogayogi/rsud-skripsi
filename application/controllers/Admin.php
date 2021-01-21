@@ -62,9 +62,44 @@ class Admin extends CI_Controller
   }
 
 
-  // edit 
-  public function edit($id)
+  // editAdmin 
+  public function editAdmin()
   {
+    $gambar = $_FILES['gambar'];
+    if ($gambar) {
+      $config['allowed_types']  = 'gif|jpg|png';
+      $config['max_size']       = '2048';
+      $config['upload_path']    = './assets/gambar/admin/';
+      $this->load->library('upload', $config);
+
+      if ($this->upload->do_upload('gambar')) {
+        $foto = $this->upload->data('file_name', TRUE);
+      } else {
+        echo "error";
+      }
+    }
+    $where = [
+      'id' => $this->input->post('id')
+    ];
+    $database = $this->db->get_where('user', $where)->row_array();
+    $passwordLama = $this->input->post('passwordLama');
+    if (password_verify($passwordLama, $database['password'])) {
+      $passwordBaru = $this->input->post('passwordBaru');
+      if ($passwordLama != $passwordBaru) {
+        $data = [
+          'nama' => $this->input->post('nama'),
+          'email' => $this->input->post('email'),
+          'password' => $passwordBaru,
+          'gambar' => $foto
+        ];
+        $this->m_master->editDataAdmin($data, $where);
+        redirect('admin');
+      } else {
+        echo "password sama dengan password lama";
+      }
+    } else {
+      echo "password salah";
+    }
   }
 
   // hapus
