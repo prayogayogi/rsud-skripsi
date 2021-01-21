@@ -23,7 +23,8 @@ class Admin extends CI_Controller
   {
     $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
     $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
-    $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[4]');
+    $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[4]|matches[password2]');
+    $this->form_validation->set_rules('password2', 'Password', 'required|trim|min_length[4]|matches[password1]');
     $gambar = $_FILES['gambar'];
     if ($gambar) {
       $config['allowed_types']  = 'gif|jpg|png';
@@ -81,25 +82,19 @@ class Admin extends CI_Controller
     $where = [
       'id' => $this->input->post('id')
     ];
-    $database = $this->db->get_where('user', $where)->row_array();
-    $passwordLama = $this->input->post('passwordLama');
-    if (password_verify($passwordLama, $database['password'])) {
-      $passwordBaru = $this->input->post('passwordBaru');
-      if ($passwordLama != $passwordBaru) {
-        $data = [
-          'nama' => $this->input->post('nama'),
-          'email' => $this->input->post('email'),
-          'password' => $passwordBaru,
-          'gambar' => $foto
-        ];
-        $this->m_master->editDataAdmin($data, $where);
-        redirect('admin');
-      } else {
-        echo "password sama dengan password lama";
-      }
+
+    if ($foto == []) {
+      $fotoo = 'default.jpg';
     } else {
-      echo "password salah";
+      $fotoo = $foto;
     }
+    $data = [
+      'nama' => $this->input->post('nama'),
+      'email' => $this->input->post('email'),
+      'gambar' => $fotoo
+    ];
+    $this->m_master->editDataAdmin($data, $where);
+    redirect('admin');
   }
 
   // hapus
@@ -110,5 +105,24 @@ class Admin extends CI_Controller
     ];
     $this->db->delete('user', $data);
     redirect('admin');
+  }
+
+  // ubah password 
+  public function ubahPassword($data, $where)
+  {
+    $database = $this->db->get_where('user', $where)->row_array();
+    $passwordLama = $this->input->post('passwordLama');
+    if (password_verify($passwordLama, $database['password'])) {
+      $passwordBaru = $this->input->post('passwordBaru');
+      if ($passwordLama != $passwordBaru) {
+
+        $this->m_master->editDataAdmin($data, $where);
+        redirect('admin');
+      } else {
+        echo "password sama dengan password lama";
+      }
+    } else {
+      echo "password salah";
+    }
   }
 }
