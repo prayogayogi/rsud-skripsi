@@ -51,7 +51,7 @@
                     <?php
                     $aktif = $admin['role_id'];
                     if ($aktif == 1) {
-                      $ada = 'Asdmin';
+                      $ada = 'Admin';
                     } elseif ($aktif == 2) {
                       $ada = 'Petugas';
                     } else {
