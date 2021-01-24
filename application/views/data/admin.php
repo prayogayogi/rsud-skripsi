@@ -110,13 +110,13 @@
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="text" name="password1" id="password" placeholder="Masukan password" class="form-control">
-          <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+          <input type="password" name="password1" id="password" placeholder="Masukan password" class="form-control">
+          <?= form_error('password1', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
           <label for="password">Konfirmasi Password</label>
-          <input type="text" name="password2" id="password" placeholder="Konfirmasi Password" class="form-control">
-          <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+          <input type="password" name="password2" id="password" placeholder="Konfirmasi Password" class="form-control">
+          <?= form_error('password2', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
           <label for="gambar">Gambar</label>

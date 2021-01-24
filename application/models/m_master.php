@@ -63,6 +63,13 @@ class M_master extends CI_Model
     $this->db->update('user', $data);
   }
 
+  // ubahPasswordAdmin
+  public function ubahPasswordAdmin($data, $where)
+  {
+    $this->db->where($where);
+    $this->db->update('user', 'password', $data);
+  }
+
 
   // cari data
   public function cariData()

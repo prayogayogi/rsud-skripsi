@@ -104,17 +104,22 @@
           <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
-          <label for="email">email</label>
+          <label for="email">Email</label>
           <input type="text" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>">
           <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
-          <label for="password">password</label>
-          <input type="text" name="password" id="password" placeholder="Masukan password" class="form-control">
-          <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+          <label for="password">Password</label>
+          <input type="password" name="password1" id="password" placeholder="Masukan password" class="form-control">
+          <?= form_error('password1', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
-          <label for="gambar">gambar</label>
+          <label for="password">Konfirmasi Password</label>
+          <input type="password" name="password2" id="password" placeholder="Masukan password" class="form-control">
+          <?= form_error('password2', '<small class="text-danger">', '</small>'); ?>
+        </div>
+        <div class="form-group">
+          <label for="gambar">Gambar</label>
           <input type="file" name="gambar" id="gambar" placeholder="Masukan gambar" class="form-control">
           <?= form_error('gambar', '<small class="text-danger">', '</small>'); ?>
         </div>

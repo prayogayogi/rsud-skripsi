@@ -23,7 +23,8 @@ class Petugas extends CI_Controller
   {
     $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
     $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
-    $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[4]');
+    $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[4]|matches[password2]');
+    $this->form_validation->set_rules('password2', 'Password', 'required|trim|min_length[4]|matches[password1]');
     $gambar = $_FILES['gambar'];
     if ($gambar) {
       $config['allowed_types']  = 'gif|jpg|png';
@@ -38,7 +39,11 @@ class Petugas extends CI_Controller
       }
     }
 
-
+    if ($foto == []) {
+      $fotoo = 'default.jpg';
+    } else {
+      $fotoo = $foto;
+    }
     if ($this->form_validation->run() == false) {
       $data['user1'] = $this->m_master->dataAdmin()->row_array();
       $data['data'] = $this->db->get_where('user', ['role_id' => 2])->result_array();
@@ -51,7 +56,7 @@ class Petugas extends CI_Controller
       $data = [
         'nama' => $this->input->post('nama'),
         'email' => $this->input->post('email'),
-        'gambar' => $foto,
+        'gambar' => $fotoo,
         'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
         'role_id' => 2,
         'aktif' => 1,

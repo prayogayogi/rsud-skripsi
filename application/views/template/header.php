@@ -26,6 +26,7 @@
         <li class="dropdown">
           <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <div class="avatar mr-0">
+              <?= $this->session->flashdata('pesan'); ?>
               <p class="mr-4 mt-1">Hallo <?= $user1['nama']; ?></p>
               <img src="<?= base_url('assets/gambar/admin/') . $user1['gambar']; ?>" width="50px" alt="gambar">
             </div>
@@ -34,8 +35,10 @@
             <i data-feather="settings"></i>
           </div>
           <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item mb-3" href="<?= base_url('auth/profile') ?> " data-toggle="modal" data-target="#exampleModal1">
+            <a class="dropdown-item mb-1" href="<?= base_url('auth/profile') ?> " data-toggle="modal" data-target="#exampleModal1">
               <i data-feather="user"></i>Profile</a>
+            <a class="dropdown-item mb-1" href="#" data-toggle="modal" data-target="#exampleModal2">
+              <i data-feather="user"></i>Ubah Password</a>
             <a class="dropdown-item" href="<?= base_url('register/logout') ?>" onclick="return confirm ('Kamu Yakin Inggin Keluar..?')"><i data-feather="log-out"></i> Logout</a>
           </div>
         </li>
@@ -48,7 +51,7 @@
   <div class="modal fade" id="exampleModal1" tabindex="-4" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content mt-4">
-        <div class="modal-header bg-primary text-white">
+        <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Profile Kamu</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -79,6 +82,43 @@
         <div class="modal-footer">
           <button type=" button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
+      </div>
+    </div>
+  </div>
+  <!-- akhir profile -->
+
+  <!-- modal ubah password -->
+  <div class="modal fade" id="exampleModal2" tabindex="-4" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content mt-4">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ubah Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <?= form_open_multipart('admin/ubahPasswordAdmin'); ?>
+        <div class="modal-body d-flex justify-content-center">
+          <div class="card" style="width: 25rem;">
+            <input type="hidden" name="id" value="<?= $user1['id']; ?>">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="nama">Password</label>
+                <input type="password" name="passwordLama" id="nama" placeholder="Password" class="form-control" value="<?= set_value('nama'); ?>">
+                <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
+              </div>
+              <div class="form-group">
+                <label for="nama">Password Baru</label>
+                <input type="password" name="passwordBaru" id="nama" placeholder="Password Baru" class="form-control" value="<?= set_value('nama'); ?>">
+                <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5">
+            <button type="submit" class="btn btn-primary mt-3" data-dismiss="modal">Simpan</button>
+          </div>
+        </div>
+        <?= form_close(); ?>
       </div>
     </div>
   </div>

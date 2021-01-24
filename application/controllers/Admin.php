@@ -108,15 +108,23 @@ class Admin extends CI_Controller
   }
 
   // ubah password 
-  public function ubahPassword($data, $where)
+  public function ubahPasswordAdmin()
   {
+    $where = [
+      'id' => $this->input->post('id')
+    ];
     $database = $this->db->get_where('user', $where)->row_array();
     $passwordLama = $this->input->post('passwordLama');
+    $passwordBaru = $this->input->post('passwordBaru');
     if (password_verify($passwordLama, $database['password'])) {
-      $passwordBaru = $this->input->post('passwordBaru');
       if ($passwordLama != $passwordBaru) {
-
-        $this->m_master->editDataAdmin($data, $where);
+        $data = [
+          'password' => $passwordBaru
+        ];
+        $this->m_master->ubahPasswordAdmin($data, $where);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+      Password Berhasil Di Ubah..!
+    </div>');
         redirect('admin');
       } else {
         echo "password sama dengan password lama";
