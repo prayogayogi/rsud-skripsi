@@ -46,7 +46,7 @@
               <div class='px-3 py-3 d-flex justify-content-between'>
                 <h3 class='card-title'>Gol AB</h3>
                 <div class="card-right d-flex align-items-center">
-                  <!-- <p><?= $data[1]['gol_darah'] ?></p> -->
+                  <!-- <p><?= $gol[1]['gol']['nama'] ?></p> -->
                 </div>
               </div>
               <div class="chart-wrapper">
@@ -172,7 +172,7 @@
             <div id="radialBars"></div>
             <div class="text-center mb-5">
               <h1 class='text-green'>
-                <?php echo $this->db->count_all_results('data'); ?>
+                <?= $this->db->count_all_results('data'); ?>
               </h1>
             </div>
           </div>

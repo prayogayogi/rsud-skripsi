@@ -26,7 +26,9 @@
         <li class="dropdown">
           <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <div class="avatar mr-0">
-              <?= $this->session->flashdata('pesan'); ?>
+              <div class="pesan mr-3">
+                <?= $this->session->flashdata('pesan'); ?>
+              </div>
               <p class="mr-4 mt-1">Hallo <?= $user1['nama']; ?></p>
               <img src="<?= base_url('assets/gambar/admin/') . $user1['gambar']; ?>" width="50px" alt="gambar">
             </div>
@@ -115,7 +117,7 @@
             </div>
           </div>
           <div class="mt-5">
-            <button type="submit" class="btn btn-primary mt-3" data-dismiss="modal">Simpan</button>
+            <button type="submit" class="btn btn-primary mt-3">Simpan</button>
           </div>
         </div>
         <?= form_close(); ?>

@@ -12,13 +12,13 @@ class Dashboard extends CI_Controller
 
   public function index()
   {
-    // $data['data'] = $this->db->get_where('data', ['gol_darah' => "AB"])->result_array();
+    $gol['gol'] = $this->db->get_where('data', ['gol_darah' => 'B'])->num_rows();
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['user'] = $this->m_master->tampil_data()->result_array();
     $data['title'] = 'Dashboard';
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
-    $this->load->view('master/dashboard', $data);
+    $this->load->view('master/dashboard', $data, $gol);
     $this->load->view('template/footer', $data);
   }
 

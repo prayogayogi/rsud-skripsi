@@ -113,24 +113,41 @@ class Admin extends CI_Controller
     $where = [
       'id' => $this->input->post('id')
     ];
-    $database = $this->db->get_where('user', $where)->row_array();
     $passwordLama = $this->input->post('passwordLama');
     $passwordBaru = $this->input->post('passwordBaru');
+    $database = $this->db->get_where('user', $where)->row_array();
     if (password_verify($passwordLama, $database['password'])) {
       if ($passwordLama != $passwordBaru) {
         $data = [
-          'password' => $passwordBaru
+          'password' => password_hash($this->input->post('passwordBaru'), PASSWORD_DEFAULT)
         ];
-        $this->m_master->ubahPasswordAdmin($data, $where);
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-      Password Berhasil Di Ubah..!
-    </div>');
-        redirect('admin');
+        $this->m_master->ubahPasswordAdmin($where, $data);
+        $this->session->set_flashdata('pesan', '
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>Selamat</strong> Password Kamu Berhasil Di Ubah
+        <button type="button" class="close " data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>');
+        redirect('dashboard');
       } else {
-        echo "password sama dengan password lama";
+        $this->session->set_flashdata('pesan', '
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>Password</strong> Sama Dengan Password Lama
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>');
+        redirect('dashboard');
       }
     } else {
-      echo "password salah";
+      $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Password</strong> Kamu Salah
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+      redirect('dashboard');
     }
   }
 }

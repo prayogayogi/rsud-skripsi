@@ -64,10 +64,10 @@ class M_master extends CI_Model
   }
 
   // ubahPasswordAdmin
-  public function ubahPasswordAdmin($data, $where)
+  public function ubahPasswordAdmin($where, $data)
   {
     $this->db->where($where);
-    $this->db->update('user', 'password', $data);
+    $this->db->update('user', $data);
   }
 
 
