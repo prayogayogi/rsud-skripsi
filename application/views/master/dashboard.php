@@ -10,9 +10,9 @@
           <div class="card-body p-0">
             <div class="d-flex flex-column">
               <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>Setok Darah A</h3>
+                <h3 class='card-title'>GOL A</h3>
                 <div class="card-right d-flex align-items-center">
-                  <p>50 </p>
+                  <p><?= $gol_A; ?></p>
                 </div>
               </div>
               <div class="chart-wrapper">
@@ -27,9 +27,9 @@
           <div class="card-body p-0">
             <div class="d-flex flex-column">
               <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>Gol O</h3>
+                <h3 class='card-title'>Gol B</h3>
                 <div class="card-right d-flex align-items-center">
-                  <p>532 </p>
+                  <p><?= $gol_B; ?> </p>
                 </div>
               </div>
               <div class="chart-wrapper">
@@ -46,7 +46,7 @@
               <div class='px-3 py-3 d-flex justify-content-between'>
                 <h3 class='card-title'>Gol AB</h3>
                 <div class="card-right d-flex align-items-center">
-                  <!-- <p><?= $gol[1]['gol']['nama'] ?></p> -->
+                  <p><?= $gol_AB; ?></p>
                 </div>
               </div>
               <div class="chart-wrapper">
@@ -61,9 +61,9 @@
           <div class="card-body p-0">
             <div class="d-flex flex-column">
               <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>Gol B</h3>
+                <h3 class='card-title'>Gol O</h3>
                 <div class="card-right d-flex align-items-center">
-                  <p>10</p>
+                  <p><?= $gol_O; ?></p>
                 </div>
               </div>
               <div class="chart-wrapper">
@@ -190,37 +190,37 @@
                 <td class='col-3'> Darah A</td>
                 <td class='col-6'>
                   <div class="progress progress-info">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_A; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </td>
-                <td class='col-3 text-center'>60%</td>
+                <td class='col-3 text-center'><?= $gol_A; ?>%</td>
               </tr>
               <tr>
                 <td class='col-3'> Darah B</td>
                 <td class='col-6'>
                   <div class="progress progress-success">
-                    <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_B; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </td>
-                <td class='col-3 text-center'>30%</td>
+                <td class='col-3 text-center'><?= $gol_B; ?>%</td>
               </tr>
               <tr>
                 <td class='col-3'> Darah AB</td>
                 <td class='col-6'>
                   <div class="progress progress-danger">
-                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_AB; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </td>
-                <td class='col-3 text-center'>50%</td>
+                <td class='col-3 text-center'><?= $gol_AB; ?>%</td>
               </tr>
               <tr>
                 <td class='col-3'> Darah O</td>
                 <td class='col-6'>
                   <div class="progress progress-primary">
-                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_O; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </td>
-                <td class='col-3 text-center'>80%</td>
+                <td class='col-3 text-center'><?= $gol_O; ?>%</td>
               </tr>
             </table>
           </div>

@@ -82,4 +82,49 @@ class M_master extends CI_Model
     $this->db->or_like('no_hp', $kyword);
     return $this->db->get('data')->result_array();
   }
+
+
+  public function hitungJumlahGolA()
+  {
+    $data = ['gol_darah' => "A"];
+    $query = $this->db->get_where('data', $data);
+    if ($query->num_rows() > 0) {
+      return $query->num_rows();
+    } else {
+      return 0;
+    }
+  }
+
+  public function hitungJumlahGolB()
+  {
+    $data = ['gol_darah' => "B"];
+    $query = $this->db->get_where('data', $data);
+    if ($query->num_rows() > 0) {
+      return $query->num_rows();
+    } else {
+      return 0;
+    }
+  }
+
+  public function hitungJumlahGolAB()
+  {
+    $data = ['gol_darah' => "AB"];
+    $query = $this->db->get_where('data', $data);
+    if ($query->num_rows() > 0) {
+      return $query->num_rows();
+    } else {
+      return 0;
+    }
+  }
+
+  public function hitungJumlahGolO()
+  {
+    $data = ['gol_darah' => "O"];
+    $query = $this->db->get_where('data', $data);
+    if ($query->num_rows() > 0) {
+      return $query->num_rows();
+    } else {
+      return 0;
+    }
+  }
 }

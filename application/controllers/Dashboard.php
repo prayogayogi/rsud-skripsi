@@ -9,16 +9,18 @@ class Dashboard extends CI_Controller
     $this->load->model('m_master');
   }
 
-
   public function index()
   {
-    $gol['gol'] = $this->db->get_where('data', ['gol_darah' => 'B'])->num_rows();
+    $data['gol_A'] = $this->m_master->hitungJumlahGolA();
+    $data['gol_B'] = $this->m_master->hitungJumlahGolB();
+    $data['gol_AB'] = $this->m_master->hitungJumlahGolAB();
+    $data['gol_O'] = $this->m_master->hitungJumlahGolO();
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['user'] = $this->m_master->tampil_data()->result_array();
     $data['title'] = 'Dashboard';
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
-    $this->load->view('master/dashboard', $data, $gol);
+    $this->load->view('master/dashboard', $data);
     $this->load->view('template/footer', $data);
   }
 
