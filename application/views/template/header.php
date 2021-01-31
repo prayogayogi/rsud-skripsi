@@ -39,8 +39,10 @@
           <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item mb-1" href="<?= base_url('auth/profile') ?> " data-toggle="modal" data-target="#exampleModal1">
               <i data-feather="user"></i>Profile</a>
-            <a class="dropdown-item mb-1" href="#" data-toggle="modal" data-target="#exampleModal2">
-              <i data-feather="user"></i>Ubah Password</a>
+            <?php if ($user1['role_id'] == 1) { ?>
+              <a class="dropdown-item mb-1" href="#" data-toggle="modal" data-target="#exampleModal2">
+                <i data-feather="user"></i>Ubah Password</a>
+            <?php } ?>
             <a class="dropdown-item" href="<?= base_url('register/logout') ?>" onclick="return confirm ('Kamu Yakin Inggin Keluar..?')"><i data-feather="log-out"></i> Logout</a>
           </div>
         </li>
