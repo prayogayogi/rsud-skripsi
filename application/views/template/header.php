@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/css/app.css">
   <link rel="shortcut icon" href="<?= base_url() ?>assets/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= base_url() ?>assets/dataTable/jquery.dataTables.min.css" type="css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
 </head>
 <div id="main">

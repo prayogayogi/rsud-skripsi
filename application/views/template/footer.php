@@ -19,6 +19,7 @@
 <script src="<?= base_url() ?>assets/assets/js/pages/dashboard.js"></script>
 <script src="<?= base_url() ?>assets/assets/js/main.js"></script>
 <script src="<?= base_url() ?>assets/js/sweetalert2.all.min.js"></script>
+<script src="<?= base_url() ?>assets/dataTable/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>assets/myscript.js"></script>
 </body>
 

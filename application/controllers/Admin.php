@@ -9,6 +9,7 @@ class Admin extends CI_Controller
     $this->load->model('m_master');
   }
 
+  // View Data Admin
   public function index()
   {
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
@@ -19,6 +20,8 @@ class Admin extends CI_Controller
     $this->load->view('data/admin', $data);
     $this->load->view('template/footer', $data);
   }
+
+  // Fungsi Tambah Admin
   public function tambahAdmin()
   {
     $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
@@ -62,10 +65,10 @@ class Admin extends CI_Controller
     }
   }
 
-
-  // editAdmin 
+  // Proses Edit Admin 
   public function editAdmin()
   {
+    $data = $this->db->get('user')->row_array();
     $gambar = $_FILES['gambar'];
     if ($gambar) {
       $config['allowed_types']  = 'gif|jpg|png';
@@ -97,7 +100,7 @@ class Admin extends CI_Controller
     redirect('admin');
   }
 
-  // hapus
+  // Prose hapus Data Admin
   public function hapus($id)
   {
     $data = [

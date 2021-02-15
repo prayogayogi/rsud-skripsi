@@ -9,6 +9,7 @@ class Dashboard extends CI_Controller
     $this->load->model('m_master');
   }
 
+  // Tampilan Dashboard Utama
   public function index()
   {
     $data['gol_A'] = $this->m_master->hitungJumlahGolA();
@@ -24,7 +25,7 @@ class Dashboard extends CI_Controller
     $this->load->view('template/footer', $data);
   }
 
-
+  // Tambah Data Pendonor
   public function tambah_data_pendonor()
   {
     $data['pendonor'] = $this->m_master->tampil_data()->result_array();
@@ -36,14 +37,15 @@ class Dashboard extends CI_Controller
     $this->load->view('template/footer', $data);
   }
 
+  // Aksi Tambah Data Pendonor
   public function aksi_tambahdata()
   {
     $this->m_master->inputDataPendonor();
     redirect('dashboard/tambah_data_pendonor');
   }
 
-  // function Hapus
-  public function hapus($id)
+  // function Hapus Data Pendonor
+  public function hapusDataPendonor($id)
   {
     $id_hapus = [
       'id' => $id
@@ -52,10 +54,21 @@ class Dashboard extends CI_Controller
     redirect('dashboard/tambah_data_pendonor');
   }
 
+  // Ubah Data Pendonor
+  public function ubahDataPendonor()
+  {
+    $this->m_edit->ubahDataPendonor();
+    redirect('dashboard/tambah_data_pendonor');
+  }
 
+
+  // Cari Data Penonor
   public function cariData()
   {
-
+    $data['gol_A'] = $this->m_master->hitungJumlahGolA();
+    $data['gol_B'] = $this->m_master->hitungJumlahGolB();
+    $data['gol_AB'] = $this->m_master->hitungJumlahGolAB();
+    $data['gol_O'] = $this->m_master->hitungJumlahGolO();
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['user'] = $this->m_master->tampil_data()->result_array();
     $data['title'] = 'Dashboard';
