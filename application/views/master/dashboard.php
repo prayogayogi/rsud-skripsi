@@ -97,7 +97,7 @@
           </div>
           <div class="card-body px-0 pb-0">
             <div class="table-responsive">
-              <table class='table mb-0' id="table1">
+              <table class='table mb-0'>
                 <thead>
                   <tr>
                     <th>Nama</th>

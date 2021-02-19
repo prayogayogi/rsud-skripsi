@@ -6,7 +6,8 @@
       </h1>
     </section>
     <section class="content">
-      <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus mr-2"></i>Tambah Data</button>
+      <a href="<?= base_url('dashboard/tambahPendonor') ?>" class="btn btn-primary"><i class="fa fa-plus mr-2"></i>Tambah Data</a>
+      <!-- <button href="http://" class="btn btn-primary" data-toggle="modal" data-target="#exampleModaltambah"><i class="fa fa-plus mr-2"></i>Tambah Data</button> -->
       <!-- <div class="navbar-from float-right ">
         <?= form_open('dashboard/cari') ?>
         <input type=" text" placeholder="Cari" class="form" name="cari">
@@ -14,7 +15,7 @@
         <?= form_close() ?>
       </div> -->
       <div class="table-responsive">
-        <table class="table">
+        <table class="table" id="table1">
           <tr>
             <th>No</th>
             <th>Nama</th>
@@ -128,6 +129,120 @@
               <div class="form-group">
                 <label for="Berat Badan">Berat Badan</label>
                 <input type="number" name="berat_badan" id="Berat Badan" placeholder="Masukan Berat Badan" class="form-control">
+              </div>
+              <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save Data</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Tambah Data Pendonor-->
+    <div class="modal fade" id="exampleModaltambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Form input data pendonor Rsud</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="<?= base_url('dashboard/aksi_tambahdata') ?>" method="post">
+              <div class="form-group">
+                <label for="nama">Nama Pendonor</label>
+                <input type="text" name="nama_pendonor" id="nama" placeholder="Masukan Nama" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="nama">Nama Pasien</label>
+                <input type="text" name="nama_pasien" id="nama" placeholder="Masukan Nama" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="nama">Ruang Pasien</label>
+                <input type="text" name="ruang_pasien" id="nama" placeholder="Masukan Nama" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="gender">Gol Darah</label>
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01" name="gol_darah">Pilih</label>
+                  </div>
+                  <select class="custom-select form-control" id="inputGroupSelect01" name="gol_darah">
+                    <option selected>Pilih Gol Darah</option>
+                    <option value="A">Gol A</option>
+                    <option value="B">Gol B</option>
+                    <option value="AB">Gol AB</option>
+                    <option value="O">Gol O</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" name="alamat" id="alamat" placeholder="Masukan alamat" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="alamat">Agama</label>
+                <input type="text" name="agama" id="alamat" placeholder="Masukan alamat" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="alamat">No Tali</label>
+                <input type="text" name="agama" id="alamat" placeholder="Masukan alamat" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="Pekerjaan">Pekerjaan</label>
+                <input type="text" name="pekerjaan" id="Pekerjaan" placeholder="Masukan Pekerjaan" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label for="gender">Jenis Kelamin</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01" name="gender">Pilih</label>
+                  </div>
+                  <select class="custom-select form-control" id="inputGroupSelect01" name="gender">
+                    <option selected>Pilih Jenis Kelamin</option>
+                    <option value="Laki-Laki">Laki-Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tempat lahir">Bb Tensi</label>
+                <input type="text" name="bb_tensi" id="tempat lahir" placeholder="Masukan tempat lahir" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="Tgl Lahir">Hb </label>
+                <input type="text" name="hb" id="Tgl Lahir" placeholder="Masukan Tgl Lahir" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="Tgl Lahir">Hiv</label>
+                <input type="text" name="hiv" id="Tgl Lahir" placeholder="Masukan Tgl Lahir" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="Tgl Lahir">Hcv</label>
+                <input type="text" name="hcv" id="Tgl Lahir" placeholder="Masukan Tgl Lahir" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="Tgl Lahir">HbSag</label>
+                <input type="text" name="hbsag" id="Tgl Lahir" placeholder="Masukan Tgl Lahir" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="Tgl Lahir">Sypilis</label>
+                <input type="text" name="sypilis" id="Tgl Lahir" placeholder="Masukan Tgl Lahir" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="no hp">Tgl Donor</label>
+                <input type="number" name="tgl_donor" id="no hp" placeholder="Masukan no hp" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="Berat Badan">Petugas</label>
+                <input type="text" name="petugas" id="Berat Badan" placeholder="Masukan Berat Badan" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="Berat Badan">No Hanphone</label>
+                <input type="number" name="no_hp" id="Berat Badan" placeholder="Masukan Berat Badan" class="form-control">
               </div>
               <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary">Save Data</button>

@@ -14,8 +14,7 @@
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/css/app.css">
   <link rel="shortcut icon" href="<?= base_url() ?>assets/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
-  <link rel="stylesheet" href="<?= base_url() ?>assets/dataTable/dataTables.bootstrap4.min.css" type="css">
-  <link rel="stylesheet" href="<?= base_url() ?>assets/dataTable/responsive.bootstrap4.min.css" type="css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/dataTable/voler/style.css" type="css">
 </head>
 <div id="main">
   <nav class="navbar navbar-header navbar-expand navbar-light">
