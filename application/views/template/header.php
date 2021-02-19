@@ -13,8 +13,9 @@
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/css/app.css">
   <link rel="shortcut icon" href="<?= base_url() ?>assets/favicon.png" type="image/x-icon">
-  <link rel="shortcut icon" href="<?= base_url() ?>assets/dataTable/jquery.dataTables.min.css" type="css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/dataTable/dataTables.bootstrap4.min.css" type="css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/dataTable/responsive.bootstrap4.min.css" type="css">
 </head>
 <div id="main">
   <nav class="navbar navbar-header navbar-expand navbar-light">
@@ -30,7 +31,7 @@
               <div class="pesan mr-3">
                 <?= $this->session->flashdata('pesan'); ?>
               </div>
-              <p class="mr-4 mt-1">Hallo <?= $user1['nama']; ?></p>
+              <p class="mr-4 mt-1"><?= $user1['nama']; ?></p>
               <img src="<?= base_url('assets/gambar/admin/') . $user1['gambar']; ?>" width="50px" alt="gambar">
             </div>
         <li class="dropdown mr-2">

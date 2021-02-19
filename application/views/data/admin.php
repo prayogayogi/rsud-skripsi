@@ -86,7 +86,7 @@
   <!-- Striped rows end -->
 </div>
 
-<!-- Modal -->
+<!-- Modal tambah data admin-->
 <div class="modal fade" id="exampleModalDataAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -153,7 +153,7 @@
           </div>
           <div class="form-group">
             <label for="email">email</label>
-            <input type="text" value="<?= $admin['email']; ?>" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>">
+            <input type="text" value="<?= $admin['email']; ?>" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>" readonly>
             <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
           </div>
           <div class="form-group">

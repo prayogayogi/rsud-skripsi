@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller
   {
     parent::__construct();
     $this->load->model('m_master');
+    $this->load->library('pagination');
   }
 
   // Tampilan Dashboard Utama

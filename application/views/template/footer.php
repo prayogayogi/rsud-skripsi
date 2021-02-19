@@ -20,7 +20,19 @@
 <script src="<?= base_url() ?>assets/assets/js/main.js"></script>
 <script src="<?= base_url() ?>assets/js/sweetalert2.all.min.js"></script>
 <script src="<?= base_url() ?>assets/dataTable/jquery.dataTables.min.js"></script>
+<script src="<?= base_url() ?>assets/dataTable/dataTables.bootstrap4.min.js"></script>
 <script src="<?= base_url() ?>assets/myscript.js"></script>
+<script>
+  $(document).ready(function() {
+    $(".table").DataTable()
+  });
+
+  // $(document).ready(function() {
+  //   $('dataLab').click(function() {
+  //     classList.add('active')
+  //   })
+  // })
+</script>
 </body>
 
 </html>

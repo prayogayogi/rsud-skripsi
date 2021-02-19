@@ -67,6 +67,39 @@ class Petugas extends CI_Controller
     }
   }
 
+
+  public function editDataPetugas()
+  {
+    $email = [
+      'email' =>  $this->input->post('email')
+    ];
+    $data = $this->db->get_where('user', $email)->row_array();
+    $gambar = $_FILES['gambar'];
+    if ($gambar) {
+      $config['allowed_types']  = 'gif|jpg|png';
+      $config['max_size']       = '2048';
+      $config['upload_path']    = './assets/gambar/petugas/';
+      $this->load->library('upload', $config);
+
+      if ($this->upload->do_upload('gambar')) {
+        if ($data['gambar'] != 'default.jpg') {
+          unlink(FCPATH . '/assets/gambar/petugas/' . $data['gambar']);
+        }
+        $foto = $this->upload->data('file_name', TRUE);
+        $this->db->set('gambar', $foto);
+      } else {
+        echo "error";
+      }
+    }
+    $nama = $this->input->post('nama');
+    $this->db->set('nama', $nama);
+    $this->db->where($email);
+    $this->db->update('user');
+    redirect('petugas');
+  }
+
+
+
   public function hapus($id)
   {
     $data = [

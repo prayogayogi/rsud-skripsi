@@ -68,7 +68,10 @@ class Admin extends CI_Controller
   // Proses Edit Admin 
   public function editAdmin()
   {
-    $data = $this->db->get('user')->row_array();
+    $email = [
+      'email' => $this->input->post('email')
+    ];
+    $data = $this->db->get_where('user', $email)->row_array();
     $gambar = $_FILES['gambar'];
     if ($gambar) {
       $config['allowed_types']  = 'gif|jpg|png';
@@ -77,7 +80,11 @@ class Admin extends CI_Controller
       $this->load->library('upload', $config);
 
       if ($this->upload->do_upload('gambar')) {
+        if ($data['gambar'] != 'default.jpg') {
+          unlink(FCPATH . '/assets/gambar/admin/' . $data['gambar']);
+        }
         $foto = $this->upload->data('file_name', TRUE);
+        $this->db->set('gambar', $foto);
       } else {
         echo "error";
       }
@@ -85,18 +92,11 @@ class Admin extends CI_Controller
     $where = [
       'id' => $this->input->post('id')
     ];
-
-    if ($foto == []) {
-      $fotoo = 'default.jpg';
-    } else {
-      $fotoo = $foto;
-    }
-    $data = [
-      'nama' => $this->input->post('nama'),
-      'email' => $this->input->post('email'),
-      'gambar' => $fotoo
-    ];
-    $this->m_master->editDataAdmin($data, $where);
+    $nama = $this->input->post('nama');
+    $this->db->set('nama', $nama);
+    $this->db->where($where);
+    $this->db->update('user');
+    // $this->m_master->editDataAdmin($data, $where);
     redirect('admin');
   }
 
