@@ -113,7 +113,7 @@
                   <?php foreach ($user as $row) :
                   ?>
                     <tr>
-                      <td><?= $row['nama']; ?></td>
+                      <td><?= $row['nama_pendonor']; ?></td>
 
                       <!-- gol A -->
                       <?php if ($row['gol_darah'] == "A") { ?>
@@ -143,9 +143,14 @@
                           </span></td>
                       <?php } ?>
 
-                      <td><?= $row['gender'] ?></td>
-                      <td><?= $row['alamat'] ?></td>
-                      <td><?= $row['no_hp'] ?></td>
+                      <td><?= $row['jenis_kelamin'] ?></td>
+                      <td><?= $row['alamat_pendonor'] ?></td>
+
+                      <?php if ($row['no_hp'] != 0) { ?>
+                        <td><?= $row['no_hp'] ?></td>
+                      <?php } else { ?>
+                        <td><a class="text-info">Tidak Ada</a></td>
+                      <?php } ?>
                       <?php
                       if (time() >= ($row['tgl_donor'] + 7776000)) { ?>
 
@@ -173,7 +178,7 @@
             <div id="radialBars"></div>
             <div class="text-center mb-5">
               <h1 class='text-green'>
-                <?= $this->db->count_all_results('data'); ?>
+                <?= $this->db->count_all_results('data_donor'); ?>
               </h1>
             </div>
           </div>

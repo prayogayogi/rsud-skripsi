@@ -48,12 +48,14 @@
                 </a>
               </li>
             <?php } ?>
-            <li class="sidebar-item  ">
-              <a href="<?= base_url('laporan/laporanAdmin'); ?>" class='sidebar-link'>
-                <i data-feather="grid" width="20"></i>
-                <span>Laporan</span>
-              </a>
-            </li>
+            <?php if (time() == 60 * 60 * 24 * 360) { ?>
+              <li class="sidebar-item  ">
+                <a href="<?= base_url('laporan/laporanAdmin'); ?>" class='sidebar-link'>
+                  <i data-feather="grid" width="20"></i>
+                  <span>Laporan</span>
+                </a>
+              </li>
+            <?php } ?>
             <li class="sidebar-item  ">
               <a href="<?= base_url('register/logout'); ?>" onclick=" return confirm('Anda Yakin Inggin Keluar..?')" class='sidebar-link'>
                 <i data-feather="log-out" width="20"></i>

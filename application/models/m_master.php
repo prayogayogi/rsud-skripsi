@@ -6,7 +6,7 @@ class M_master extends CI_Model
   // tampil data
   public function tampil_data()
   {
-    return $this->db->get('data');
+    return $this->db->get('data_donor');
   }
 
 
@@ -21,25 +21,6 @@ class M_master extends CI_Model
   function dataAdmin()
   {
     return $this->db->get_where('user', ['email' => $this->session->userdata('email')]);
-  }
-
-
-  // input data pendonor
-  public function inputDataPendonor()
-  {
-    $data = [
-      'nama' => $this->input->post('nama'),
-      'gol_darah' => $this->input->post('gol_darah'),
-      'alamat' => $this->input->post('alamat'),
-      'pekerjaan' => $this->input->post('pekerjaan'),
-      'gender' => $this->input->post('gender'),
-      'tempat_tgl_lahir' => $this->input->post('tempat_tgl_lahir'),
-      'tgl_lahir' => $this->input->post('tgl_lahir'),
-      'no_hp' => $this->input->post('no_hp'),
-      'berat_badan' => $this->input->post('berat_badan'),
-      'tgl_donor' => time()
-    ];
-    $this->db->insert('data', $data);
   }
 
 
@@ -87,7 +68,7 @@ class M_master extends CI_Model
   public function hitungJumlahGolA()
   {
     $data = ['gol_darah' => "A"];
-    $query = $this->db->get_where('data', $data);
+    $query = $this->db->get_where('data_donor', $data);
     if ($query->num_rows() > 0) {
       return $query->num_rows();
     } else {
@@ -98,7 +79,7 @@ class M_master extends CI_Model
   public function hitungJumlahGolB()
   {
     $data = ['gol_darah' => "B"];
-    $query = $this->db->get_where('data', $data);
+    $query = $this->db->get_where('data_donor', $data);
     if ($query->num_rows() > 0) {
       return $query->num_rows();
     } else {
@@ -109,7 +90,7 @@ class M_master extends CI_Model
   public function hitungJumlahGolAB()
   {
     $data = ['gol_darah' => "AB"];
-    $query = $this->db->get_where('data', $data);
+    $query = $this->db->get_where('data_donor', $data);
     if ($query->num_rows() > 0) {
       return $query->num_rows();
     } else {
@@ -120,7 +101,7 @@ class M_master extends CI_Model
   public function hitungJumlahGolO()
   {
     $data = ['gol_darah' => "O"];
-    $query = $this->db->get_where('data', $data);
+    $query = $this->db->get_where('data_donor', $data);
     if ($query->num_rows() > 0) {
       return $query->num_rows();
     } else {

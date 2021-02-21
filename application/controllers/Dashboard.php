@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller
   {
     parent::__construct();
     $this->load->model('m_master');
+    $this->load->model('m_tambah');
     $this->load->library('pagination');
   }
 
@@ -20,20 +21,9 @@ class Dashboard extends CI_Controller
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['user'] = $this->m_master->tampil_data()->result_array();
     $data['title'] = 'Dashboard';
-    $this->load->view('template/header', $data);
     $this->load->view('template/sidebar', $data);
+    $this->load->view('template/header', $data);
     $this->load->view('master/dashboard', $data);
-    $this->load->view('template/footer', $data);
-  }
-  // tambah data penonor
-  public function tambahPendonor()
-  {
-    $data['pendonor'] = $this->m_master->tampil_data()->result_array();
-    $data['user1'] = $this->m_master->dataAdmin()->row_array();
-    $data['title'] = 'Tambah Data Pendonor';
-    $this->load->view('template/header', $data);
-    $this->load->view('template/sidebar', $data);
-    $this->load->view('master/form_view_tambah_pendonor', $data);
     $this->load->view('template/footer', $data);
   }
 
@@ -41,48 +31,83 @@ class Dashboard extends CI_Controller
   // Tambah Data Pendonor
   public function tambah_data_pendonor()
   {
-    $data['pendonor'] = $this->m_master->tampil_data()->result_array();
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['pendonor'] = $this->m_master->tampil_data()->result_array();
     $data['title'] = 'Tambah Data Pendonor';
-    $this->load->view('template/header', $data);
     $this->load->view('template/sidebar', $data);
+    $this->load->view('template/header', $data);
     $this->load->view('master/tambah_donor', $data);
     $this->load->view('template/footer', $data);
   }
 
-  // Aksi Tambah Data Pendonor
-  public function aksi_tambahdata()
+
+  // view tambah data penonor 
+  public function tambahPendonor()
   {
-    $this->m_master->inputDataPendonor();
-    redirect('dashboard/tambah_data_pendonor');
+    $data['pendonor'] = $this->m_master->tampil_data()->result_array();
+    $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['title'] = 'Tambah Data Pendonor';
+    $this->load->view('template/sidebar', $data);
+    $this->load->view('template/header', $data);
+    $this->load->view('master/form_view_tambah_pendonor', $data);
+    $this->load->view('template/footer', $data);
   }
 
-
+  // aksi tambah data pendonor
   public function aksi_tambahdataRsud()
   {
-    $data = [
-      'nama_pendonor' => $this->input->post('nama_pendonor'),
-      'nama_pasien' => $this->input->post('nama_pasien'),
-      'ruang_pasien' => $this->input->post('ruang_pasien'),
-      'gol_darah' => $this->input->post('gol_darah'),
-      'alamat_pendonor' => $this->input->post('alamat'),
-      'agama' => $this->input->post('agama'),
-      'no_tali' => $this->input->post('no_tali'),
-      'pekerjaan' => $this->input->post('pekerjaan'),
-      'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-      'bb_tensi' => $this->input->post('bb_tensi'),
-      'hb' => $this->input->post('hb'),
-      'hiv' => $this->input->post('hiv'),
-      'hcv' => $this->input->post('hcv'),
-      'hbsag' => $this->input->post('hbsag'),
-      'sypilis' => $this->input->post('sypilis'),
-      'tgl_donor' => time(),
-      'no_hp' => $this->input->post('no_hp'),
-      'petugas' => $this->input->post('petugas')
-    ];
-    $this->db->insert('data_donor', $data);
-    redirect('dashboard/tambah_data_pendonor');
+    $this->load->library('form_validation');
+    $this->form_validation->set_rules('nama_pendonor', 'Nama Pendonor', 'required|trim');
+    $this->form_validation->set_rules('nama_pasien', 'Nama pasien', 'required|trim');
+    $this->form_validation->set_rules('ruang_pasien', 'Ruang Pasien', 'required|trim');
+    $this->form_validation->set_rules('gol_darah', 'Golongan Darah', 'required|trim');
+    $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+    $this->form_validation->set_rules('agama', 'agama', 'required|trim');
+    $this->form_validation->set_rules('no_tali', 'No tali', 'required|trim');
+    $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required|trim');
+    $this->form_validation->set_rules('jenis_kelamin', 'Jenis kelamin', 'required|trim');
+    $this->form_validation->set_rules('bb_tensi', 'Bb tensi', 'required|trim');
+    $this->form_validation->set_rules('hb', 'Hb', 'required|trim');
+    $this->form_validation->set_rules('hiv', 'Hiv', 'required|trim');
+    $this->form_validation->set_rules('hcv', 'Hcv', 'required|trim');
+    $this->form_validation->set_rules('hbsag', 'Hbsag', 'required|trim');
+    $this->form_validation->set_rules('sypilis', 'Sypilis', 'required|trim');
+    $this->form_validation->set_rules('no_hp', 'No hp', 'numeric|min_length[12]', ['min_length' => 'Minimal 12 angka']);
+
+    if ($this->form_validation->run() == false) {
+      $data['pendonor'] = $this->m_master->tampil_data()->result_array();
+      $data['user1'] = $this->m_master->dataAdmin()->row_array();
+      $data['title'] = 'Tambah Data Pendonor';
+      $this->load->view('template/sidebar', $data);
+      $this->load->view('template/header', $data);
+      $this->load->view('master/form_view_tambah_pendonor', $data);
+      $this->load->view('template/footer', $data);
+    } else {
+      $data = [
+        'nama_pendonor' => $this->input->post('nama_pendonor'),
+        'nama_pasien' => $this->input->post('nama_pasien'),
+        'ruang_pasien' => $this->input->post('ruang_pasien'),
+        'gol_darah' => $this->input->post('gol_darah'),
+        'alamat_pendonor' => $this->input->post('alamat'),
+        'agama' => $this->input->post('agama'),
+        'no_tali' => $this->input->post('no_tali'),
+        'pekerjaan' => $this->input->post('pekerjaan'),
+        'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+        'bb_tensi' => $this->input->post('bb_tensi'),
+        'hb' => $this->input->post('hb'),
+        'hiv' => $this->input->post('hiv'),
+        'hcv' => $this->input->post('hcv'),
+        'hbsag' => $this->input->post('hbsag'),
+        'sypilis' => $this->input->post('sypilis'),
+        'tgl_donor' => time(),
+        'no_hp' => $this->input->post('no_hp'),
+        'petugas' => $this->input->post('petugas')
+      ];
+      $this->m_tambah->tambahDataPendonor($data);
+      redirect('dashboard/tambah_data_pendonor');
+    }
   }
+
   // function Hapus Data Pendonor
   public function hapusDataPendonor($id)
   {
@@ -100,7 +125,6 @@ class Dashboard extends CI_Controller
     redirect('dashboard/tambah_data_pendonor');
   }
 
-
   // Cari Data Penonor
   public function cariData()
   {
@@ -114,8 +138,8 @@ class Dashboard extends CI_Controller
     if ($this->input->post('kyword')) {
       $data['user'] = $this->m_master->cariData();
     }
-    $this->load->view('template/header', $data);
     $this->load->view('template/sidebar', $data);
+    $this->load->view('template/header', $data);
     $this->load->view('master/dashboard', $data);
     $this->load->view('template/footer', $data);
   }
