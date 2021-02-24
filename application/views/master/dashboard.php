@@ -84,7 +84,7 @@
                 <div class="input-group mb-3">
                   <input type="text" name="kyword" class="form-control" placeholder="Search Data">
                   <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary ml-2">Search</button>
+                    <button type="submit" name="submit" class="btn btn-primary ml-2">Search</button>
                   </div>
                 </div>
               </form>
@@ -157,7 +157,6 @@
                         <!-- bisa donor -->
                         <td> <span class="badge badge-pill badge-info bg-info">Bisa</span></td>
                       <?php } else { ?>
-
                         <!-- tidak bisa donor -->
                         <td> <span class="badge badge-pill badge-info bg-danger"> Tidak bisa</span></td>
                       <?php } ?>
@@ -196,7 +195,7 @@
                 <td class='col-3'> Darah A</td>
                 <td class='col-6'>
                   <div class="progress progress-info">
-                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_A; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_A; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $gol_A; ?>"></div>
                   </div>
                 </td>
                 <td class='col-3 text-center'><?= $gol_A; ?>%</td>
@@ -205,7 +204,7 @@
                 <td class='col-3'> Darah B</td>
                 <td class='col-6'>
                   <div class="progress progress-success">
-                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_B; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_B; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax=" <?= $gol_B; ?>"></div>
                   </div>
                 </td>
                 <td class='col-3 text-center'><?= $gol_B; ?>%</td>
@@ -214,7 +213,7 @@
                 <td class='col-3'> Darah AB</td>
                 <td class='col-6'>
                   <div class="progress progress-danger">
-                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_AB; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_AB; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $gol_AB; ?>"></div>
                   </div>
                 </td>
                 <td class='col-3 text-center'><?= $gol_AB; ?>%</td>
@@ -223,7 +222,7 @@
                 <td class='col-3'> Darah O</td>
                 <td class='col-6'>
                   <div class="progress progress-primary">
-                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_O; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?= $gol_O; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $gol_O; ?>"></div>
                   </div>
                 </td>
                 <td class='col-3 text-center'><?= $gol_O; ?>%</td>

@@ -53,15 +53,11 @@ class M_master extends CI_Model
 
 
   // cari data
-  public function cariData()
+  public function cariData($kunci)
   {
-    $kyword = $this->input->post('kyword', true);
-    $this->db->like('nama', $kyword);
-    $this->db->or_like('gol_darah', $kyword);
-    $this->db->or_like('alamat', $kyword);
-    $this->db->or_like('gender', $kyword);
-    $this->db->or_like('no_hp', $kyword);
-    return $this->db->get('data')->result_array();
+    $this->db->like('gol_darah', $kunci);
+    // $this->db->orlike('nama_pendonor', $kunci);
+    return $this->db->get('data_donor')->result_array();
   }
 
 

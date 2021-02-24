@@ -33,12 +33,12 @@
               <p class="mr-4 mt-1"><?= $user1['nama']; ?></p>
               <img src="<?= base_url('assets/gambar/admin/') . $user1['gambar']; ?>" width="50px" alt="gambar">
             </div>
-        <li class="dropdown mr-2">
-          <div class="d-lg-inline-block">
+        <li class="dropdown mb-2">
+          <div class=" d-lg-inline-block">
             <i data-feather="settings"></i>
           </div>
           <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item mb-1" href="<?= base_url('auth/profile') ?> " data-toggle="modal" data-target="#exampleModal1">
+            <a class=" dropdown-item mb-1" href="<?= base_url('auth/profile') ?>" style="margin-top: -25px;" data-toggle="modal" data-target="#exampleModal1">
               <i data-feather="user"></i>Profile</a>
             <?php if ($user1['role_id'] == 1) { ?>
               <a class="dropdown-item mb-1" href="#" data-toggle="modal" data-target="#exampleModal2">

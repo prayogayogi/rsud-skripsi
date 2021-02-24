@@ -131,8 +131,9 @@ class Dashboard extends CI_Controller
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['user'] = $this->m_master->tampil_data()->result_array();
     $data['title'] = 'Dashboard';
+    $kunci = $this->input->post('kyword');
     if ($this->input->post('kyword')) {
-      $data['user'] = $this->m_master->cariData();
+      $data['user'] = $this->m_master->cariData($kunci);
     }
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);

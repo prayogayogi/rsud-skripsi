@@ -11,7 +11,7 @@
             <li class='sidebar-title'>Main Menu</li>
             <li class="sidebar-item">
               <a href="<?= base_url('dashboard') ?>" class='sidebar-link'>
-                <i data-feather="layout" width="20"></i>
+                <i data-feather="home" width="20"></i>
                 <span>Dashboard</span>
               </a>
             </li>
@@ -20,7 +20,7 @@
             <?php if ($user1['role_id'] == 1) { ?>
               <li class="sidebar-item">
                 <a href="<?= base_url('dashboard/tambah_data_pendonor') ?>" class='sidebar-link'>
-                  <i data-feather="grid" width="20"></i>
+                  <i data-feather="layers" width="20"></i>
                   <span>Data PenDonor</span>
                 </a>
               </li>
@@ -29,7 +29,7 @@
             <?php if ($user1['role_id'] == 2) { ?>
               <li class="sidebar-item  ">
                 <a href="<?= base_url('akses_admin'); ?>" class='sidebar-link'>
-                  <i data-feather="layout" width="20"></i>
+                  <i data-feather="briefcase" width="20"></i>>
                   <span>Data Stok Darah</span>
                 </a>
               </li>
@@ -37,20 +37,20 @@
             <?php if ($user1['role_id'] == 1) { ?>
               <li class="sidebar-item  ">
                 <a href="<?= base_url('admin'); ?>" class='sidebar-link'>
-                  <i data-feather="file-plus" width="20"></i>
+                  <i data-feather="user" width="20"></i>
                   <span>Data Admin</span>
                 </a>
               </li>
               <li class="sidebar-item  ">
                 <a href="<?= base_url('petugas'); ?>" class='sidebar-link'>
-                  <i data-feather="grid" width="20"></i>
+                  <i data-feather="user" width="20"></i>
                   <span>Data Petugas</span>
                 </a>
               </li>
             <?php } ?>
             <li class="sidebar-item  ">
               <a href="<?= base_url('laporan/laporanAdmin'); ?>" class='sidebar-link'>
-                <i data-feather="grid" width="20"></i>
+                <i data-feather="file-text" width="20"></i>
                 <span>Laporan</span>
               </a>
             </li>

@@ -54,13 +54,15 @@
                 <a href="" data-toggle="modal" data-target="#exampleModaldetail" class="btn btn-sm btn-success mt-1"><i class="fas fa-search-plus"></i></a>
               </td>
               <?php
-              if (time() >= ($data['tgl_donor'] + 7776000)) {
-                $bisa = "bisa";
-              } else {
-                $bisa = "tidak bisa";
-              }
-              ?>
-              <td> <span class="badge badge-pill badge-info bg-info"><?= $bisa; ?></span></td>
+              if (time() >= ($data['tgl_donor'] + 7776000)) { ?>
+
+                <!-- bisa donor -->
+                <td> <span class="badge badge-pill badge-info bg-info">Bisa</span></td>
+              <?php } else { ?>
+
+                <!-- tidak bisa donor -->
+                <td> <span class="badge badge-pill badge-info bg-danger"> Tidak bisa</span></td>
+              <?php } ?>
             </tr>
           <?php endforeach; ?>
         </table>

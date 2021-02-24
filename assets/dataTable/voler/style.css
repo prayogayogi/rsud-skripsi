@@ -8,18 +8,18 @@
 	padding: 8px 10px;
 }
 
-.dataTable-top > div:first-child,
-.dataTable-bottom > div:first-child {
+.dataTable-top>div:first-child,
+.dataTable-bottom>div:first-child {
 	float: left;
 }
 
-.dataTable-top > div:last-child,
-.dataTable-bottom > div:last-child {
+.dataTable-top>div:last-child,
+.dataTable-bottom>div:last-child {
 	float: right;
 }
 
 .dataTable-input {
-	padding: 6px 12px;
+	padding: 5px 12px;
 }
 
 .dataTable-info {
@@ -75,7 +75,7 @@
 }
 
 
-.dataTable-table > tfoot > tr > th {
+.dataTable-table>tfoot>tr>th {
 	vertical-align: bottom;
 	text-align: left;
 	border-top: 1px solid #d9d9d9;
@@ -130,7 +130,8 @@
 	text-align: center;
 }
 
-.dataTable-top::after, .dataTable-bottom::after {
+.dataTable-top::after,
+.dataTable-bottom::after {
 	clear: both;
 	content: " ";
 	display: table;

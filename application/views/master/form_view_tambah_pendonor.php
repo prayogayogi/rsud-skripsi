@@ -12,7 +12,7 @@
             <div class="col-6">
               <div class="form-group">
                 <label for="nama_pendonor">Nama Pendonor</label>
-                <input type="text" name="nama_pendonor" id="nama_pendonor" placeholder="Masukan Nama Pendonor" class="form-control">
+                <input type="text" name="nama_pendonor" id="nama_pendonor" placeholder="Masukan Nama Pendonor" class="form-control" value="<?php echo set_value('nama_pendonor'); ?>" autofocus autocomplete="off">
                 <?= form_error('nama_pendonor', '<small class="text-danger ml-2">', '</small>') ?>
               </div>
               <div class="form-group">
@@ -31,13 +31,13 @@
               </div>
               <div class="form-group">
                 <label for="nama_pasien">Nama Pasien</label>
-                <input type="text" name="nama_pasien" id="nama_pasien" placeholder="Masukan Nama Pasien" class="form-control">
+                <input type="text" name="nama_pasien" id="nama_pasien" placeholder="Masukan Nama Pasien" class="form-control" value="<?php echo set_value('nama_pasien'); ?>" autocomplete="off">
                 <?= form_error('nama_pasien', '<small class="text-danger ml-2">', '</small>') ?>
                 <small id="emailHelp" class="form-text text-muted">Jika tidak untuk pasien. Isi Dengan (Stok Utd)</small>
               </div>
               <div class="form-group">
                 <label for="ruang_pasien">Ruang Pasien</label>
-                <input type="text" name="ruang_pasien" id="ruang_pasien" placeholder="Masukan Ruang Pasien" class="form-control">
+                <input type="text" name="ruang_pasien" id="ruang_pasien" placeholder="Masukan Ruang Pasien" class="form-control" value="<?php echo set_value('ruang_pasien'); ?>" autocomplete="off">
                 <?= form_error('ruang_pasien', '<small class="text-danger ml-2">', '</small>') ?>
                 <small id="emailHelp" class="form-text text-muted">Jika tidak untuk pasien. Isi Dengan (Stok Utd)</small>
               </div>
@@ -59,7 +59,7 @@
               </div>
               <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <input type="text" name="alamat" id="alamat" placeholder="Masukan Alamat" class="form-control">
+                <input type="text" name="alamat" id="alamat" placeholder="Masukan Alamat" class="form-control" value="<?php echo set_value("alamat"); ?>" autocomplete="off">
                 <?= form_error('alamat', '<small class="text-danger ml-2">', '</small>') ?>
               </div>
               <div class="form-group">
@@ -82,12 +82,12 @@
               </div>
               <div class="form-group">
                 <label for="no_tali">No Tali</label>
-                <input type="text" name="no_tali" id="no_tali" placeholder="Masukan No Tali" class="form-control">
+                <input type="text" name="no_tali" id="no_tali" placeholder="Masukan No Tali" class="form-control" value="<?php echo set_value('no_tali'); ?>" autocomplete="off">
                 <?= form_error('no_tali', '<small class="text-danger ml-2">', '</small>') ?>
               </div>
               <div class="form-group">
                 <label for="Pekerjaan">Pekerjaan</label>
-                <input type="text" name="pekerjaan" id="Pekerjaan" placeholder="Masukan Pekerjaan" class="form-control">
+                <input type="text" name="pekerjaan" id="Pekerjaan" placeholder="Masukan Pekerjaan" class="form-control" value="<?php echo set_value('pekerjaan'); ?>" autocomplete="off">
                 <?= form_error('pekerjaan', '<small class="text-danger ml-2">', '</small>') ?>
               </div>
             </div>
@@ -95,13 +95,13 @@
             <div class="col-6">
               <div class="form-group">
                 <label for="bb_tensi">Bb Tensi</label>
-                <input type="text" name="bb_tensi" id="bb_tensi" placeholder="Tensi Pendonor" class="form-control">
+                <input type="text" name="bb_tensi" id="bb_tensi" placeholder="Tensi Pendonor" class="form-control" value="<?php echo set_value('bb_tensi'); ?>" autocomplete="off">
                 <?= form_error('bb_tensi', '<small class="text-danger ml-2">', '</small>') ?>
                 <small id="emailHelp" class="form-text text-muted">Tensi Darah Minimal Harus 110</small>
               </div>
               <div class="form-group">
                 <label for="hb">Hb </label>
-                <input type="text" name="hb" id="hb" placeholder="Hb Pendonor" class="form-control">
+                <input type="text" name="hb" id="hb" placeholder="Hb Pendonor" class="form-control" value="<?php echo set_value('hb'); ?>" autocomplete="off">
                 <?= form_error('hb', '<small class="text-danger ml-2">', '</small>') ?>
                 <small id="emailHelp" class="form-text text-muted">Hb Darah Minimal Harus 12</small>
               </div>
@@ -143,12 +143,12 @@
               </div> -->
               <div class="form-group mb-3">
                 <label for="no_hp">No Hanphone</label>
-                <input type="number" name="no_hp" id="no_hp" placeholder="Masukan No Hanphone" class="form-control" value="<?php echo set_value('no_hp'); ?>">
+                <input type="number" name="no_hp" id="no_hp" placeholder="Masukan No Hanphone" class="form-control" value="<?php echo set_value('no_hp'); ?>" autocomplete="off">
                 <?= form_error('no_hp', '<small class="text-danger ml-2">', '</small>') ?>
               </div>
               <div class="form-group mb-3">
                 <label for="no_hp">Tgl Donor</label>
-                <input type="text" name="tgl_donor" id="no_hp" placeholder="Masukan Tgl Donor" class="form-control" value="<?php echo set_value('no_hp'); ?>">
+                <input type="text" name="tgl_donor" id="no_hp" placeholder="Masukan Tgl Donor" class="form-control" value="<?php echo set_value('no_hp'); ?>" autocomplete="off">
                 <?= form_error('no_hp', '<small class="text-danger ml-2">', '</small>') ?>
               </div>
               <input type="hidden" name="petugas" id="petugas" value="<?= $user1['nama'] ?>">
