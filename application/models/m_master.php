@@ -25,9 +25,9 @@ class M_master extends CI_Model
 
 
   // hapus data
-  public function hapus($id)
+  public function hapusDataPendonor($id)
   {
-    $this->db->delete('data', $id);
+    $this->db->delete('data_donor', $id);
   }
 
 

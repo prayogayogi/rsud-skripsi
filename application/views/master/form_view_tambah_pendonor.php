@@ -16,14 +16,30 @@
                 <?= form_error('nama_pendonor', '<small class="text-danger ml-2">', '</small>') ?>
               </div>
               <div class="form-group">
+                <label for="gender">Jenis Kelamin</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="gender" name="jenis_kelamin">Pilih</label>
+                  </div>
+                  <select class="custom-select form-control" id="gender" name="jenis_kelamin">
+                    <option selected>Pilih Jenis Kelamin</option>
+                    <option value="Laki-Laki">Laki-Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                  </select>
+                </div>
+                <?= form_error('jenis_kelamin', '<small class="text-danger ml-2">', '</small>') ?>
+              </div>
+              <div class="form-group">
                 <label for="nama_pasien">Nama Pasien</label>
                 <input type="text" name="nama_pasien" id="nama_pasien" placeholder="Masukan Nama Pasien" class="form-control">
                 <?= form_error('nama_pasien', '<small class="text-danger ml-2">', '</small>') ?>
+                <small id="emailHelp" class="form-text text-muted">Jika tidak untuk pasien. Isi Dengan (Stok Utd)</small>
               </div>
               <div class="form-group">
                 <label for="ruang_pasien">Ruang Pasien</label>
                 <input type="text" name="ruang_pasien" id="ruang_pasien" placeholder="Masukan Ruang Pasien" class="form-control">
                 <?= form_error('ruang_pasien', '<small class="text-danger ml-2">', '</small>') ?>
+                <small id="emailHelp" class="form-text text-muted">Jika tidak untuk pasien. Isi Dengan (Stok Utd)</small>
               </div>
               <div class="form-group">
                 <label for="gol_darah">Gol Darah</label>
@@ -74,20 +90,6 @@
                 <input type="text" name="pekerjaan" id="Pekerjaan" placeholder="Masukan Pekerjaan" class="form-control">
                 <?= form_error('pekerjaan', '<small class="text-danger ml-2">', '</small>') ?>
               </div>
-              <div class="form-group">
-                <label for="gender">Jenis Kelamin</label>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="gender" name="jenis_kelamin">Pilih</label>
-                  </div>
-                  <select class="custom-select form-control" id="gender" name="jenis_kelamin">
-                    <option selected>Pilih Jenis Kelamin</option>
-                    <option value="Laki-Laki">Laki-Laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                  </select>
-                </div>
-                <?= form_error('jenis_kelamin', '<small class="text-danger ml-2">', '</small>') ?>
-              </div>
             </div>
 
             <div class="col-6">
@@ -95,15 +97,15 @@
                 <label for="bb_tensi">Bb Tensi</label>
                 <input type="text" name="bb_tensi" id="bb_tensi" placeholder="Tensi Pendonor" class="form-control">
                 <?= form_error('bb_tensi', '<small class="text-danger ml-2">', '</small>') ?>
-                <small id="emailHelp" class="form-text text-muted">Tensi Darah Minimal Harus 120</small>
+                <small id="emailHelp" class="form-text text-muted">Tensi Darah Minimal Harus 110</small>
               </div>
               <div class="form-group">
                 <label for="hb">Hb </label>
                 <input type="text" name="hb" id="hb" placeholder="Hb Pendonor" class="form-control">
                 <?= form_error('hb', '<small class="text-danger ml-2">', '</small>') ?>
-                <small id="emailHelp" class="form-text text-muted">Hb Darah Minimal Harus 11-13</small>
+                <small id="emailHelp" class="form-text text-muted">Hb Darah Minimal Harus 12</small>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="hiv">Hiv</label>
                 <select class="custom-select form-control" id="hiv" name="hiv">
                   <option selected>Penyakit Hiv</option>
@@ -138,10 +140,15 @@
                   <option value="+"> + </option>
                 </select>
                 <?= form_error('sypilis', '<small class="text-danger ml-2">', '</small>') ?>
-              </div>
-              <div class="form-group">
+              </div> -->
+              <div class="form-group mb-3">
                 <label for="no_hp">No Hanphone</label>
                 <input type="number" name="no_hp" id="no_hp" placeholder="Masukan No Hanphone" class="form-control" value="<?php echo set_value('no_hp'); ?>">
+                <?= form_error('no_hp', '<small class="text-danger ml-2">', '</small>') ?>
+              </div>
+              <div class="form-group mb-3">
+                <label for="no_hp">Tgl Donor</label>
+                <input type="text" name="tgl_donor" id="no_hp" placeholder="Masukan Tgl Donor" class="form-control" value="<?php echo set_value('no_hp'); ?>">
                 <?= form_error('no_hp', '<small class="text-danger ml-2">', '</small>') ?>
               </div>
               <input type="hidden" name="petugas" id="petugas" value="<?= $user1['nama'] ?>">

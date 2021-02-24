@@ -68,10 +68,6 @@ class Dashboard extends CI_Controller
     $this->form_validation->set_rules('jenis_kelamin', 'Jenis kelamin', 'required|trim');
     $this->form_validation->set_rules('bb_tensi', 'Bb tensi', 'required|trim');
     $this->form_validation->set_rules('hb', 'Hb', 'required|trim');
-    $this->form_validation->set_rules('hiv', 'Hiv', 'required|trim');
-    $this->form_validation->set_rules('hcv', 'Hcv', 'required|trim');
-    $this->form_validation->set_rules('hbsag', 'Hbsag', 'required|trim');
-    $this->form_validation->set_rules('sypilis', 'Sypilis', 'required|trim');
     $this->form_validation->set_rules('no_hp', 'No hp', 'numeric|min_length[12]', ['min_length' => 'Minimal 12 angka']);
 
     if ($this->form_validation->run() == false) {
@@ -95,11 +91,11 @@ class Dashboard extends CI_Controller
         'jenis_kelamin' => $this->input->post('jenis_kelamin'),
         'bb_tensi' => $this->input->post('bb_tensi'),
         'hb' => $this->input->post('hb'),
-        'hiv' => $this->input->post('hiv'),
-        'hcv' => $this->input->post('hcv'),
-        'hbsag' => $this->input->post('hbsag'),
-        'sypilis' => $this->input->post('sypilis'),
-        'tgl_donor' => time(),
+        'hiv' => ('-'),
+        'hcv' => ('-'),
+        'hbsag' => ('-'),
+        'sypilis' => ('-'),
+        'tgl_donor' => strtotime($this->input->post('tgl_donor')),
         'no_hp' => $this->input->post('no_hp'),
         'petugas' => $this->input->post('petugas')
       ];
@@ -114,7 +110,7 @@ class Dashboard extends CI_Controller
     $id_hapus = [
       'id' => $id
     ];
-    $this->m_master->hapus($id_hapus);
+    $this->m_master->hapusDataPendonor($id_hapus);
     redirect('dashboard/tambah_data_pendonor');
   }
 

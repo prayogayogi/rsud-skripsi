@@ -75,7 +75,7 @@
       </div>
     </div>
     <div class="row mb-4">
-      <div class="col-md-8">
+      <div class="col-md-9">
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
 
@@ -103,7 +103,7 @@
                   <tr>
                     <th>Nama</th>
                     <th>Gol Darah</th>
-                    <th>Jenis Kelamin</th>
+                    <th>Gender</th>
                     <th>Alamat</th>
                     <th>No Hp</th>
                     <th>Kelayakan</th>
@@ -169,7 +169,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card ">
           <div class="card-header text-center">
             <h3>Jumlah Donor</h3>
