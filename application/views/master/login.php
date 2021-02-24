@@ -6,14 +6,14 @@
           <div class="text-center mb-5">
             <h3>Sign In</h3>
             <img src="<?= base_url() ?>assets/logo resud.png" alt="logo" style="width: 80px; height:80px; margin-right:25px;" class="mb-3">
-            <p>Please Sign To Rsud MukoMuko.</p>
+            <p>Please Sign To Utd Rsud MukoMuko.</p>
             <small class="mt-3"><?= $this->session->flashdata('pesan'); ?></small>
           </div>
           <form action="<?php echo base_url('register/aksi_login') ?>" method="POST">
             <div class="form-group position-relative has-icon-left">
               <label for="username">EMAIL</label>
               <div class="position-relative">
-                <input type="text" class="form-control" id="email" name="email" value="<?= set_value('email') ?>">
+                <input type="text" class="form-control" id="email" name="email" value="<?= set_value('email') ?>" autocomplete="off" placeholder="Masukan Email" value="<?= set_value('email'); ?>">
                 <div class="form-control-icon">
                   <i data-feather="user"></i>
                 </div>
@@ -25,7 +25,7 @@
                 <label for="password">Password</label>
               </div>
               <div class="position-relative">
-                <input type="password" class="form-control" id="password1" name="password1">
+                <input type="password" class="form-control" id="password1" name="password1" placeholder="Masukan Password">
                 <div class="form-control-icon">
                   <i data-feather="lock"></i>
                 </div>
@@ -42,7 +42,7 @@
               <button class="btn btn-primary float-right" type="submit" name="submit">Submit</button>
             </div>
             <div class="divider">
-              <div class="divider-text">RSUD MUKOMUKO</div>
+              <div class="divider-text">UTD RSUD MUKOMUKO</div>
             </div>
           </form>
         </div>

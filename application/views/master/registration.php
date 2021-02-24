@@ -13,7 +13,7 @@
               <div class="form-group position-relative has-icon-left">
                 <label for="username">NAMA</label>
                 <div class="position-relative">
-                  <input type="text" class="form-control" id="nama" name="nama" value="<?= set_value('email') ?>">
+                  <input type="text" class="form-control" id="nama" name="nama" value="<?= set_value('email') ?>" autocomplete="off">
                   <div class="form-control-icon">
                     <i data-feather="user"></i>
                   </div>
@@ -25,7 +25,7 @@
               <div class="form-group position-relative has-icon-left">
                 <label for="username">EMAIL</label>
                 <div class="position-relative">
-                  <input type="text" class="form-control" id="email" name="email" value="<?= set_value('email') ?>">
+                  <input type="text" class="form-control" id="email" name="email" value="<?= set_value('email') ?>" autocomplete="off">
                   <div class="form-control-icon">
                     <i data-feather="user"></i>
                   </div>
