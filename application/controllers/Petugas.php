@@ -14,8 +14,8 @@ class Petugas extends CI_Controller
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['data'] = $this->db->get_where('user', ['role_id' => 2])->result_array();
     $data['title'] = 'Data Petugas';
-    $this->load->view('template/header', $data);
     $this->load->view('template/sidebar', $data);
+    $this->load->view('template/header', $data);
     $this->load->view('data/petugas', $data);
     $this->load->view('template/footer', $data);
   }
@@ -48,8 +48,8 @@ class Petugas extends CI_Controller
       $data['user1'] = $this->m_master->dataAdmin()->row_array();
       $data['data'] = $this->db->get_where('user', ['role_id' => 2])->result_array();
       $data['title'] = 'Data Petugas';
-      $this->load->view('template/header', $data);
       $this->load->view('template/sidebar', $data);
+      $this->load->view('template/header', $data);
       $this->load->view('data/petugas', $data);
       $this->load->view('template/footer', $data);
     } else {
@@ -57,15 +57,13 @@ class Petugas extends CI_Controller
         'nama' => $this->input->post('nama'),
         'email' => $this->input->post('email'),
         'gambar' => $fotoo,
-        'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+        'password' => password_hash($this->input->post('password2'), PASSWORD_DEFAULT),
         'role_id' => 2,
         'aktif' => 1,
         'tgl_daftar' => time()
       ];
       $this->m_master->inputAdmin($data);
-      $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-      Data Petugas Berhasil Di Tambah.
-    </div>');
+      $this->session->set_flashdata('pesanPetugas', 'Ditambah');
       redirect('petugas');
     }
   }
@@ -98,9 +96,7 @@ class Petugas extends CI_Controller
     $this->db->set('nama', $nama);
     $this->db->where($email);
     $this->db->update('user');
-    $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-      Data Petugas Berhasil Di Ubah.
-    </div>');
+    $this->session->set_flashdata('pesanPetugas', 'Diubah');
     redirect('petugas');
   }
 
@@ -110,9 +106,7 @@ class Petugas extends CI_Controller
       'id' => $id
     ];
     $this->db->delete('user', $data);
-    $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-      Data Petugas Berhasil Di Hapus.
-    </div>');
+    $this->session->set_flashdata('pesanPetugas', 'Dihapus');
     redirect('petugas');
   }
 }

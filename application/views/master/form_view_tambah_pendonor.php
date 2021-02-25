@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+?>
 <div class="container-fluid">
   <div class="content-wrapper">
     <section class="content-header">

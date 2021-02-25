@@ -15,7 +15,7 @@
             <th>Alamat</th>
             <th>Jenis Kelamin</th>
             <th>No Hp</th>
-            <th>Berat Badan</th>
+            <th>Agama</th>
             <th>Tgl Donor</th>
             <th>Kelayakan</th>
           </tr>
@@ -25,12 +25,12 @@
           foreach ($pendonor as $data) : ?>
             <tr>
               <td><?= $no++ ?></td>
-              <td><?= $data['nama'] ?></td>
+              <td><?= $data['nama_pendonor'] ?></td>
               <td><?= $data['gol_darah'] ?></td>
-              <td><?= $data['alamat'] ?></td>
-              <td><?= $data['gender'] ?></td>
+              <td><?= $data['alamat_pendonor'] ?></td>
+              <td><?= $data['jenis_kelamin'] ?></td>
               <td><?= $data['no_hp'] ?></td>
-              <td><?= $data['berat_badan'] ?></td>
+              <td><?= $data['agama'] ?></td>
               <td><?= date('d-m-Y', $data['tgl_donor']); ?></td>
               <?php
               if (time() >= ($data['tgl_donor'] + 7776000)) {

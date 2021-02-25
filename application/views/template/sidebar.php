@@ -29,8 +29,8 @@
             <?php if ($user1['role_id'] == 2) { ?>
               <li class="sidebar-item  ">
                 <a href="<?= base_url('akses_admin'); ?>" class='sidebar-link'>
-                  <i data-feather="briefcase" width="20"></i>>
-                  <span>Data Stok Darah</span>
+                  <i data-feather="briefcase" width="20"></i>
+                  <span>Stok Darah</span>
                 </a>
               </li>
             <?php } ?>

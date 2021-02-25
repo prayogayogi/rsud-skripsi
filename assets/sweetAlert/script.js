@@ -1,3 +1,6 @@
+// untuk semua 
+
+// untuk admin
 const flashdata = $('.flash-data').data('flashdata');
   if (flashdata) {
     Swal.fire(
@@ -23,5 +26,17 @@ const flashdata = $('.flash-data').data('flashdata');
       'Password Kamu',
       flashdatapasswordNot,
       'error'
+    )
+  }
+
+
+
+  // untuk petugas
+  const flashdatapetugas = $('.flash-dataPetugas').data('flashdata');
+  if (flashdatapetugas) {
+    Swal.fire(
+      'Data Petugas',
+      'Berhasil ' + flashdatapetugas,
+      'success'
     )
   }

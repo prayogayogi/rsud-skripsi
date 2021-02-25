@@ -116,7 +116,7 @@
         </div>
         <div class="form-group">
           <label for="password">Konfirmasi Password</label>
-          <input type="password" name="password2" id="password" placeholder="Konfirmasi Password" class="form-control">
+          <input type="password" name="password2" id="password2" placeholder="Konfirmasi Password" class="form-control">
           <?= form_error('password2', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">

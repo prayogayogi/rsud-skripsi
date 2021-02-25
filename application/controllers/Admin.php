@@ -15,8 +15,8 @@ class Admin extends CI_Controller
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['data'] = $this->db->get_where('user', ['role_id' => 1])->result_array();
     $data['title'] = 'Data Admin';
-    $this->load->view('template/header', $data);
     $this->load->view('template/sidebar', $data);
+    $this->load->view('template/header', $data);
     $this->load->view('data/admin', $data);
     $this->load->view('template/footer', $data);
   }
@@ -46,8 +46,8 @@ class Admin extends CI_Controller
       $data['user1'] = $this->m_master->dataAdmin()->row_array();
       $data['data'] = $this->db->get_where('user', ['role_id' => 1])->result_array();
       $data['title'] = 'Data Admin';
-      $this->load->view('template/header', $data);
       $this->load->view('template/sidebar', $data);
+      $this->load->view('template/header', $data);
       $this->load->view('data/admin', $data);
       $this->load->view('template/footer', $data);
     } else {
@@ -55,7 +55,7 @@ class Admin extends CI_Controller
         'nama' => $this->input->post('nama'),
         'email' => $this->input->post('email'),
         'gambar' => $foto,
-        'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+        'password' => password_hash($this->input->post('password2'), PASSWORD_DEFAULT),
         'role_id' => 1,
         'aktif' => 1,
         'tgl_daftar' => time()

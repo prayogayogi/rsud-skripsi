@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+?>
 <div class="container">
   <div class="row">
     <div class="col col-6">

@@ -20,9 +20,10 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class=" flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
-    <div class=" flash-data_password" data-flashdata="<?= $this->session->flashdata('password'); ?>"></div>
-    <div class=" flash-data_passwordNot" data-flashdata="<?= $this->session->flashdata('passwordNot'); ?>"></div>
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
+    <div class="flash-dataPetugas" data-flashdata="<?= $this->session->flashdata('pesanPetugas'); ?>"></div>
+    <div class="flash-data_password" data-flashdata="<?= $this->session->flashdata('password'); ?>"></div>
+    <div class="flash-data_passwordNot" data-flashdata="<?= $this->session->flashdata('passwordNot'); ?>"></div>
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -31,14 +32,18 @@
           <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <div class="avatar mr-0">
               <p class="mr-4 mt-1"><?= $user1['nama']; ?></p>
-              <img src="<?= base_url('assets/gambar/admin/') . $user1['gambar']; ?>" width="50px" alt="gambar">
+              <?php if ($user1['role_id'] == 1) { ?>
+                <img src="<?= base_url('assets/gambar/admin/') . $user1['gambar']; ?>" width="50px" alt="gambar">
+              <?php } else { ?>
+                <img src="<?= base_url('assets/gambar/petugas/') . $user1['gambar']; ?>" width="50px" alt="gambar">
+              <?php } ?>
             </div>
         <li class="dropdown mb-2">
           <div class=" d-lg-inline-block">
             <i data-feather="settings"></i>
           </div>
           <div class="dropdown-menu dropdown-menu-right">
-            <a class=" dropdown-item mb-1" href="<?= base_url('auth/profile') ?>" style="margin-top: -30px;" data-toggle="modal" data-target="#exampleModal1">
+            <a class=" dropdown-item mb-1" href="<?= base_url('auth/profile') ?>" style="margin-top: -20px;" data-toggle="modal" data-target="#exampleModal1">
               <i data-feather="user"></i>Profile</a>
             <?php if ($user1['role_id'] == 1) { ?>
               <a class="dropdown-item mb-1" href="#" data-toggle="modal" data-target="#exampleModal2">

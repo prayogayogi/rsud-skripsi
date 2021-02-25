@@ -12,4 +12,6 @@
 </head>
 
 <body>
+
+  <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
   <div id="auth">

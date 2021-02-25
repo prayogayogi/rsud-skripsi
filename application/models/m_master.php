@@ -53,11 +53,21 @@ class M_master extends CI_Model
 
 
   // cari data
-  public function cariData($kunci)
+  public function cariData($yang_dicari, $cari_berdasarkan)
   {
-    $this->db->like('gol_darah', $kunci);
-    // $this->db->orlike('nama_pendonor', $kunci);
-    return $this->db->get('data_donor')->result_array();
+    $this->db->from('data_donor');
+    if ($cari_berdasarkan === 'gol_darah') {
+      $this->db->where($cari_berdasarkan, $yang_dicari);
+    } else if ($cari_berdasarkan === "") {
+      $this->db->like('nama_pendonor', $yang_dicari);
+      $this->db->or_like('alamat_pendonor', $yang_dicari);
+      $this->db->or_like('agama', $yang_dicari);
+      $this->db->or_like('pekerjaan', $yang_dicari);
+      $this->db->or_like('jenis_kelamin', $yang_dicari);
+    } else {
+      $this->db->like($cari_berdasarkan, $yang_dicari);
+    }
+    return $this->db->get()->result_array();
   }
 
 
