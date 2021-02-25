@@ -6,10 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $title ?></title>
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/css/bootstrap.css">
-
-
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/vendors/chartjs/Chart.min.css">
-
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/css/app.css">
   <link rel="shortcut icon" href="<?= base_url() ?>assets/favicon.png" type="image/x-icon">
@@ -22,14 +19,17 @@
     <button class="btn navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <div class=" flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
+    <div class=" flash-data_password" data-flashdata="<?= $this->session->flashdata('password'); ?>"></div>
+    <div class=" flash-data_passwordNot" data-flashdata="<?= $this->session->flashdata('passwordNot'); ?>"></div>
+
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
         <li class="dropdown">
           <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <div class="avatar mr-0">
-              <div class="pesan mr-3">
-                <?= $this->session->flashdata('pesan'); ?>
-              </div>
               <p class="mr-4 mt-1"><?= $user1['nama']; ?></p>
               <img src="<?= base_url('assets/gambar/admin/') . $user1['gambar']; ?>" width="50px" alt="gambar">
             </div>
@@ -38,7 +38,7 @@
             <i data-feather="settings"></i>
           </div>
           <div class="dropdown-menu dropdown-menu-right">
-            <a class=" dropdown-item mb-1" href="<?= base_url('auth/profile') ?>" style="margin-top: -25px;" data-toggle="modal" data-target="#exampleModal1">
+            <a class=" dropdown-item mb-1" href="<?= base_url('auth/profile') ?>" style="margin-top: -30px;" data-toggle="modal" data-target="#exampleModal1">
               <i data-feather="user"></i>Profile</a>
             <?php if ($user1['role_id'] == 1) { ?>
               <a class="dropdown-item mb-1" href="#" data-toggle="modal" data-target="#exampleModal2">

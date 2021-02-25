@@ -100,6 +100,9 @@ class Dashboard extends CI_Controller
         'petugas' => $this->input->post('petugas')
       ];
       $this->m_tambah->tambahDataPendonor($data);
+      $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+      Data Berhasil di tamabah.
+    </div>');
       redirect('dashboard/tambah_data_pendonor');
     }
   }
@@ -111,13 +114,19 @@ class Dashboard extends CI_Controller
       'id' => $id
     ];
     $this->m_master->hapusDataPendonor($id_hapus);
+    $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+    Berhasil Di Hapus.
+  </div>');
     redirect('dashboard/tambah_data_pendonor');
   }
 
   // Ubah Data Pendonor
   public function ubahDataPendonor()
   {
-    $this->m_edit->ubahDataPendonor();
+    $this->m_master->ubahDataPendonor();
+    $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+    Data Berhasil di ubah.
+  </div>');
     redirect('dashboard/tambah_data_pendonor');
   }
 

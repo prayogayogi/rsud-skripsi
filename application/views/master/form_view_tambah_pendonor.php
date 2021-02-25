@@ -22,7 +22,7 @@
                     <label class="input-group-text" for="gender" name="jenis_kelamin">Pilih</label>
                   </div>
                   <select class="custom-select form-control" id="gender" name="jenis_kelamin">
-                    <option selected>Pilih Jenis Kelamin</option>
+                    <option selected>Jenis Kelamin</option>
                     <option value="Laki-Laki">Laki-Laki</option>
                     <option value="Perempuan">Perempuan</option>
                   </select>

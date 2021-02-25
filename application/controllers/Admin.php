@@ -61,6 +61,7 @@ class Admin extends CI_Controller
         'tgl_daftar' => time()
       ];
       $this->m_master->inputAdmin($data);
+      $this->session->set_flashdata('pesan', 'Ditambah');
       redirect('admin');
     }
   }
@@ -96,7 +97,7 @@ class Admin extends CI_Controller
     $this->db->set('nama', $nama);
     $this->db->where($where);
     $this->db->update('user');
-    // $this->m_master->editDataAdmin($data, $where);
+    $this->session->set_flashdata('pesan', 'Diubah');
     redirect('admin');
   }
 
@@ -107,6 +108,7 @@ class Admin extends CI_Controller
       'id' => $id
     ];
     $this->db->delete('user', $data);
+    $this->session->set_flashdata('pesan', 'Dihapus');
     redirect('admin');
   }
 
@@ -125,31 +127,14 @@ class Admin extends CI_Controller
           'password' => password_hash($this->input->post('passwordBaru'), PASSWORD_DEFAULT)
         ];
         $this->m_master->ubahPasswordAdmin($where, $data);
-        $this->session->set_flashdata('pesan', '
-        <div class="alert alert-primary alert-dismissible fade show" role="alert">
-        <strong>Selamat</strong> Password Kamu Berhasil Di Ubah
-        <button type="button" class="close " data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        </div>');
+        $this->session->set_flashdata('password', 'Diubah');
         redirect('dashboard');
       } else {
-        $this->session->set_flashdata('pesan', '
-        <div class="alert alert-info alert-dismissible fade show" role="alert">
-        <strong>Password</strong> Sama Dengan Password Lama
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        </div>');
+        $this->session->set_flashdata('passwordNot', 'Sama Dengan Password Lama');
         redirect('dashboard');
       }
     } else {
-      $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Password</strong> Kamu Salah
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>');
+      $this->session->set_flashdata('passwordNot', 'Salah...!');
       redirect('dashboard');
     }
   }

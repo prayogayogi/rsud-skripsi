@@ -63,6 +63,9 @@ class Petugas extends CI_Controller
         'tgl_daftar' => time()
       ];
       $this->m_master->inputAdmin($data);
+      $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+      Data Petugas Berhasil Di Tambah.
+    </div>');
       redirect('petugas');
     }
   }
@@ -95,10 +98,11 @@ class Petugas extends CI_Controller
     $this->db->set('nama', $nama);
     $this->db->where($email);
     $this->db->update('user');
+    $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+      Data Petugas Berhasil Di Ubah.
+    </div>');
     redirect('petugas');
   }
-
-
 
   public function hapus($id)
   {
@@ -106,6 +110,9 @@ class Petugas extends CI_Controller
       'id' => $id
     ];
     $this->db->delete('user', $data);
+    $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+      Data Petugas Berhasil Di Hapus.
+    </div>');
     redirect('petugas');
   }
 }

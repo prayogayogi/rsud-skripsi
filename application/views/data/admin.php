@@ -2,6 +2,7 @@
   <div class="page-title">
     <div class="row">
       <div class="col-12 col-md-6">
+
         <h3>Data Admin</h3>
         <p class="text-subtitle text-muted">Data Admin Ini Merupkan, Data Admin Yang Bisa mengAkses Sistem Ini.</p>
       </div>

@@ -35,6 +35,9 @@ class Register extends CI_Controller
             'role_id' => $user['role_id']
           ];
           $this->session->set_userdata($data);
+          $this->session->set_flashdata('login', '<div class="alert alert-success" role="alert">
+          Anda Berhasil Login
+        </div>');
           redirect('dashboard');
         } else {
           $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
