@@ -52,10 +52,10 @@ class Admin extends CI_Controller
       $this->load->view('template/footer', $data);
     } else {
       $data = [
-        'nama' => $this->input->post('nama'),
-        'email' => $this->input->post('email'),
+        'nama' => $this->input->post('nama', true),
+        'email' => $this->input->post('email', true),
         'gambar' => $foto,
-        'password' => password_hash($this->input->post('password2'), PASSWORD_DEFAULT),
+        'password' => password_hash($this->input->post('password2', true), PASSWORD_DEFAULT),
         'role_id' => 1,
         'aktif' => 1,
         'tgl_daftar' => time()
@@ -70,7 +70,7 @@ class Admin extends CI_Controller
   public function editAdmin()
   {
     $email = [
-      'email' => $this->input->post('email')
+      'email' => $this->input->post('email', true)
     ];
     $data = $this->db->get_where('user', $email)->row_array();
     $gambar = $_FILES['gambar'];
@@ -91,9 +91,9 @@ class Admin extends CI_Controller
       }
     }
     $where = [
-      'id' => $this->input->post('id')
+      'id' => $this->input->post('id', true)
     ];
-    $nama = $this->input->post('nama');
+    $nama = $this->input->post('nama', true);
     $this->db->set('nama', $nama);
     $this->db->where($where);
     $this->db->update('user');
@@ -118,13 +118,14 @@ class Admin extends CI_Controller
     $where = [
       'id' => $this->input->post('id')
     ];
-    $passwordLama = $this->input->post('passwordLama');
-    $passwordBaru = $this->input->post('passwordBaru');
+    $passwordLama = $this->input->post('passwordLama', true);
+    $passwordBaru = $this->input->post('passwordBaru', true);
     $database = $this->db->get_where('user', $where)->row_array();
+
     if (password_verify($passwordLama, $database['password'])) {
       if ($passwordLama != $passwordBaru) {
         $data = [
-          'password' => password_hash($this->input->post('passwordBaru'), PASSWORD_DEFAULT)
+          'password' => password_hash($this->input->post('passwordBaru', true), PASSWORD_DEFAULT)
         ];
         $this->m_master->ubahPasswordAdmin($where, $data);
         $this->session->set_flashdata('password', 'Diubah');

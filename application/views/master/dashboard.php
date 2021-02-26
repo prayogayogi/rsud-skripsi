@@ -85,15 +85,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <form action="<?= base_url('dashboard/cariData') ?>" method="post">
                 <div class="input-group mb-3">
                   <div class="input-group-append">
-                    <select class="custom-select form-control" style="width: 115px;" name="cari_berdasarkan">
+                    <select class="custom-select form-control" name="cari_berdasarkan">
                       <option value="">C. Berdasarkan</option>
-                      <option value="nama_pendonor">Nama Pendonor</option>
+                      <option value="nama_pendonor">Nama</option>
                       <option value="gol_darah">Gol Darah</option>
-                      <option value="alamat_pendonor">Alamat Pendonor</option>
+                      <option value="alamat_pendonor">Alamat</option>
                     </select>
                   </div>
                   <div class="input-group-append">
-                    <input type="text" name="yang_dicari" style="width: 250px" class="form-control ml-1" placeholder="Search Data" autofocus>
+                    <input type="text" name="yang_dicari" style="width: 250px" class="form-control ml-1" placeholder="Search Data" autofocus autocomplete="off">
                   </div>
                   <div class="input-group-append">
                     <button class="btn btn-primary ml-2" type="submit" id="button-addon2">Search</button>

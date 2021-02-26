@@ -54,10 +54,10 @@ class Petugas extends CI_Controller
       $this->load->view('template/footer', $data);
     } else {
       $data = [
-        'nama' => $this->input->post('nama'),
-        'email' => $this->input->post('email'),
+        'nama' => $this->input->post('nama', true),
+        'email' => $this->input->post('email', true),
         'gambar' => $fotoo,
-        'password' => password_hash($this->input->post('password2'), PASSWORD_DEFAULT),
+        'password' => password_hash($this->input->post('password2', true), PASSWORD_DEFAULT),
         'role_id' => 2,
         'aktif' => 1,
         'tgl_daftar' => time()
@@ -72,7 +72,7 @@ class Petugas extends CI_Controller
   public function editDataPetugas()
   {
     $email = [
-      'email' =>  $this->input->post('email')
+      'email' =>  $this->input->post('email', true)
     ];
     $data = $this->db->get_where('user', $email)->row_array();
     $gambar = $_FILES['gambar'];
@@ -92,7 +92,7 @@ class Petugas extends CI_Controller
         echo "error";
       }
     }
-    $nama = $this->input->post('nama');
+    $nama = $this->input->post('nama', true);
     $this->db->set('nama', $nama);
     $this->db->where($email);
     $this->db->update('user');

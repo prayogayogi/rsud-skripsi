@@ -35,14 +35,14 @@ class Register extends CI_Controller
             'role_id' => $user['role_id']
           ];
           $this->session->set_userdata($data);
-          $this->session->set_flashdata('pesan', 'Anda Berhasil Login');
+          $this->session->set_flashdata('pesanlogin', $user['nama']);
           redirect('dashboard');
         } else {
-          $this->session->set_flashdata('pesan', 'Password Salah');
+          $this->session->set_flashdata('pesanlog', 'Password Anda Salah.!');
           redirect('register');
         }
       } else {
-        $this->session->set_flashdata('pesan', 'Akun anda belom aktif');
+        $this->session->set_flashdata('pesanlog', 'Akun Anda Belom Aktif.!');
         redirect('register');
       }
     } else {
@@ -59,7 +59,6 @@ class Register extends CI_Controller
   {
     $this->session->sess_destroy('userdata');
     $this->session->unset_userdata('$data');
-    $this->session->set_flashdata('pesan', 'Berhasil Log Out');
     redirect('register');
   }
 
@@ -95,7 +94,7 @@ class Register extends CI_Controller
         'tgl_daftar' => time()
       ];
       $this->m_master->input_user($data);
-      $this->session->set_flashdata('pesan', 'Berhasil Ditambah');
+      $this->session->set_flashdata('pesanlog', 'Berhasil Ditambah');
       redirect('register');
     } else {
       $data['title'] = 'Registration';

@@ -13,5 +13,5 @@
 
 <body>
 
-  <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
+  <div class="flash-datalog" data-flashdata="<?= $this->session->flashdata('pesanlog'); ?>"></div>
   <div id="auth">

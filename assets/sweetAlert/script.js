@@ -10,6 +10,7 @@ const flashdata = $('.flash-data').data('flashdata');
     )
   }
 
+
   // Untuk Ubah Password
   const flashdatapassword = $('.flash-data_password').data('flashdata');
   if (flashdatapassword) {
@@ -28,7 +29,7 @@ const flashdata = $('.flash-data').data('flashdata');
       'error'
     )
   }
-
+  // Akhir Untuk Ubah Password
 
 
   // untuk petugas
@@ -40,3 +41,27 @@ const flashdata = $('.flash-data').data('flashdata');
       'success'
     )
   }
+
+
+// register
+  const flashdatalog = $('.flash-datalog').data('flashdata');
+  if (flashdatalog) {
+    Swal.fire(
+      'Hallo',
+      flashdatalog,
+      'success'
+    )
+  }
+
+// register
+  const flashdatalogin = $('.flash-datalogin').data('flashdata');
+  if (flashdatalogin) {
+    Swal.fire(
+      flashdatalogin,
+      'Anda Berhasil Log In',
+      'success'
+    )
+  }
+
+
+  

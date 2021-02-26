@@ -32,10 +32,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
           </tr>
 
           <?php
-          $no = 1;
           foreach ($pendonor as $data) : ?>
             <tr>
-              <td><?= $no++ ?></td>
+              <td><?= ++$start ?></td>
               <td><?= $data['nama_pendonor'] ?></td>
               <td><?= $data['gol_darah'] ?></td>
               <td><?= $data['jenis_kelamin'] ?></td>
@@ -51,10 +50,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <td><?= $data['agama'] ?></td>
               <td>
                 <a href="" data-toggle="modal" data-target="#exampleModalEditDataPendonor<?= $data['id']; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                <br>
+                <!-- <br>
                 <a href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" class="btn btn-sm btn-danger mt-1"><i class="fas fa-trash-alt"></i></a>
                 <br>
-                <a href="" data-toggle="modal" data-target="#exampleModaldetail" class="btn btn-sm btn-success mt-1"><i class="fas fa-search-plus"></i></a>
+                <a href="" data-toggle="modal" data-target="#exampleModaldetail" class="btn btn-sm btn-success mt-1"><i class="fas fa-search-plus"></i></a> -->
                 <!-- <div class="btn-group dropleft">
                   <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-list-alt"></i>
@@ -81,6 +80,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </tr>
           <?php endforeach; ?>
         </table>
+        <?= $this->pagination->create_links(); ?>
       </div>
     </section>
 

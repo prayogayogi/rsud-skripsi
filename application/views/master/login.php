@@ -10,7 +10,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <h3>Sign In</h3>
             <a href="<?= site_url('register') ?>"><img src="<?= base_url() ?>assets/logo resud.png" alt="logo" style="width: 80px; height:80px; margin-right:25px;" class="mb-3"></a>
             <p>Please Sign To Utd Rsud MukoMuko.</p>
-            <small class="mt-3"><?= $this->session->flashdata('pesan'); ?></small>
           </div>
           <form action="<?php echo base_url('register/aksi_login') ?>" method="POST">
             <div class="form-group position-relative has-icon-left">

@@ -16,10 +16,9 @@
 <script src="<?= base_url() ?>assets/assets/js/app.js"></script>
 <script src="<?= base_url() ?>assets/assets/vendors/chartjs/Chart.min.js"></script>
 <script src="<?= base_url() ?>assets/assets/vendors/apexcharts/apexcharts.min.js"></script>
-<script src="<?= base_url() ?>assets/assets/js/pages/dashboard.js"></script>
-<script src="<?= base_url() ?>assets/js/sweetalert2.all.min.js"></script>
-<script src="<?= base_url() ?>assets/dataTable/voler/simple-datatables.js"></script>
-<script src="<?= base_url() ?>assets/assets/js/vendors.js"></script>
+<!-- <script src="<?= base_url() ?>assets/assets/js/pages/dashboard.js"></script> -->
+<!-- <script src="<?= base_url() ?>assets/dataTable/voler/simple-datatables.js"></script> -->
+<!-- <script src="<?= base_url() ?>assets/assets/js/vendors.js"></script> -->
 <script src="<?= base_url() ?>assets/assets/js/main.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>

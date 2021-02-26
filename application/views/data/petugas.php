@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12 col-md-6">
         <h3>Data Petugas</h3>
-        <p class="text-subtitle text-muted">Data Petugas Ini Merupkan, Data Petugas Yang Bisa mengAkses Sistem Ini.</p>
+        <p class="text-subtitle text-muted">Data Petugas Ini Merupkan, Data Petugas Yang Bisa Mengakses Sistem.</p>
       </div>
       <?php
 
@@ -83,10 +83,12 @@
       </div>
     </div>
   </div>
-  <!-- Striped rows end -->
 </div>
+<!-- Striped rows end -->
 
-<!-- Modal -->
+<!-- MODAL -->
+
+<!-- Modal input data petugas-->
 <div class="modal fade" id="exampleModalDataPetugas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -100,17 +102,18 @@
         <?= form_open_multipart('petugas/tambahPetugas'); ?>
         <div class="form-group">
           <label for="nama">Nama</label>
-          <input type="text" name="nama" id="nama" placeholder="Masukan Nama" class="form-control" value="<?= set_value('nama'); ?>">
+          <input type="text" name="nama" id="nama" placeholder="Masukan Nama" class="form-control" value="<?= set_value('nama'); ?>" autocomplete="off">
           <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="text" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>">
+          <input type="text" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>" autocomplete="off">
           <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" name="password1" id="password" placeholder="Masukan password" class="form-control">
+          <small id="password" class="form-text text-muted ml-1 mt-1">Passwor Minimal 4 Karakter.!</small>
           <?= form_error('password1', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
@@ -130,7 +133,10 @@
     </div>
   </div>
 </div>
+<!-- akhir moodal input data petugas -->
 
+
+<!-- modal update data petugas -->
 <?php foreach ($data as $petugas) : ?>
   <div class="modal fade" id="exampleModalEditPetugas<?= $petugas['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -145,7 +151,7 @@
           <?= form_open_multipart('petugas/editDataPetugas'); ?>
           <div class="form-group">
             <label for="nama">Nama</label>
-            <input type="text" name="nama" id="nama" value="<?= $petugas['nama'] ?>" class="form-control" value="<?= set_value('nama'); ?>">
+            <input type="text" name="nama" id="nama" value="<?= $petugas['nama'] ?>" class="form-control" value="<?= set_value('nama'); ?>" autocomplete="off">
             <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
           </div>
           <div class="form-group">
@@ -167,3 +173,4 @@
     </div>
   </div>
 <?php endforeach; ?>
+<!-- akhir modal update petugas -->

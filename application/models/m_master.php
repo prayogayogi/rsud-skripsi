@@ -6,7 +6,12 @@ class M_master extends CI_Model
   // tampil data
   public function tampil_data()
   {
-    return $this->db->get('data_donor');
+    return $this->db->get('data_donor', 10, 10);
+  }
+
+  public function tampil_data_pagination($start, $mulai)
+  {
+    return $this->db->get('data_donor', $start, $mulai);
   }
 
 

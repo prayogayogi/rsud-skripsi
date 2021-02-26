@@ -4,7 +4,7 @@
       <div class="col-12 col-md-6">
 
         <h3>Data Admin</h3>
-        <p class="text-subtitle text-muted">Data Admin Ini Merupkan, Data Admin Yang Bisa mengAkses Sistem Ini.</p>
+        <p class="text-subtitle text-muted">Data Admin Ini Merupkan, Data Admin Yang Bisa Mengakses Sistem.</p>
       </div>
       <?php
 
@@ -84,8 +84,10 @@
       </div>
     </div>
   </div>
-  <!-- Striped rows end -->
 </div>
+<!-- Striped rows end -->
+
+<!-- MODAL -->
 
 <!-- Modal tambah data admin-->
 <div class="modal fade" id="exampleModalDataAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -101,17 +103,18 @@
         <?= form_open_multipart('admin/tambahAdmin') ?>
         <div class="form-group">
           <label for="nama">Nama</label>
-          <input type="text" name="nama" id="nama" placeholder="Masukan Nama" class="form-control" value="<?= set_value('nama'); ?>">
+          <input type="text" name="nama" id="nama" placeholder="Masukan Nama" class="form-control" value="<?= set_value('nama'); ?>" autocomplete="off">
           <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="text" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>">
+          <input type="text" name="email" id="email" placeholder="Masukan Email" class="form-control" value="<?= set_value('email'); ?>" autocomplete="off">
           <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" name="password1" id="password" placeholder="Masukan password" class="form-control">
+          <small id="password" class="form-text text-muted ml-1 mt-1">Passwor Minimal 4 Karakter.!</small>
           <?= form_error('password1', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
@@ -131,9 +134,9 @@
     </div>
   </div>
 </div>
+<!-- akhir modal tambah data admin -->
 
-
-<!-- Modal edit data -->
+<!-- Modal edit data admin-->
 <?php foreach ($data as $admin) : ?>
   <div class="modal fade" id="exampleModalEditAdmin<?= $admin['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -149,7 +152,7 @@
           <input type="hidden" name="id" value="<?= $admin['id']; ?>">
           <div class="form-group">
             <label for="nama">Nama</label>
-            <input type="text" value="<?= $admin['nama']; ?>" name="nama" id="nama" placeholder="Masukan Nama" class="form-control" value="<?= set_value('nama'); ?>">
+            <input type="text" value="<?= $admin['nama']; ?>" name="nama" id="nama" placeholder="Masukan Nama" class="form-control" value="<?= set_value('nama'); ?>" autocomplete="off">
             <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
           </div>
           <div class="form-group">
@@ -171,3 +174,4 @@
     </div>
   </div>
 <?php endforeach; ?>
+<!-- akhir modal edit data admin -->

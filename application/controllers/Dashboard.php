@@ -32,7 +32,45 @@ class Dashboard extends CI_Controller
   public function tambah_data_pendonor()
   {
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
-    $data['pendonor'] = $this->m_master->tampil_data()->result_array();
+    $data['numrows'] = $this->db->get('data_donor')->num_rows();
+    $config['base_url'] = 'http://localhost/rsud/dashboard/tambah_data_pendonor/index';
+    $config['total_rows'] = $data['numrows'];
+    $config['per_page'] = 7;
+
+
+    // style pagination B4
+    $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';
+    $config['full_tag_close'] = '</ul></nav>';
+
+    $config['first_link'] = 'First';
+    $config['first_tag_open'] = '<li class="page-item">';
+    $config['first_tag_close'] = '</li>';
+
+    $config['last_link'] = 'Last';
+    $config['last_tag_open'] = '<li class="page-item">';
+    $config['last_tag_close'] = '</li>';
+
+    $config['next_link'] = '&raquo';
+    $config['next_tag_open'] = '<li class="page-item">';
+    $config['next_tag_close'] = '</li>';
+
+    $config['prev_link'] = '&laquo';
+    $config['prev_tag_open'] = '<li class="page-item">';
+    $config['prev_tag_close'] = '</li>';
+
+    $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+    $config['cur_tag_close'] = '</a></li>';
+
+    $config['num_tag_open'] = '<li class="page-item">';
+    $config['num_tag_close'] = '</li>';
+
+    $config['attributes'] = array('class' => 'page-link');
+
+    $this->pagination->initialize($config);
+
+    $data['start'] = $this->uri->segment(4);
+    $data['pendonor'] = $this->m_master->tampil_data_pagination($config['per_page'], $data['start'])->result_array();
+
     $data['title'] = 'Tambah Data Pendonor';
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
@@ -80,24 +118,24 @@ class Dashboard extends CI_Controller
       $this->load->view('template/footer', $data);
     } else {
       $data = [
-        'nama_pendonor' => $this->input->post('nama_pendonor'),
-        'nama_pasien' => $this->input->post('nama_pasien'),
-        'ruang_pasien' => $this->input->post('ruang_pasien'),
-        'gol_darah' => $this->input->post('gol_darah'),
-        'alamat_pendonor' => $this->input->post('alamat'),
-        'agama' => $this->input->post('agama'),
-        'no_tali' => $this->input->post('no_tali'),
-        'pekerjaan' => $this->input->post('pekerjaan'),
-        'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-        'bb_tensi' => $this->input->post('bb_tensi'),
-        'hb' => $this->input->post('hb'),
+        'nama_pendonor' => $this->input->post('nama_pendonor', true),
+        'nama_pasien' => $this->input->post('nama_pasien', true),
+        'ruang_pasien' => $this->input->post('ruang_pasien', true),
+        'gol_darah' => $this->input->post('gol_darah', true),
+        'alamat_pendonor' => $this->input->post('alamat', true),
+        'agama' => $this->input->post('agama', true),
+        'no_tali' => $this->input->post('no_tali', true),
+        'pekerjaan' => $this->input->post('pekerjaan', true),
+        'jenis_kelamin' => $this->input->post('jenis_kelamin', true),
+        'bb_tensi' => $this->input->post('bb_tensi', true),
+        'hb' => $this->input->post('hb', true),
         'hiv' => ('-'),
         'hcv' => ('-'),
         'hbsag' => ('-'),
         'sypilis' => ('-'),
-        'tgl_donor' => strtotime($this->input->post('tgl_donor')),
-        'no_hp' => $this->input->post('no_hp'),
-        'petugas' => $this->input->post('petugas')
+        'tgl_donor' => strtotime($this->input->post('tgl_donor', true)),
+        'no_hp' => $this->input->post('no_hp', true),
+        'petugas' => $this->input->post('petugas', true)
       ];
       $this->m_tambah->tambahDataPendonor($data);
       $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
@@ -141,9 +179,9 @@ class Dashboard extends CI_Controller
     $data['user'] = $this->m_master->tampil_data()->result_array();
     $data['title'] = 'Dashboard';
 
-    $cari_berdasarkan = $this->input->post('cari_berdasarkan');
-    $yang_dicari = $this->input->post('yang_dicari');
-    if ($this->input->post('yang_dicari')) {
+    $cari_berdasarkan = $this->input->post('cari_berdasarkan', true);
+    $yang_dicari = $this->input->post('yang_dicari', true);
+    if ($this->input->post('yang_dicari', true)) {
       $data['user'] = $this->m_master->cariData($yang_dicari, $cari_berdasarkan);
     }
     $this->load->view('template/sidebar', $data);

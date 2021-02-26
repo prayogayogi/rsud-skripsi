@@ -20,11 +20,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Tangkapan Flash Data -->
     <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
     <div class="flash-dataPetugas" data-flashdata="<?= $this->session->flashdata('pesanPetugas'); ?>"></div>
     <div class="flash-data_password" data-flashdata="<?= $this->session->flashdata('password'); ?>"></div>
     <div class="flash-data_passwordNot" data-flashdata="<?= $this->session->flashdata('passwordNot'); ?>"></div>
-
+    <div class="flash-datalogin" data-flashdata="<?= $this->session->flashdata('pesanlogin'); ?>"></div>
+    <!-- Akhir Tangkapan Flash Data -->
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
@@ -70,11 +72,11 @@
         <div class="modal-body d-flex justify-content-center">
           <div class="card" style="width: 25rem;">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item mt-4">NAMA : <small class="h5"><?= $user1['nama']; ?></small>
+              <li class="list-group-item mt-4">NAMA <small class="h5 ml-5">: <?= $user1['nama']; ?></small>
               </li>
-              <li class="list-group-item mt-4">EMAIL : <small class="h5"><?= $user1['email']; ?></small></li>
-              <li class="list-group-item mt-4">Tgl Masuk : <small class="h5"><?= date('d-M-Y', ($user1['tgl_daftar'])); ?></small></li>
-              <li class="list-group-item mt-4">JABATAN : <small class="h5">
+              <li class="list-group-item mt-4">EMAIL <small class="h5 ml-5">: <?= $user1['email']; ?></small></li>
+              <li class="list-group-item mt-4">TGL MASUK <small class="h5 ml-2">: <?= date('d-M-Y', ($user1['tgl_daftar'])); ?></small></li>
+              <li class="list-group-item mt-4">JABATAN <small class="h5 ml-4">:
 
                   <?php
                   $jabatan = $user1['role_id'];
@@ -113,12 +115,12 @@
             <input type="hidden" name="id" value="<?= $user1['id']; ?>">
             <div class="modal-body">
               <div class="form-group">
-                <label for="nama">Password</label>
+                <label for="nama" class="ml-1">Password</label>
                 <input type="password" name="passwordLama" id="nama" placeholder="Password" class="form-control" value="<?= set_value('nama'); ?>">
                 <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
               </div>
               <div class="form-group">
-                <label for="nama">Password Baru</label>
+                <label for="nama" class="ml-1">Password Baru</label>
                 <input type="password" name="passwordBaru" id="nama" placeholder="Password Baru" class="form-control" value="<?= set_value('nama'); ?>">
                 <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
               </div>
