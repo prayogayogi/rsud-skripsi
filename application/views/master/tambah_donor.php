@@ -10,13 +10,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </section>
     <section class="content">
       <a href="<?= base_url('dashboard/tambahPendonor') ?>" class="btn btn-sm btn-primary"><i class="fa fa-plus mr-1"></i>Tambah Data</a>
-      <!-- <button href="http://" class="btn btn-primary" data-toggle="modal" data-target="#exampleModaltambah"><i class="fa fa-plus mr-2"></i>Tambah Data</button> -->
-      <!-- <div class="navbar-from float-right ">
-        <?= form_open('dashboard/cari') ?>
-        <input type=" text" placeholder="Cari" class="form" name="cari">
-        <button type="submit" class="btn btn-sm btn-primary ">Cari data</button>
-        <?= form_close() ?>
-      </div> -->
       <div class="table-responsive">
         <table class="table">
           <tr>
@@ -26,7 +19,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <th>Jenis Kelamin</th>
             <th>Alamat</th>
             <th>No Hp</th>
-            <th>Agama</th>
+            <th>tgl donor</th>
             <th>Action</th>
             <th>Kelayakan</th>
           </tr>
@@ -47,13 +40,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php } ?>
 
               </td>
-              <td><?= $data['agama'] ?></td>
+              <td><?= date('d-m-Y', $data['tgl_donor']) ?></td>
               <td>
                 <a href="" data-toggle="modal" data-target="#exampleModalEditDataPendonor<?= $data['id']; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                 <!-- <br>
                 <a href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" class="btn btn-sm btn-danger mt-1"><i class="fas fa-trash-alt"></i></a>
                 <br>
                 <a href="" data-toggle="modal" data-target="#exampleModaldetail" class="btn btn-sm btn-success mt-1"><i class="fas fa-search-plus"></i></a> -->
+
+
                 <!-- <div class="btn-group dropleft">
                   <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-list-alt"></i>
@@ -65,18 +60,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <br>
                     <a href="" data-toggle="modal" data-target="#exampleModaldetail" class="btn btn-sm btn-success mt-1"><i class="fas fa-search-plus"></i></a>
                   </div>
-                </div> -->
+                </div>
               </td>
               <?php
               if (time() >= ($data['tgl_donor'] + 7776000)) { ?>
 
                 <!-- bisa donor -->
-                <td> <span class="badge badge-pill badge-info bg-info">Bisa</span></td>
-              <?php } else { ?>
+              <td> <span class="badge badge-pill badge-info bg-info">Bisa</span></td>
+            <?php } else { ?>
 
-                <!-- tidak bisa donor -->
-                <td> <span class="badge badge-pill badge-info bg-danger"> Tidak bisa</span></td>
-              <?php } ?>
+              <!-- tidak bisa donor -->
+              <td> <span class="badge badge-pill badge-info bg-danger"> Tidak bisa</span></td>
+            <?php } ?>
             </tr>
           <?php endforeach; ?>
         </table>

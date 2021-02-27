@@ -92,7 +92,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type=" button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type=" button" class="btn btn-primary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -116,13 +116,13 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="nama" class="ml-1">Password</label>
-                <input type="password" name="passwordLama" id="nama" placeholder="Password" class="form-control" value="<?= set_value('nama'); ?>">
-                <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
+                <input type="password" name="passwordLama" id="nama" placeholder="Password" class="form-control" value="<?= set_value('passwordLama'); ?>">
+                <?= form_error('passwordLama', '<small class="text-danger ml-1">', '</small>'); ?>
               </div>
               <div class="form-group">
                 <label for="nama" class="ml-1">Password Baru</label>
-                <input type="password" name="passwordBaru" id="nama" placeholder="Password Baru" class="form-control" value="<?= set_value('nama'); ?>">
-                <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
+                <input type="password" name="passwordBaru" id="nama" placeholder="Password Baru" class="form-control" value="<?= set_value('passwordBaru'); ?>">
+                <?= form_error('passwordBaru', '<small class="text-danger ml-1">', '</small>'); ?>
               </div>
             </div>
           </div>

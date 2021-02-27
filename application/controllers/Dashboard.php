@@ -64,7 +64,7 @@ class Dashboard extends CI_Controller
     $config['num_tag_open'] = '<li class="page-item">';
     $config['num_tag_close'] = '</li>';
 
-    $config['attributes'] = array('class' => 'page-link');
+    $config['attributes'] = ['class' => 'page-link'];
 
     $this->pagination->initialize($config);
 
@@ -117,12 +117,13 @@ class Dashboard extends CI_Controller
       $this->load->view('master/form_view_tambah_pendonor', $data);
       $this->load->view('template/footer', $data);
     } else {
+      $data['alamat'] = str_replace(' ', '', $this->input->post('alamat', true));
       $data = [
         'nama_pendonor' => $this->input->post('nama_pendonor', true),
         'nama_pasien' => $this->input->post('nama_pasien', true),
         'ruang_pasien' => $this->input->post('ruang_pasien', true),
         'gol_darah' => $this->input->post('gol_darah', true),
-        'alamat_pendonor' => $this->input->post('alamat', true),
+        'alamat_pendonor' => $data['alamat'],
         'agama' => $this->input->post('agama', true),
         'no_tali' => $this->input->post('no_tali', true),
         'pekerjaan' => $this->input->post('pekerjaan', true),
@@ -138,9 +139,7 @@ class Dashboard extends CI_Controller
         'petugas' => $this->input->post('petugas', true)
       ];
       $this->m_tambah->tambahDataPendonor($data);
-      $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-      Data Berhasil di tamabah.
-    </div>');
+      $this->session->set_flashdata('pesan', 'Data Berhasil di tamabah.');
       redirect('dashboard/tambah_data_pendonor');
     }
   }
@@ -152,19 +151,26 @@ class Dashboard extends CI_Controller
       'id' => $id
     ];
     $this->m_master->hapusDataPendonor($id_hapus);
-    $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-    Berhasil Di Hapus.
-  </div>');
+    $this->session->set_flashdata('pesan', 'Berhasil Di Hapus.');
     redirect('dashboard/tambah_data_pendonor');
   }
 
   // Ubah Data Pendonor
-  public function ubahDataPendonor()
+  public function editDataPendonor()
   {
-    $this->m_master->ubahDataPendonor();
-    $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-    Data Berhasil di ubah.
-  </div>');
+    $data = [
+      'nama' => $this->input->post('nama'),
+      'gol_darah' => $this->input->post('gol_darah'),
+      'alamat' => $this->input->post('alamat'),
+      'hiv' => $this->input->post('hiv'),
+      'hcv' => $this->input->post('hcv'),
+      'hbsag' => $this->input->post('hbsag'),
+      'sypilis' => $this->input->post('sypilis'),
+      'no_hp' => $this->input->post('no_hp')
+    ];
+
+    $this->db->update($data);
+    $$this->session->set_flashdata('pesan', ' Data Berhasil di ubah.');
     redirect('dashboard/tambah_data_pendonor');
   }
 

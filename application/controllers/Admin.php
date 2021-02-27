@@ -118,25 +118,41 @@ class Admin extends CI_Controller
     $where = [
       'id' => $this->input->post('id')
     ];
-    $passwordLama = $this->input->post('passwordLama', true);
-    $passwordBaru = $this->input->post('passwordBaru', true);
-    $database = $this->db->get_where('user', $where)->row_array();
+    $this->form_validation->set_rules('passwordLama', 'Password Lama', 'required|trim|min_length[4]');
+    $this->form_validation->set_rules('passwordBaru', 'Password Baru', 'required|trim|min_length[4]');
 
-    if (password_verify($passwordLama, $database['password'])) {
-      if ($passwordLama != $passwordBaru) {
-        $data = [
-          'password' => password_hash($this->input->post('passwordBaru', true), PASSWORD_DEFAULT)
-        ];
-        $this->m_master->ubahPasswordAdmin($where, $data);
-        $this->session->set_flashdata('password', 'Diubah');
-        redirect('dashboard');
+    if ($this->form_validation->run() == FALSE) {
+      $data['gol_A'] = $this->m_master->hitungJumlahGolA();
+      $data['gol_B'] = $this->m_master->hitungJumlahGolB();
+      $data['gol_AB'] = $this->m_master->hitungJumlahGolAB();
+      $data['gol_O'] = $this->m_master->hitungJumlahGolO();
+      $data['user1'] = $this->m_master->dataAdmin()->row_array();
+      $data['user'] = $this->m_master->tampil_data()->result_array();
+      $data['title'] = 'Dashboard';
+      $this->load->view('template/sidebar', $data);
+      $this->load->view('template/header', $data);
+      $this->load->view('master/dashboard', $data);
+      $this->load->view('template/footer', $data);
+    } else {
+      $passwordLama = $this->input->post('passwordLama', true);
+      $passwordBaru = $this->input->post('passwordBaru', true);
+      $database = $this->db->get_where('user', $where)->row_array();
+      if (password_verify($passwordLama, $database['password'])) {
+        if ($passwordLama != $passwordBaru) {
+          $data = [
+            'password' => password_hash($this->input->post('passwordBaru', true), PASSWORD_DEFAULT)
+          ];
+          $this->m_master->ubahPasswordAdmin($where, $data);
+          $this->session->set_flashdata('password', 'Diubah');
+          redirect('dashboard');
+        } else {
+          $this->session->set_flashdata('passwordNot', 'Sama Dengan Password Lama');
+          redirect('dashboard');
+        }
       } else {
-        $this->session->set_flashdata('passwordNot', 'Sama Dengan Password Lama');
+        $this->session->set_flashdata('passwordNot', 'Salah...!');
         redirect('dashboard');
       }
-    } else {
-      $this->session->set_flashdata('passwordNot', 'Salah...!');
-      redirect('dashboard');
     }
   }
 }

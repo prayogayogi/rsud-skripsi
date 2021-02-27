@@ -85,8 +85,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <form action="<?= base_url('dashboard/cariData') ?>" method="post">
                 <div class="input-group mb-3">
                   <div class="input-group-append">
-                    <select class="custom-select form-control" name="cari_berdasarkan">
-                      <option value="">C. Berdasarkan</option>
+                    <select class="custom-select form-control btn btn-sm btn-outline-primary" name="cari_berdasarkan">
+                      <option value="">Cari Berdasarkan</option>
                       <option value="nama_pendonor">Nama</option>
                       <option value="gol_darah">Gol Darah</option>
                       <option value="alamat_pendonor">Alamat</option>
@@ -115,7 +115,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <tr>
                   <th>Nama</th>
                   <th>Gol Darah</th>
-                  <th>Gender</th>
+                  <th>Agama</th>
                   <th>Alamat</th>
                   <th>No Hp</th>
                   <th>Kelayakan</th>
@@ -155,7 +155,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </span></td>
                     <?php } ?>
 
-                    <td><?= $row['jenis_kelamin'] ?></td>
+                    <td><?= $row['agama'] ?></td>
                     <td><?= $row['alamat_pendonor'] ?></td>
 
                     <?php if ($row['no_hp'] != 0) { ?>
