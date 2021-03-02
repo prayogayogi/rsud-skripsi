@@ -99,6 +99,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="modal-body">
               <form action="<?= base_url('dashboard/editDataPendonor') ?>" method="post">
                 <div class="form-group">
+                  <input type="hidden" name="id" value="<?= $data['id'] ?>">
                   <label for="nama">Nama</label>
                   <input type="text" name="nama" id="nama" value="<?= $data['nama_pendonor'] ?>" class="form-control">
                 </div>
@@ -109,7 +110,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <label class="input-group-text" for="inputGroupSelect01" name="gol_darah">Pilih</label>
                     </div>
                     <select class="custom-select form-control" id="inputGroupSelect01" name="gol_darah">
-                      <option selected>Gol Darah</option>
+                      <option value="">Gol Darah</option>
                       <option value="A">Gol A</option>
                       <option value="B">Gol B</option>
                       <option value="AB">Gol AB</option>

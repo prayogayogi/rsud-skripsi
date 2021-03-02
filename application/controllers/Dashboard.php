@@ -210,8 +210,12 @@ class Dashboard extends CI_Controller
       'sypilis' => $this->input->post('sypilis'),
       'no_hp' => $this->input->post('no_hp')
     ];
-
-    $this->m_master->EditDataPendonor($data);
+    $where = [
+      'id' => $this->input->post('id', true)
+    ];
+    $this->db->set($data);
+    $this->db->where($where);
+    $this->db->update('data_donor');
     $this->session->set_flashdata('pesan', ' Data Berhasil di ubah.');
     redirect('dashboard/tambah_data_pendonor');
   }

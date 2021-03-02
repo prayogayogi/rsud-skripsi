@@ -43,7 +43,7 @@ class M_master extends CI_Model
   // Edit Data Pendonor
   public function EditDataPendonor($data)
   {
-    $this->db->update('data_donor', $data);
+    // $this->db->update('data_donor', $data);
   }
   // input admin
   public function inputAdmin($data)
