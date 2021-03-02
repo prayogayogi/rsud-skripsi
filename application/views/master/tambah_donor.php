@@ -31,7 +31,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <td><?= $data['nama_pendonor'] ?></td>
               <td><?= $data['gol_darah'] ?></td>
               <td><?= $data['jenis_kelamin'] ?></td>
-              <td><?= $data['alamat_pendonor'] ?></td>
+              <td>
+                <?php if ($data['alamat_pendonor'] != '') { ?>
+                  <?= $data['alamat_pendonor'] ?>
+                <?php } else { ?>
+                  <a class="text-info">Tidak Ada</a>
+                <?php } ?>
+              </td>
               <td>
                 <?php if ($data['no_hp'] != ('')) { ?>
                   <?= $data['no_hp']; ?>
@@ -60,18 +66,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <br>
                     <a href="" data-toggle="modal" data-target="#exampleModaldetail" class="btn btn-sm btn-success mt-1"><i class="fas fa-search-plus"></i></a>
                   </div>
-                </div>
+                </div> -->
               </td>
               <?php
-              if (time() >= ($data['tgl_donor'] + 7776000)) { ?>
+              if (time() >= ($data['tgl_donor'] + 7776000) && $data['hiv'] === ('-') && $data['hcv'] === ('-') && $data['hbsag'] === ('-') && $data['sypilis'] === ('-')) { ?>
 
                 <!-- bisa donor -->
-              <td> <span class="badge badge-pill badge-info bg-info">Bisa</span></td>
-            <?php } else { ?>
+                <td> <span class="badge badge-pill badge-info bg-info">Bisa</span></td>
+              <?php } else { ?>
 
-              <!-- tidak bisa donor -->
-              <td> <span class="badge badge-pill badge-info bg-danger"> Tidak bisa</span></td>
-            <?php } ?>
+                <!-- tidak bisa donor -->
+                <td> <span class="badge badge-pill badge-info bg-danger"> Tidak bisa</span></td>
+              <?php } ?>
             </tr>
           <?php endforeach; ?>
         </table>

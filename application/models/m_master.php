@@ -3,10 +3,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_master extends CI_Model
 {
-  // tampil data
-  public function tampil_data()
+  public function tampil()
   {
-    return $this->db->get('data_donor', 8, 10);
+    return $this->db->get('data_donor');
+  }
+
+  // tampil data pagination
+  public function tampil_data($perpag, $start)
+  {
+    return $this->db->get('data_donor', $perpag, $start);
   }
 
   public function tampil_data_pagination($start, $mulai)
@@ -35,7 +40,11 @@ class M_master extends CI_Model
     $this->db->delete('data_donor', $id);
   }
 
-
+  // Edit Data Pendonor
+  public function EditDataPendonor($data)
+  {
+    $this->db->update('data_donor', $data);
+  }
   // input admin
   public function inputAdmin($data)
   {
@@ -61,7 +70,7 @@ class M_master extends CI_Model
   public function cariData($yang_dicari, $cari_berdasarkan)
   {
     $this->db->from('data_donor');
-    if ($cari_berdasarkan === 'gol_darah') {
+    if ($cari_berdasarkan) {
       $this->db->where($cari_berdasarkan, $yang_dicari);
     } else if ($cari_berdasarkan === "") {
       $this->db->like('nama_pendonor', $yang_dicari);
@@ -118,5 +127,14 @@ class M_master extends CI_Model
     } else {
       return 0;
     }
+  }
+
+
+  // get stok darah
+  public function getStokDarah()
+  {
+    $data = ['nama_pasien' => 'stok utd'];
+    $query = $this->db->get_where('data_donor', $data);
+    return $query;
   }
 }

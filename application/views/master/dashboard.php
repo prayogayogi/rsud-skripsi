@@ -118,7 +118,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <th>Agama</th>
                   <th>Alamat</th>
                   <th>No Hp</th>
-                  <th>Kelayakan</th>
+                  <th>Bisa Donor</th>
                 </tr>
               </thead>
               <tbody>
@@ -156,19 +156,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <?php } ?>
 
                     <td><?= $row['agama'] ?></td>
-                    <td><?= $row['alamat_pendonor'] ?></td>
+                    <td>
+                      <?php if ($row['alamat_pendonor'] != '') { ?>
+                        <?= $row['alamat_pendonor'] ?>
+                      <?php } else { ?>
+                        <a class="text-info">Tidak Ada</a>
+                      <?php } ?>
+                    </td>
 
                     <?php if ($row['no_hp'] != 0) { ?>
                       <td><?= $row['no_hp'] ?></td>
                     <?php } else { ?>
                       <td><a class="text-info">Tidak Ada</a></td>
                     <?php } ?>
+
                     <?php
-                    if (time() >= ($row['tgl_donor'] + 7776000)) { ?>
+                    if (time() >= ($row['tgl_donor'] + 7776000) && $row['hiv'] === ('-') && $row['hcv'] === ('-') && $row['hbsag'] === ('-') && $row['sypilis'] === ('-')) { ?>
 
                       <!-- bisa donor -->
                       <td> <span class="badge badge-pill badge-info bg-info">Bisa</span></td>
                     <?php } else { ?>
+
                       <!-- tidak bisa donor -->
                       <td> <span class="badge badge-pill badge-info bg-danger"> Tidak bisa</span></td>
                     <?php } ?>
@@ -177,6 +185,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               </tbody>
             </table>
           </div>
+          <?= $this->pagination->create_links(); ?>
         </div>
       </div>
     </div>
@@ -195,11 +204,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
       </div>
       <div class="card widget-todo">
-        <div class="card-header border-bottom d-flex justify-content-between align-items-center">
-          <h4 class="card-title d-flex">
-            <i class='bx bx-check font-medium-5 pl-25 pr-75'></i>Stok Darah
-          </h4>
-
+        <div class="card">
+          <div class="card-header text-center">
+            <h3>Stok Darah</h3>
+          </div>
+          <div class="card-body">
+            <div id="StokDarah"></div>
+            <div class="text-center">
+              <h1 class='text-green'>
+                <?= $stokDarah; ?>
+              </h1>
+            </div>
+          </div>
         </div>
         <div class="card-body px-0 py-1">
           <table class='table table-borderless'>

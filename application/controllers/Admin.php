@@ -7,6 +7,7 @@ class Admin extends CI_Controller
     parent::__construct();
     $this->load->library('form_validation');
     $this->load->model('m_master');
+    $this->load->library('pagination');
   }
 
   // View Data Admin
@@ -127,8 +128,50 @@ class Admin extends CI_Controller
       $data['gol_AB'] = $this->m_master->hitungJumlahGolAB();
       $data['gol_O'] = $this->m_master->hitungJumlahGolO();
       $data['user1'] = $this->m_master->dataAdmin()->row_array();
-      $data['user'] = $this->m_master->tampil_data()->result_array();
+      $data['numrows'] = $this->db->get('data_donor')->num_rows();
+
+      // untuk get stok darah
+      $data['stokDarah'] = $this->m_master->getStokDarah()->result_array();
+
+      // akhir get stok darah
       $data['title'] = 'Dashboard';
+
+      // Pagination untuk dashboard
+      $config['base_url'] = 'http://localhost/rsud/dashboard/index';
+      $config['total_rows'] = $data['numrows'];
+      $config['per_page'] = 10;
+
+
+      // customes pagiantion
+      $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center mt-3">';
+      $config['full_tag_close'] = '</ul></nav>';
+
+      $config['first_link'] = 'First';
+      $config['first_tag_open'] = '<li class="page-item">';
+      $config['first_tag_close'] = '</li>';
+
+      $config['last_link'] = 'Last';
+      $config['last_tag_open'] = '<li class="page-item">';
+      $config['last_tag_close'] = '</li>';
+
+      $config['next_link'] = '&raquo';
+      $config['next_tag_open'] = '<li class="page-item">';
+      $config['next_tag_close'] = '</li>';
+
+      $config['prev_link'] = '&laquo';
+      $config['prev_tag_open'] = '<li class="page-item">';
+      $config['prev_tag_close'] = '</li>';
+
+      $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+      $config['cur_tag_close'] = '</a></li>';
+
+      $config['num_tag_open'] = '<li class="page-item">';
+      $config['num_tag_close'] = '</li>';
+
+      $config['attributes'] = ['class' => 'page-link'];
+      $this->pagination->initialize($config);
+      $data['start'] = $this->uri->segment(3);
+      $data['user'] = $this->m_master->tampil_data($config['per_page'], $data['start'])->result_array();
       $this->load->view('template/sidebar', $data);
       $this->load->view('template/header', $data);
       $this->load->view('master/dashboard', $data);
