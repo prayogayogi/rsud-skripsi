@@ -192,7 +192,7 @@ class Dashboard extends CI_Controller
       'id' => $id
     ];
     $this->m_master->hapusDataPendonor($id_hapus);
-    $this->session->set_flashdata('pesan', 'Berhasil Di Hapus.');
+    $this->session->set_flashdata('dataPendonor', 'Berhasil Di Hapus.');
     redirect('dashboard/tambah_data_pendonor');
   }
 

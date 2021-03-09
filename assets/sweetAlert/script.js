@@ -10,6 +10,16 @@ const flashdata = $('.flash-data').data('flashdata');
     )
   }
 
+// untuk data Pendonor
+// const flashdata = $('.flash-data-pendonor').data('flashdata');
+//   if (flashdata) {
+//     Swal.fire(
+//       'Data Pendonor',
+//       flashdata,
+//       'success'
+//     )
+//   }
+
 
   // Untuk Ubah Password
   const flashdatapassword = $('.flash-data_password').data('flashdata');
@@ -62,6 +72,15 @@ const flashdata = $('.flash-data').data('flashdata');
       'success'
     )
   }
-
+  
+  // // register
+  //   const pesanTambahData = $('.flash-pesanTambahData').data('flashdata');
+  //   if (flashdatalogin) {
+  //     Swal.fire(
+  //       flashdatalogin,
+  //       '',
+  //       'success'
+  //     )
+  //   }
 
   

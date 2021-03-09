@@ -22,6 +22,7 @@
 
     <!-- Tangkapan Flash Data -->
     <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
+    <!-- <div class="flash-data-pendonor" data-flashdata="<?= $this->session->flashdata('dataPendonor'); ?>"></div> -->
     <div class="flash-dataPetugas" data-flashdata="<?= $this->session->flashdata('pesanPetugas'); ?>"></div>
     <div class="flash-data_password" data-flashdata="<?= $this->session->flashdata('password'); ?>"></div>
     <div class="flash-data_passwordNot" data-flashdata="<?= $this->session->flashdata('passwordNot'); ?>"></div>
