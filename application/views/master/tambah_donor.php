@@ -33,7 +33,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <th>Jenis Kelamin</th>
             <th>Alamat</th>
             <th>No Hp</th>
-            <th>Tgl donor</th>
             <th>Action</th>
             <th>Bisa Donor</th>
           </tr>
@@ -60,12 +59,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php } ?>
 
               </td>
-              <td><?= date('d-m-Y', $data['tgl_donor']) ?></td>
               <td>
 
                 <div class="btn-group">
                   <div class="dropdown">
-                    <button class="btn btn-success dropdown-toggle mr-1 mb-1" type="button" data-toggle="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle mr-1 mb-1" type="button" data-toggle="dropdown">
                       Option
                     </button>
                     <div class="dropdown-menu">

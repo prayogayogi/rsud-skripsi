@@ -9,16 +9,16 @@ class M_master extends CI_Model
   }
 
   // tampil data pagination
-  public function tampil_data($perpag, $start, $kyword = null, $cari_berdasarkan)
+  public function tampil_data($perpag, $start, $kyword)
   {
-    // $this->db->from('data_donor');
     if ($kyword) {
-      $this->db->where($cari_berdasarkan, $kyword);
+      $this->db->where('gol_darah', $kyword);
+      $this->db->or_where_in('alamat_pendonor', $kyword);
     };
     return $this->db->get('data_donor', $perpag, $start);
   }
 
-  public function tampil_data_pagination($start, $mulai, $cari = null)
+  public function tampil_data_pagination($start, $mulai, $cari)
   {
     if ($cari) {
       $this->db->like('gol_darah', $cari);

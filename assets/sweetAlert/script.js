@@ -11,14 +11,14 @@ const flashdata = $('.flash-data').data('flashdata');
   }
 
 // untuk data Pendonor
-// const flashdata = $('.flash-data-pendonor').data('flashdata');
-//   if (flashdata) {
-//     Swal.fire(
-//       'Data Pendonor',
-//       flashdata,
-//       'success'
-//     )
-//   }
+const flashdataa = $('.flash-dataa').data('flashdata');
+  if (flashdataa) {
+    Swal.fire(
+      'Data Pendonor',
+      flashdataa,
+      'success'
+    )
+  }
 
 
   // Untuk Ubah Password

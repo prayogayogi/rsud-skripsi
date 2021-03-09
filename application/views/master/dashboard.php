@@ -84,16 +84,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="col-7">
               <form action="<?= base_url('dashboard') ?>" method="POST">
                 <div class="input-group mb-3">
-                  <div class="input-group-append">
-                    <select class="custom-select form-control btn btn-sm btn-outline-primary" name="cari_berdasarkan">
-                      <option value="">Cari Berdasarkan</option>
+                  <!-- <div class="input-group-append">
+                    <select class="custom-select form-control btn btn-sm btn-outline-primary" name="cariBerdasarkan">
+                      <option value="gol_darah">Cari Berdasarkan</option>
                       <option value="nama_pendonor">Nama</option>
                       <option value="gol_darah">Gol Darah</option>
                       <option value="alamat_pendonor">Alamat</option>
                     </select>
-                  </div>
+                  </div> -->
                   <div class="input-group-append">
-                    <input type="text" name="yang_dicari" style="width: 250px" class="form-control ml-1" placeholder="Search Data" autofocus autocomplete="off">
+                    <input type="text" name="kyword" style="width: 250px" class="form-control ml-1" placeholder="Search Data" autofocus autocomplete="off">
                   </div>
                   <div class="input-group-append">
                     <button class="btn btn-primary ml-2" type="submit" id="button-addon2">Search</button>

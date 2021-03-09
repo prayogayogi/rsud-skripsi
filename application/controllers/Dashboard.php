@@ -14,31 +14,23 @@ class Dashboard extends CI_Controller
   // Tampilan Dashboard Utama
   public function index()
   {
-    $data['numrows'] = $this->db->get('data_donor')->num_rows();
-
-
-    // Ambil Data Dari Form
-    $data['kyword'] = $this->input->post('yang_dicari');
-    $data['cari_berdasarkan'] = $this->input->post('cari_berdasarkan');
-
-    if ($this->input->post('yang_dicari') && $this->input->post('cari_berdasarkan')) {
-      $data['cari_berdasarkan'] = $this->session->set_userdata('cari_berdasarkan', $data['cari_berdasarkan']);
-      $data['kyword'] = $this->input->post('yang_dicari');
-      $this->session->set_userdata('kyword', $data['kyword']);
+    if ($this->input->post('kyword')) {
+      $data['inputanCari'] = $this->input->post('kyword');
+      $this->session->set_userdata('kunci', $data['inputanCari']);
     } else {
-      $data['kyword'] = null;
-      // $this->session->userdata('kyword');
+      $data['inputanCari'] = $this->session->userdata('kunci');
     }
 
-    $this->db->like('gol_darah', $data['kyword']);
+    // var_dump($da);
+    // var_dump($data['inputanCari']);
+    $this->db->like('gol_darah', $data['inputanCari']);
     $this->db->from('data_donor');
     $config['total_rows'] = $this->db->count_all_results();
     $config['per_page'] = 10;
 
     // Pagination untuk dashboard
     $config['base_url'] = 'http://localhost/rsud/dashboard/index';
-    $config['total_rows'] = $data['numrows'];
-
+    // $config['total_rows'] = $data['numrows'];
 
     // customes pagiantion
     $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center mt-3">';
@@ -69,13 +61,16 @@ class Dashboard extends CI_Controller
     $config['attributes'] = ['class' => 'page-link'];
     $this->pagination->initialize($config);
     $data['start'] = $this->uri->segment(3);
-    $data['user'] = $this->m_master->tampil_data($config['per_page'], $data['start'], $data['kyword'], $data['cari_berdasarkan'])->result_array();
+    $data['user'] = $this->m_master->tampil_data($config['per_page'], $data['start'], $data['inputanCari'])->result_array();
+
+    // Tampilan view
     $data['gol_A'] = $this->m_master->hitungJumlahGolA();
     $data['gol_B'] = $this->m_master->hitungJumlahGolB();
     $data['gol_AB'] = $this->m_master->hitungJumlahGolAB();
     $data['gol_O'] = $this->m_master->hitungJumlahGolO();
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['title'] = 'Dashboard';
+
     // untuk get stok darah
     $data['stokDarah'] = $this->m_master->getStokDarah()->num_rows();
     // akhir get stok darah
@@ -90,7 +85,7 @@ class Dashboard extends CI_Controller
   public function tambah_data_pendonor()
   {
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
-    $data['numrows'] = $this->db->get('data_donor')->num_rows();
+    // $data['numrows'] = $this->db->get('data_donor')->num_rows();
 
     // Untuk Ambil Data Kyword Cari
     if ($this->input->post('kyword')) {
@@ -180,7 +175,7 @@ class Dashboard extends CI_Controller
         'petugas' => $this->input->post('petugas', true)
       ];
       $this->m_tambah->tambahDataPendonor($data);
-      $this->session->set_flashdata('pesan', 'Data Berhasil di tamabah.');
+      $this->session->set_flashdata('data', 'Berhasil di tamabah.');
       redirect('dashboard/tambah_data_pendonor');
     }
   }
@@ -192,7 +187,7 @@ class Dashboard extends CI_Controller
       'id' => $id
     ];
     $this->m_master->hapusDataPendonor($id_hapus);
-    $this->session->set_flashdata('dataPendonor', 'Berhasil Di Hapus.');
+    $this->session->set_flashdata('data', 'Berhasil Di Hapus.');
     redirect('dashboard/tambah_data_pendonor');
   }
 
@@ -215,7 +210,7 @@ class Dashboard extends CI_Controller
     $this->db->set($data);
     $this->db->where($where);
     $this->db->update('data_donor');
-    $this->session->set_flashdata('pesan', ' Data Berhasil di ubah.');
+    $this->session->set_flashdata('data', 'Berhasil di ubah.');
     redirect('dashboard/tambah_data_pendonor');
   }
 
