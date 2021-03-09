@@ -82,7 +82,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
             <div class="col-7">
-              <form action="<?= base_url('dashboard/cariData') ?>" method="post">
+              <form action="<?= base_url('dashboard') ?>" method="POST">
                 <div class="input-group mb-3">
                   <div class="input-group-append">
                     <select class="custom-select form-control btn btn-sm btn-outline-primary" name="cari_berdasarkan">

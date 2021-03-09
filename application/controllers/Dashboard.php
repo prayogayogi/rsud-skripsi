@@ -14,23 +14,30 @@ class Dashboard extends CI_Controller
   // Tampilan Dashboard Utama
   public function index()
   {
-    $data['gol_A'] = $this->m_master->hitungJumlahGolA();
-    $data['gol_B'] = $this->m_master->hitungJumlahGolB();
-    $data['gol_AB'] = $this->m_master->hitungJumlahGolAB();
-    $data['gol_O'] = $this->m_master->hitungJumlahGolO();
-    $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['numrows'] = $this->db->get('data_donor')->num_rows();
 
-    // untuk get stok darah
-    $data['stokDarah'] = $this->m_master->getStokDarah()->num_rows();
 
-    // akhir get stok darah
-    $data['title'] = 'Dashboard';
+    // Ambil Data Dari Form
+    $data['kyword'] = $this->input->post('yang_dicari');
+    $data['cari_berdasarkan'] = $this->input->post('cari_berdasarkan');
+
+    if ($this->input->post('yang_dicari') && $this->input->post('cari_berdasarkan')) {
+      $data['cari_berdasarkan'] = $this->session->set_userdata('cari_berdasarkan', $data['cari_berdasarkan']);
+      $data['kyword'] = $this->input->post('yang_dicari');
+      $this->session->set_userdata('kyword', $data['kyword']);
+    } else {
+      $data['kyword'] = null;
+      // $this->session->userdata('kyword');
+    }
+
+    $this->db->like('gol_darah', $data['kyword']);
+    $this->db->from('data_donor');
+    $config['total_rows'] = $this->db->count_all_results();
+    $config['per_page'] = 10;
 
     // Pagination untuk dashboard
     $config['base_url'] = 'http://localhost/rsud/dashboard/index';
     $config['total_rows'] = $data['numrows'];
-    $config['per_page'] = 10;
 
 
     // customes pagiantion
@@ -62,7 +69,16 @@ class Dashboard extends CI_Controller
     $config['attributes'] = ['class' => 'page-link'];
     $this->pagination->initialize($config);
     $data['start'] = $this->uri->segment(3);
-    $data['user'] = $this->m_master->tampil_data($config['per_page'], $data['start'])->result_array();
+    $data['user'] = $this->m_master->tampil_data($config['per_page'], $data['start'], $data['kyword'], $data['cari_berdasarkan'])->result_array();
+    $data['gol_A'] = $this->m_master->hitungJumlahGolA();
+    $data['gol_B'] = $this->m_master->hitungJumlahGolB();
+    $data['gol_AB'] = $this->m_master->hitungJumlahGolAB();
+    $data['gol_O'] = $this->m_master->hitungJumlahGolO();
+    $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['title'] = 'Dashboard';
+    // untuk get stok darah
+    $data['stokDarah'] = $this->m_master->getStokDarah()->num_rows();
+    // akhir get stok darah
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
     $this->load->view('master/dashboard', $data);
@@ -75,43 +91,26 @@ class Dashboard extends CI_Controller
   {
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['numrows'] = $this->db->get('data_donor')->num_rows();
-    $config['base_url'] = 'http://localhost/rsud/dashboard/tambah_data_pendonor/index';
-    $config['total_rows'] = $data['numrows'];
-    $config['per_page'] = 15;
 
+    // Untuk Ambil Data Kyword Cari
+    if ($this->input->post('kyword')) {
+      $data['inputanCari'] = $this->input->post('kyword');
+      $this->session->set_userdata('kyword', $data['inputanCari']);
+    } else {
+      $data['inputanCari'] = $this->session->userdata('kyword');
+    }
+    // var_dump($data['inputanCari']);
 
-    // style pagination B4
-    $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';
-    $config['full_tag_close'] = '</ul></nav>';
-
-    $config['first_link'] = 'First';
-    $config['first_tag_open'] = '<li class="page-item">';
-    $config['first_tag_close'] = '</li>';
-
-    $config['last_link'] = 'Last';
-    $config['last_tag_open'] = '<li class="page-item">';
-    $config['last_tag_close'] = '</li>';
-
-    $config['next_link'] = '&raquo';
-    $config['next_tag_open'] = '<li class="page-item">';
-    $config['next_tag_close'] = '</li>';
-
-    $config['prev_link'] = '&laquo';
-    $config['prev_tag_open'] = '<li class="page-item">';
-    $config['prev_tag_close'] = '</li>';
-
-    $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
-    $config['cur_tag_close'] = '</a></li>';
-
-    $config['num_tag_open'] = '<li class="page-item">';
-    $config['num_tag_close'] = '</li>';
-
-    $config['attributes'] = ['class' => 'page-link'];
+    // Untuk Pagination
+    $this->db->like('gol_darah', $data['inputanCari']);
+    $this->db->from('data_donor');
+    $config['total_rows'] = $this->db->count_all_results();
+    $config['per_page'] = 10;
 
     $this->pagination->initialize($config);
 
     $data['start'] = $this->uri->segment(4);
-    $data['pendonor'] = $this->m_master->tampil_data_pagination($config['per_page'], $data['start'])->result_array();
+    $data['pendonor'] = $this->m_master->tampil_data_pagination($config['per_page'], $data['start'], $data['inputanCari'])->result_array();
 
     $data['title'] = 'Tambah Data Pendonor';
     $this->load->view('template/sidebar', $data);
@@ -230,6 +229,7 @@ class Dashboard extends CI_Controller
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['title'] = 'Dashboard';
 
+    $data['stokDarah'] = $this->m_master->getStokDarah()->num_rows();
     $cari_berdasarkan = $this->input->post('cari_berdasarkan', true);
     $yang_dicari = $this->input->post('yang_dicari', true);
     if ($this->input->post('yang_dicari', true)) {

@@ -9,7 +9,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </h1>
     </section>
     <section class="content">
-      <a href="<?= base_url('dashboard/tambahPendonor') ?>" class="btn btn-sm btn-primary"><i class="fa fa-plus mr-1"></i>Tambah Data</a>
+      <div class="row">
+        <div class="col">
+          <a href="<?= base_url('dashboard/tambahPendonor') ?>" class="btn btn-sm btn-primary"><i class="fa fa-plus mr-1"></i>Tambah Data</a>
+        </div>
+        <div class="col-4">
+          <form action="<?= base_url('dashboard/tambah_data_pendonor') ?>" method="POST" class="d-inline-flex">
+            <div class="input-group mb-3">
+              <input type="text" name="kyword" class="form-control" placeholder="Search Keyword" autocomplete="off">
+              <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="submit" id="button-addon2">Search</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
       <div class="table-responsive">
         <table class="table">
           <tr>
@@ -19,9 +33,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <th>Jenis Kelamin</th>
             <th>Alamat</th>
             <th>No Hp</th>
-            <th>tgl donor</th>
+            <th>Tgl donor</th>
             <th>Action</th>
-            <th>Kelayakan</th>
+            <th>Bisa Donor</th>
           </tr>
 
           <?php
@@ -48,25 +62,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
               </td>
               <td><?= date('d-m-Y', $data['tgl_donor']) ?></td>
               <td>
-                <a href="" data-toggle="modal" data-target="#exampleModalEditDataPendonor<?= $data['id']; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                <!-- <br>
-                <a href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" class="btn btn-sm btn-danger mt-1"><i class="fas fa-trash-alt"></i></a>
-                <br>
-                <a href="" data-toggle="modal" data-target="#exampleModaldetail" class="btn btn-sm btn-success mt-1"><i class="fas fa-search-plus"></i></a> -->
 
-
-                <!-- <div class="btn-group dropleft">
-                  <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-list-alt"></i>
-                  </button>
-                  <div class="dropdown-menu">
-                    <a href="" data-toggle="modal" data-target="#exampleModalEditDataPendonor<?= $data['id']; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                    <br>
-                    <a href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" class="btn btn-sm btn-danger mt-1"><i class="fas fa-trash-alt"></i></a>
-                    <br>
-                    <a href="" data-toggle="modal" data-target="#exampleModaldetail" class="btn btn-sm btn-success mt-1"><i class="fas fa-search-plus"></i></a>
+                <div class="btn-group">
+                  <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle mr-1 mb-1" type="button" data-toggle="dropdown">
+                      Option
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditDataPendonor<?= $data['id']; ?>" href="#">Edit</a>
+                      <a class="dropdown-item" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>">Hapus</a>
+                    </div>
                   </div>
-                </div> -->
+                </div>
+
               </td>
               <?php
               if (time() >= ($data['tgl_donor'] + 7776000) && $data['hiv'] === ('-') && $data['hcv'] === ('-') && $data['hbsag'] === ('-') && $data['sypilis'] === ('-')) { ?>
