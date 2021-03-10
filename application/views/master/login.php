@@ -15,7 +15,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="form-group position-relative has-icon-left">
               <label for="email">Username</label>
               <div class="position-relative">
-                <input type="text" class="form-control" id="email" name="email" value="<?= set_value('email') ?>" autocomplete="off" placeholder="Masukan Email">
+                <input type="text" class="form-control" id="email" name="email" value="<?= set_value('email') ?>" autocomplete="off" placeholder="Masukan Username">
                 <div class="form-control-icon">
                   <i data-feather="user"></i>
                 </div>
