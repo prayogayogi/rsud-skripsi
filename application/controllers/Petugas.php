@@ -7,6 +7,10 @@ class Petugas extends CI_Controller
     parent::__construct();
     $this->load->library('form_validation');
     $this->load->model('m_master');
+
+    if (empty($this->session->userdata('email'))) {
+      redirect('register');
+    }
   }
 
   public function index()

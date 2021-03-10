@@ -12,6 +12,9 @@ class Register extends CI_Controller
   // login
   public function index()
   {
+    if ($this->session->userdata('email')) {
+      redirect('dashboard');
+    }
     $data['title'] = 'Login';
     $this->load->view('regisTemplate/header', $data);
     $this->load->view('master/login');

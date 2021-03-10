@@ -59,7 +59,7 @@ const flashdataa = $('.flash-dataa').data('flashdata');
     Swal.fire(
       'Hallo',
       flashdatalog,
-      'success'
+      'error'
     )
   }
 

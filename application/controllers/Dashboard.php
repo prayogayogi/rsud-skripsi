@@ -9,6 +9,10 @@ class Dashboard extends CI_Controller
     $this->load->model('m_master');
     $this->load->model('m_tambah');
     $this->load->library('pagination');
+
+    if (empty($this->session->userdata('email'))) {
+      redirect('register');
+    }
   }
 
   // Tampilan Dashboard Utama

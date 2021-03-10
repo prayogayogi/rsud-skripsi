@@ -8,6 +8,10 @@ class Admin extends CI_Controller
     $this->load->library('form_validation');
     $this->load->model('m_master');
     $this->load->library('pagination');
+
+    if (empty($this->session->userdata('email'))) {
+      redirect('register');
+    }
   }
 
   // View Data Admin

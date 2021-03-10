@@ -6,6 +6,10 @@ class Cetak extends CI_Controller
   {
     parent::__construct();
     $this->load->model('m_master');
+
+    if (empty($this->session->userdata('email'))) {
+      redirect('register');
+    }
   }
 
 
