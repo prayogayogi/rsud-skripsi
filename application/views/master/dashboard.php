@@ -214,6 +214,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <h1 class='text-green'>
                 <?= $stokDarah; ?>
               </h1>
+              <a href="<?= site_url('dashboard/getStokDarah') ?>" class="btn btn-sm btn-primary mt-2 mb-2">Lihat</a>
             </div>
           </div>
         </div>

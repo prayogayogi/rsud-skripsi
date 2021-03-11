@@ -67,8 +67,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       Option
                     </button>
                     <div class="dropdown-menu">
-                      <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditDataPendonor<?= $data['id']; ?>" href="#">Edit</a>
-                      <a class="dropdown-item" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>">Hapus</a>
+                      <a class="dropdown-item text-success" data-toggle="modal" data-target="#exampleModalEditDataPendonor<?= $data['id']; ?>" href="#">Edit</a>
+                      <a class="dropdown-item text-danger" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>">Hapus</a>
                     </div>
                   </div>
                 </div>

@@ -245,4 +245,17 @@ class Dashboard extends CI_Controller
       $this->load->view('template/footer', $data);
     }
   }
+
+
+  public function getStokDarah()
+  {
+    $data['getStokDarah'] = $this->db->get_where('data_donor', ['nama_pasien' => 'stok utd'])->result_array();
+    $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['title'] = 'Stok Darah';
+    $data['user'] = $this->db->get('data_donor')->result_array();
+    $this->load->view('template/sidebar', $data);
+    $this->load->view('template/header', $data);
+    $this->load->view('master/getStokDarah', $data);
+    $this->load->view('template/footer', $data);
+  }
 }
