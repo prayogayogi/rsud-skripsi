@@ -15,7 +15,7 @@
             <th>Alamat</th>
             <th>No Hp</th>
             <th>Bisa Donor</th>
-            <th>Action</th>
+            <th>Ambil Darah</th>
           </tr>
         </thead>
         <tbody>
@@ -75,8 +75,9 @@
                 <td> <span class="badge badge-pill badge-info bg-danger"> Tidak bisa</span></td>
               <?php } ?>
               <!-- Akhir Status Bisa Donor Atau Tidak -->
-              <td>
-                <a href="http://"><span class="badge badge-pill badge-info bg-secondary"> Optional</span></a>
+
+              <td class="text-center">
+                <a href="<?= base_url('dashboard/ambilDarah/') . $stok['id'] ?>" onclick="return confirm('Yakin Inggin Mengambil Darah Yang Ini.?')"><span class="btn btn-success"><i class="fas fa-check-circle"></i></span></a>
               </td>
             </tr>
           <?php endforeach; ?>

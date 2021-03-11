@@ -10,6 +10,15 @@ const flashdata = $('.flash-data').data('flashdata');
     )
   }
 
+const AmbilDarah = $('.flash-ambil').data('flashdata');
+  if (AmbilDarah) {
+    Swal.fire(
+      'Darah',
+      AmbilDarah,
+      'success'
+    )
+  }
+
 // untuk data Pendonor
 const flashdataa = $('.flash-dataa').data('flashdata');
   if (flashdataa) {

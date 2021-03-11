@@ -246,7 +246,7 @@ class Dashboard extends CI_Controller
     }
   }
 
-
+  // Get Ambil Stok darah
   public function getStokDarah()
   {
     $data['getStokDarah'] = $this->db->get_where('data_donor', ['nama_pasien' => 'stok utd'])->result_array();
@@ -257,5 +257,21 @@ class Dashboard extends CI_Controller
     $this->load->view('template/header', $data);
     $this->load->view('master/getStokDarah', $data);
     $this->load->view('template/footer', $data);
+  }
+
+  public function ambilDarah($id)
+  {
+    $where = [
+      'id' => $id
+    ];
+
+    $data = [
+      'nama_pasien' => 'sudah diambil'
+    ];
+    $this->db->set($data);
+    $this->db->where($where);
+    $this->db->update('data_donor');
+    $this->session->set_flashdata('ambilDarah', 'Berhasil diambil');
+    redirect('dashboard/getStokDarah');
   }
 }

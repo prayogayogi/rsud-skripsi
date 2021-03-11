@@ -21,6 +21,7 @@
     </button>
 
     <!-- Tangkapan Flash Data -->
+    <div class="flash-ambil" data-flashdata="<?= $this->session->flashdata('ambilDarah'); ?>"></div>
     <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
     <div class="flash-dataa" data-flashdata="<?= $this->session->flashdata('data'); ?>"></div>
     <div class="flash-dataPetugas" data-flashdata="<?= $this->session->flashdata('pesanPetugas'); ?>"></div>
