@@ -45,7 +45,7 @@ class Register extends CI_Controller
           redirect('register');
         }
       } else {
-        $this->session->set_flashdata('pesanlog', 'Akun Anda Belom Aktif.!');
+        $this->session->set_flashdata('pesanlog', 'Username Anda Salah.!');
         redirect('register');
       }
     } else {

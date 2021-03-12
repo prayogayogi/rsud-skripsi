@@ -220,42 +220,39 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
         <div class="card-body px-0 py-1">
           <table class='table table-borderless'>
-            <tr>
-              <td class='col-3'>A</td>
-              <td class='col-6'>
-                <div class="progress progress-info">
-                  <div class="progress-bar" role="progressbar" style="width: <?= $gol_A; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $gol_A; ?>"></div>
-                </div>
-              </td>
-              <td class='col-3 text-center'><?= $gol_A; ?>%</td>
-            </tr>
-            <tr>
-              <td class='col-3'>B</td>
-              <td class='col-6'>
-                <div class="progress progress-success">
-                  <div class="progress-bar" role="progressbar" style="width: <?= $gol_B; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax=" <?= $gol_B; ?>"></div>
-                </div>
-              </td>
-              <td class='col-3 text-center'><?= $gol_B; ?>%</td>
-            </tr>
-            <tr>
-              <td class='col-3'>AB</td>
-              <td class='col-6'>
-                <div class="progress progress-danger">
-                  <div class="progress-bar" role="progressbar" style="width: <?= $gol_AB; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $gol_AB; ?>"></div>
-                </div>
-              </td>
-              <td class='col-3 text-center'><?= $gol_AB; ?>%</td>
-            </tr>
-            <tr>
-              <td class='col-3'>O</td>
-              <td class='col-6'>
-                <div class="progress progress-primary">
-                  <div class="progress-bar" role="progressbar" style="width: <?= $gol_O; ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $gol_O; ?>"></div>
-                </div>
-              </td>
-              <td class='col-3 text-center'><?= $gol_O; ?>%</td>
-            </tr>
+            <?php foreach ($get as $stok) : ?>
+              <tr>
+                <td class='col-3'><?= $stok['gol_darah'] ?></td>
+                <td class='col-6'>
+
+                  <?php if ($stok['gol_darah'] === 'A') { ?>
+                    <div class="progress progress-succes">
+                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
+                    </div>
+                  <?php }  ?>
+
+                  <?php if ($stok['gol_darah'] === 'B') { ?>
+                    <div class="progress progress-primary">
+                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
+                    </div>
+                  <?php }  ?>
+
+                  <?php if ($stok['gol_darah'] === 'AB') { ?>
+                    <div class="progress progress-danger">
+                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
+                    </div>
+                  <?php }  ?>
+
+                  <?php if ($stok['gol_darah'] === 'O') { ?>
+                    <div class="progress progress-warning">
+                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
+                    </div>
+                  <?php }  ?>
+
+                </td>
+                <td class='col-3 text-center'><?= $stok['jumlah'] ?>%</td>
+              </tr>
+            <?php endforeach; ?>
           </table>
         </div>
       </div>

@@ -75,6 +75,12 @@ class Dashboard extends CI_Controller
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['title'] = 'Dashboard';
 
+    $sql = "SELECT nama_pasien,gol_darah, COUNT(gol_darah) as jumlah
+    FROM data_donor
+    WHERE nama_pasien = 'stok utd'
+    GROUP BY gol_darah";
+    $data['get'] = $this->db->query($sql)->result_array();
+
     // untuk get stok darah
     $data['stokDarah'] = $this->m_master->getStokDarah()->num_rows();
     // akhir get stok darah
@@ -273,5 +279,15 @@ class Dashboard extends CI_Controller
     $this->db->update('data_donor');
     $this->session->set_flashdata('ambilDarah', 'Berhasil diambil');
     redirect('dashboard/getStokDarah');
+  }
+
+  public function getPerGolongan()
+  {
+    $sql = "SELECT nama_pasien, COUNT(gol_darah) as jumlah
+    FROM data_donor
+    WHERE nama_pasien = 'stok utd'
+    GROUP BY gol_darah";
+    $data['get'] = $this->db->query($sql)->result_array();
+    $this->load->view('welcome_message', $data);
   }
 }
