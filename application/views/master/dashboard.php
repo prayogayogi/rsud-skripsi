@@ -214,7 +214,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <h1 class='text-green'>
                 <?= $stokDarah; ?>
               </h1>
-              <a href="<?= site_url('dashboard/getStokDarah') ?>" class="btn btn-sm btn-primary mt-2 mb-2">Lihat</a>
+
+              <?php if ($user1['role_id'] == 1) { ?>
+                <a href="<?= site_url('dashboard/getStokDarah') ?>" class="btn btn-sm btn-primary mt-2 mb-2">Lihat</a>
+              <?php } ?>
+
             </div>
           </div>
         </div>

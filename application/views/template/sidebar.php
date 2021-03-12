@@ -28,7 +28,7 @@
 
             <?php if ($user1['role_id'] == 2) { ?>
               <li class="sidebar-item  ">
-                <a href="<?= base_url('akses_admin'); ?>" class='sidebar-link'>
+                <a href="<?= base_url('dashboard/getStokDarah'); ?>" class='sidebar-link'>
                   <i data-feather="briefcase" width="20"></i>
                   <span>Stok Darah</span>
                 </a>
@@ -47,13 +47,14 @@
                   <span>Data Petugas</span>
                 </a>
               </li>
+
+              <li class="sidebar-item  ">
+                <a href="<?= base_url('laporan/laporanAdmin'); ?>" class='sidebar-link'>
+                  <i data-feather="file-text" width="20"></i>
+                  <span>Laporan</span>
+                </a>
+              </li>
             <?php } ?>
-            <li class="sidebar-item  ">
-              <a href="<?= base_url('laporan/laporanAdmin'); ?>" class='sidebar-link'>
-                <i data-feather="file-text" width="20"></i>
-                <span>Laporan</span>
-              </a>
-            </li>
             <li class="sidebar-item  ">
               <a href="<?= base_url('register/logout'); ?>" onclick=" return confirm('Anda Yakin Inggin Keluar..?')" class='sidebar-link'>
                 <i data-feather="log-out" width="20"></i>
