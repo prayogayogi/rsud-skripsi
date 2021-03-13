@@ -7,12 +7,78 @@
     </section>
     <section class="content">
       <a href="<?= base_url('cetak/admin'); ?>" target="blank" class="btn btn-primary"><i class="fa fa-print mr-2"></i>Cetak Data</a>
-      <!-- <div class="navbar-from float-right ">
-        <?= form_open('dashboard/cari') ?>
-        <input type=" text" placeholder="Cari" class="form" name="cari">
-        <button type="submit" class="btn btn-sm btn-primary ">Cari data</button>
-        <?= form_close() ?>
-      </div> -->
+      <div class="row">
+        <div class="col-12 mt-4 col-lg-6">
+          <div class="card">
+            <div class="card-header">
+              <h4>Data pendonor</h4>
+            </div>
+            <div class="card-body">
+              <div class="buttons">
+                <div class="section-title mt-0">Jumlah Golongan darah berdasarkan jenis kelamin</div>
+                <button type="button" class="btn btn-primary">
+                  Laki-Laki<span class="badge bg-transparent">4</span>
+                </button>
+                <button type="button" class="btn btn-danger">
+                  Perempuan <span class="badge bg-transparent">4</span>
+                </button>
+                <div class="section-title">Icons</div>
+                <button type="button" class="btn btn-primary">
+                  Laki-Laki<span class="badge bg-transparent">4</span>
+                </button>
+                <button type="button" class="btn btn-danger">
+                  Perempuan <span class="badge bg-transparent">4</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-12 mt-4 col-lg-2">
+          <div class="card ">
+            <div class="card-header text-center">
+              <h3>Jumlah </h3>
+            </div>
+            <div class="card-body">
+              <div id="radialBars"></div>
+              <div class="text-center mb-5">
+                <h1 class='text-green'>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="col-12 mt-4 col-lg-6">
+          <div class="card">
+            <div class="card-header">
+              <h4>Data pendonor</h4>
+            </div>
+            <div class="card-body">
+              <div class="buttons">
+                <div class="section-title mt-0">Jumlah Golongan darah berdasarkan jenis kelamin</div>
+                <button type="button" class="btn btn-primary">
+                  Laki-Laki<span class="badge bg-transparent">4</span>
+                </button>
+                <button type="button" class="btn btn-danger">
+                  Perempuan <span class="badge bg-transparent">4</span>
+                </button>
+                <div class="section-title">Icons</div>
+                <button type="button" class="btn btn-primary">
+                  Laki-Laki<span class="badge bg-transparent">4</span>
+                </button>
+                <button type="button" class="btn btn-danger">
+                  Perempuan <span class="badge bg-transparent">4</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+    <!-- untuk table -->
+    <div class="col col-6 d-none">
       <div class="table-responsive">
         <table class="table">
           <tr>
@@ -56,4 +122,4 @@
           <?php endforeach; ?>
         </table>
       </div>
-    </section>
+    </div>

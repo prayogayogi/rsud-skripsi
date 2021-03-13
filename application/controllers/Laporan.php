@@ -6,6 +6,7 @@ class Laporan extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('m_laporan');
     $this->load->model('m_master');
 
     if (empty($this->session->userdata('email'))) {
@@ -17,7 +18,7 @@ class Laporan extends CI_Controller
   {
 
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
-    $data['user'] = $this->m_master->tampil()->result_array();
+    $data['user'] = $this->m_laporan->tampil()->result_array();
     $data['title'] = 'Laporan';
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
