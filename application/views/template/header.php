@@ -117,7 +117,7 @@
             <input type="hidden" name="id" value="<?= $user1['id']; ?>">
             <div class="modal-body">
               <div class="form-group">
-                <label for="nama" class="ml-1">Password</label>
+                <label for="nama" class="ml-1">Password Lama</label>
                 <input type="password" name="passwordLama" id="nama" placeholder="Password" class="form-control" value="<?= set_value('passwordLama'); ?>">
                 <?= form_error('passwordLama', '<small class="text-danger ml-1">', '</small>'); ?>
               </div>

@@ -2,7 +2,7 @@
   <div class="content-wrapper">
     <section class="content-header">
       <h1>
-        Data Pendonor
+        Laporan Pendonor
       </h1>
     </section>
     <section class="content">
@@ -22,12 +22,9 @@
                 <button type="button" class="btn btn-danger">
                   Perempuan <span class="badge bg-transparent">4</span>
                 </button>
-                <div class="section-title">Icons</div>
-                <button type="button" class="btn btn-primary">
-                  Laki-Laki<span class="badge bg-transparent">4</span>
-                </button>
-                <button type="button" class="btn btn-danger">
-                  Perempuan <span class="badge bg-transparent">4</span>
+                <div class="section-title">Jumlah Rs Yang Dilayani</div>
+                <button type="button" class="btn btn-dark">
+                  RSIA AL BARA<span class="badge bg-transparent">4</span>
                 </button>
               </div>
             </div>
@@ -56,19 +53,18 @@
             </div>
             <div class="card-body">
               <div class="buttons">
-                <div class="section-title mt-0">Jumlah Golongan darah berdasarkan jenis kelamin</div>
+                <div class="section-title mt-0">Jumlah uji saring infeksi menular lewat tranfusi darah</div>
                 <button type="button" class="btn btn-primary">
-                  Laki-Laki<span class="badge bg-transparent">4</span>
+                  HIV<span class="badge bg-transparent">4</span>
+                </button>
+                <button type="button" class="btn btn-warning">
+                  HCV <span class="badge bg-transparent">4</span>
+                </button>
+                <button type="button" class="btn btn-dark">
+                  HBSAG <span class="badge bg-transparent">4</span>
                 </button>
                 <button type="button" class="btn btn-danger">
-                  Perempuan <span class="badge bg-transparent">4</span>
-                </button>
-                <div class="section-title">Icons</div>
-                <button type="button" class="btn btn-primary">
-                  Laki-Laki<span class="badge bg-transparent">4</span>
-                </button>
-                <button type="button" class="btn btn-danger">
-                  Perempuan <span class="badge bg-transparent">4</span>
+                  SYPILIS <span class="badge bg-transparent">4</span>
                 </button>
               </div>
             </div>
