@@ -49,7 +49,7 @@
               </li>
 
               <li class="sidebar-item  ">
-                <a href="<?= base_url('laporan/laporanAdmin'); ?>" class='sidebar-link'>
+                <a href="<?= base_url('laporan'); ?>" class='sidebar-link'>
                   <i data-feather="file-text" width="20"></i>
                   <span>Laporan</span>
                 </a>

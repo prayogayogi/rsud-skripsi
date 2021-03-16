@@ -33,6 +33,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <th>Jenis Kelamin</th>
             <th>Alamat</th>
             <th>No Hp</th>
+            <th>Tgl Donor</th>
             <th>Action</th>
             <th>Bisa Donor</th>
           </tr>
@@ -59,6 +60,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php } ?>
 
               </td>
+              <td><?= date('d-m-Y', $data['tgl_donor']); ?></td>
               <td>
 
                 <div class="btn-group">

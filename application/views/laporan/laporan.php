@@ -6,7 +6,7 @@
       </h1>
     </section>
     <section class="content">
-      <a href="<?= base_url('cetak/admin'); ?>" target="blank" class="btn btn-primary"><i class="fa fa-print mr-2"></i>Cetak Data</a>
+      <a href="<?= base_url('cetak/admin'); ?>" target="blank" class="btn btn-primary"><i class="fa fa-print mr-2"></i>Cetak Laporan</a>
       <div class="row">
         <div class="col-12 mt-4 col-lg-6">
           <div class="card">
@@ -17,15 +17,15 @@
               <div class="buttons">
                 <div class="section-title mt-0">Jumlah Golongan darah berdasarkan jenis kelamin</div>
                 <button type="button" class="btn btn-primary">
-                  Laki-Laki<span class="badge bg-transparent">4</span>
+                  Laki-Laki<span class="badge bg-transparent"><?= $lakiLaki; ?></span>
                 </button>
                 <button type="button" class="btn btn-danger">
-                  Perempuan <span class="badge bg-transparent">4</span>
+                  Perempuan <span class="badge bg-transparent"><?= $perempuan; ?></span>
                 </button>
-                <div class="section-title">Jumlah Rs Yang Dilayani</div>
+                <!-- <div class="section-title">Jumlah Rs Yang Dilayani</div>
                 <button type="button" class="btn btn-dark">
                   RSIA AL BARA<span class="badge bg-transparent">4</span>
-                </button>
+                </button> -->
               </div>
             </div>
           </div>
@@ -55,16 +55,16 @@
               <div class="buttons">
                 <div class="section-title mt-0">Jumlah uji saring infeksi menular lewat tranfusi darah</div>
                 <button type="button" class="btn btn-primary">
-                  HIV<span class="badge bg-transparent">4</span>
+                  HIV<span class="badge bg-transparent"><?= $hiv; ?></span>
                 </button>
                 <button type="button" class="btn btn-warning">
-                  HCV <span class="badge bg-transparent">4</span>
+                  HCV <span class="badge bg-transparent"><?= $hcv; ?></span>
                 </button>
                 <button type="button" class="btn btn-dark">
-                  HBSAG <span class="badge bg-transparent">4</span>
+                  HBSAG <span class="badge bg-transparent"><?= $hbsag; ?></span>
                 </button>
                 <button type="button" class="btn btn-danger">
-                  SYPILIS <span class="badge bg-transparent">4</span>
+                  SYPILIS <span class="badge bg-transparent"><?= $sypilis; ?></span>
                 </button>
               </div>
             </div>
