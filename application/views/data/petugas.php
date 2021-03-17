@@ -71,8 +71,8 @@
                     <td><?= date('d-m-Y', $petugas['tgl_daftar']); ?></td>
                     <td>
                       <a href="<?= base_url('petugas/hapus/') . $petugas['id']; ?>" class="btn btn-danger btn-sm" name="hapus" onclick="return confirm ('Kamu Yakin Inggin Menghapus..?')"><i class="fas fa-trash-alt"></i></a>
-                      <br><br>
-                      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalEditPetugas<?= $petugas['id'] ?>" name="edit"><i class="fas fa-edit"></i></a>
+                      <!-- <br><br>
+                      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalEditPetugas<?= $petugas['id'] ?>" name="edit"><i class="fas fa-edit"></i></a> -->
                     </td>
                   <tr>
                   <?php endforeach; ?>
