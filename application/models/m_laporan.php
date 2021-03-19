@@ -73,4 +73,17 @@ class m_laporan extends CI_Model
       return 0;
     }
   }
+
+  // Get tahun
+  public function getTahun()
+  {
+    $query = 'SELECT YEAR(tanggal) AS tahun FROM data_donor GROUP BY YEAR (tanggal) ORDER BY YEAR (tanggal) ASC';
+    return $this->db->query($query)->result_array();
+  }
+
+  public function filterTahun($tahun)
+  {
+    $query = "SELECT * FROM data_donor WHERE YEAR (tanggal) = '$tahun' ORDER BY tanggal ASC";
+    return $this->db->query($query)->result_array();
+  }
 }

@@ -60,7 +60,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php } ?>
 
               </td>
-              <td><?= date('d-m-Y', $data['tgl_donor']); ?></td>
+              <!-- <td><?= date('d-m-Y', $data['tgl_donor']); ?></td> -->
+              <td><?= $data['tanggal']; ?></td>
               <td>
 
                 <div class="btn-group">
@@ -70,7 +71,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </button>
                     <div class="dropdown-menu">
                       <a class="dropdown-item text-success" data-toggle="modal" data-target="#exampleModalEditDataPendonor<?= $data['id']; ?>" href="#">Edit</a>
+
                       <a class="dropdown-item text-danger" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>">Hapus</a>
+
+                      <a class="dropdown-item text-warning" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>">Detail</a>
                     </div>
                   </div>
                 </div>

@@ -25,9 +25,19 @@ class Laporan extends CI_Controller
     $data['user1'] = $this->m_master->dataAdmin()->row_array();
     $data['user'] = $this->m_laporan->tampil()->result_array();
     $data['title'] = 'Laporan';
+    $data['getTahun'] = $this->m_laporan->getTahun();
+    // var_dump($data['getTahun']);
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
     $this->load->view('laporan/laporan', $data);
     $this->load->view('template/footer', $data);
+  }
+
+  public function getTahun()
+  {
+    $data['title'] = "Laporan";
+    $dat = $this->input->post('tahun');
+    $data['tahun'] = $this->m_laporan->filterTahun($dat);
+    $this->load->view('cetak/adminCetak', $data);
   }
 }
