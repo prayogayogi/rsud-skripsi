@@ -36,32 +36,34 @@
    </section>
 
    <section class="tab">
-     <div class="row">
-       <div class="col">
-         <table class="table table-bordered">
-           <thead>
-             <tr>
-               <th scope="col">No</th>
-               <th scope="col">Nama</th>
-               <th scope="col">Gol Darah</th>
-               <th scope="col">Alamat Pendonor</th>
-               <th scope="col">Tanggal Donor</th>
-             </tr>
-           </thead>
-           <tbody>
-             <?php
-              $no = 1;
-              foreach ($tahun as $row) : ?>
+     <div class="container">
+       <div class="row">
+         <div class="col">
+           <table class="table table-bordered">
+             <thead>
                <tr>
-                 <th scope="row"><?= $no++ ?></th>
-                 <td><?= $row['nama_pendonor']; ?></td>
-                 <td><?= $row['gol_darah']; ?></td>
-                 <td><?= $row['alamat_pendonor']; ?></td>
-                 <td><?= $row['tanggal']; ?></td>
+                 <th scope="col">No</th>
+                 <th scope="col">Nama</th>
+                 <th scope="col">Gol Darah</th>
+                 <th scope="col">Alamat Pendonor</th>
+                 <th scope="col">Tanggal Donor</th>
                </tr>
-             <?php endforeach ?>
-           </tbody>
-         </table>
+             </thead>
+             <tbody>
+               <?php
+                $no = 1;
+                foreach ($tahun as $row) : ?>
+                 <tr>
+                   <th scope="row"><?= $no++ ?></th>
+                   <td><?= $row['nama_pendonor']; ?></td>
+                   <td><?= $row['gol_darah']; ?></td>
+                   <td><?= $row['alamat_pendonor']; ?></td>
+                   <td><?= $row['tanggal']; ?></td>
+                 </tr>
+               <?php endforeach ?>
+             </tbody>
+           </table>
+         </div>
        </div>
      </div>
    </section>

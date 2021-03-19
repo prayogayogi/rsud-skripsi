@@ -6,16 +6,18 @@
       </h1>
     </section>
     <section class="content">
-      <form method="POST" action="<?= base_url('laporan/getTahun') ?>">
-        <select class="custom-select custom-select-sm" name="tahun">
-          <option selected>Pilih Tahun</option>
-          <?php foreach ($getTahun as $row) : ?>
-            <option value="<?= $row['tahun'] ?>"><?= $row['tahun'] ?></option>
-          <?php endforeach; ?>
-        </select>
-        <button type="submit" class="btn  btn-sm btn-primary">Submit</button>
+      <form method="POST" action="<?= base_url('laporan/getTahun') ?>" target="blank" class="d-flex">
+        <div class="input-group-appen col col-1 mr-2">
+          <select class="custom-select form-control btn btn-sm btn-outline-primary" name="tahun">
+            <option value="">Tahun</option>
+            <?php foreach ($getTahun as $row) : ?>
+              <option value="<?= $row['tahun'] ?>"><?= $row['tahun'] ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-print mr-2"></i>Cetak Laporan</button>
       </form>
-      <a href="<?= base_url('cetak/admin'); ?>" target="blank" class="btn btn-primary"><i class="fa fa-print mr-2"></i>Cetak Laporan</a>
+
       <div class="row">
         <div class="col-12 mt-4 col-lg-6">
           <div class="card">
