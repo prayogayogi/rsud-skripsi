@@ -37,7 +37,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
             <div class='form-check clearfix my-4'>
               <div class="float-right">
-                <a href="<?php echo base_url('register/registration') ?>">Don't have an account?</a>
+                <!-- <a href="<?php echo base_url('register/registration') ?>">Don't have an account?</a> -->
               </div>
             </div>
             <div class="clearfix">
