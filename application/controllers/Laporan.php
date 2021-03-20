@@ -26,6 +26,9 @@ class Laporan extends CI_Controller
     $data['user'] = $this->m_laporan->tampil()->result_array();
     $data['title'] = 'Laporan';
     $data['getTahun'] = $this->m_laporan->getTahun();
+
+    $data['jumlah'] = $this->m_laporan->filterTahunJumlah();
+    var_dump($data['jumlah']);
     // var_dump($data['getTahun']);
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
@@ -37,7 +40,9 @@ class Laporan extends CI_Controller
   {
     $data['title'] = "Laporan";
     $dat = $this->input->post('tahun');
+
     $data['tahun'] = $this->m_laporan->filterTahun($dat);
+    $data['tadhun'] = $this->m_laporan->filterTahunJumlah($dat);
     $this->load->view('cetak/adminCetak', $data);
   }
 }

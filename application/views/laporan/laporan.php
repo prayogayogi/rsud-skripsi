@@ -9,10 +9,12 @@
       <form method="POST" action="<?= base_url('laporan/getTahun') ?>" target="blank" class="d-flex">
         <div class="input-group-appen col col-1 mr-2">
           <select class="custom-select form-control btn btn-sm btn-outline-primary" name="tahun">
-            <option value="">Tahun</option>
+            <option value="<?= date('Y') ?>">Tahun</option>
+
             <?php foreach ($getTahun as $row) : ?>
               <option value="<?= $row['tahun'] ?>"><?= $row['tahun'] ?></option>
             <?php endforeach; ?>
+
           </select>
         </div>
         <button type="submit" class="btn btn-primary"><i class="fa fa-print mr-2"></i>Cetak Laporan</button>
@@ -33,10 +35,12 @@
                 <button type="button" class="btn btn-danger">
                   Perempuan <span class="badge bg-transparent"><?= $perempuan; ?></span>
                 </button>
+
                 <!-- <div class="section-title">Jumlah Rs Yang Dilayani</div>
                 <button type="button" class="btn btn-dark">
                   RSIA AL BARA<span class="badge bg-transparent">4</span>
                 </button> -->
+
               </div>
             </div>
           </div>
