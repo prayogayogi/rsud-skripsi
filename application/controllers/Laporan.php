@@ -28,8 +28,6 @@ class Laporan extends CI_Controller
     $data['getTahun'] = $this->m_laporan->getTahun();
 
     $data['jumlah'] = $this->m_laporan->filterTahunJumlah();
-    var_dump($data['jumlah']);
-    // var_dump($data['getTahun']);
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
     $this->load->view('laporan/laporan', $data);

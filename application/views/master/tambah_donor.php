@@ -13,7 +13,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="col">
           <a href="<?= base_url('dashboard/tambahPendonor') ?>" class="btn btn-sm btn-primary"><i class="fa fa-plus mr-1"></i>Tambah Data</a>
         </div>
-        <div class="col-4">
+
+        <!-- <div class="col-4">
           <form action="<?= base_url('dashboard/tambah_data_pendonor') ?>" method="POST" class="d-inline-flex">
             <div class="input-group mb-3">
               <input type="text" name="kyword" class="form-control" placeholder="Search Keyword" autocomplete="off">
@@ -22,7 +23,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
               </div>
             </div>
           </form>
-        </div>
+        </div> -->
+
       </div>
       <div class="table-responsive">
         <table class="table">
@@ -33,7 +35,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <th>Jenis Kelamin</th>
             <th>Alamat</th>
             <th>No Hp</th>
-            <th>Tgl Donor</th>
             <th>Action</th>
             <th>Bisa Donor</th>
           </tr>
@@ -60,8 +61,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php } ?>
 
               </td>
-              <!-- <td><?= date('d-m-Y', $data['tgl_donor']); ?></td> -->
-              <td><?= $data['tanggal']; ?></td>
               <td>
 
                 <div class="btn-group">
@@ -72,9 +71,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="dropdown-menu">
                       <a class="dropdown-item text-success" data-toggle="modal" data-target="#exampleModalEditDataPendonor<?= $data['id']; ?>" href="#">Edit</a>
 
-                      <a class="dropdown-item text-danger" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>">Hapus</a>
+                      <a class="dropdown-item text-danger tombol-hapus" href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>">Hapus</a>
 
-                      <a class="dropdown-item text-warning" onclick=" return confirm('Anda Yakin Inggin Hapus..?')" href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>">Detail</a>
+                      <a class="dropdown-item text-warning" href="<?= base_url('dashboard/detailDataPendonor/') . $data['nama_pendonor']; ?>">Detail</a>
                     </div>
                   </div>
                 </div>
@@ -131,8 +130,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="alamat">alamat</label>
+                  <label for="alamat">Alamat</label>
                   <input type="text" name="alamat" id="alamat" value="<?= $data['alamat_pendonor']; ?>" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="alamat">Tanggal Donor</label>
+                  <input type="text" name="alamat" id="alamat" value="<?= $data['tanggal'] ?>" readonly class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="hiv">Hiv</label>

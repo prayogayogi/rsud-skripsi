@@ -149,11 +149,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <input type="number" name="no_hp" id="no_hp" placeholder="Masukan No Hanphone" class="form-control" value="<?php echo set_value('no_hp'); ?>" autocomplete="off">
                 <?= form_error('no_hp', '<small class="text-danger ml-2">', '</small>') ?>
               </div>
-              <div class="form-group mb-3">
+              <!-- <div class="form-group mb-3">
                 <label for="no_hp">Tgl Donor</label>
                 <input type="text" name="tgl_donor" id="no_hp" placeholder="Masukan Tgl Donor" class="form-control" value="<?php echo set_value('no_hp'); ?>" autocomplete="off">
                 <?= form_error('no_hp', '<small class="text-danger ml-2">', '</small>') ?>
-              </div>
+              </div> -->
               <input type="hidden" name="petugas" id="petugas" value="<?= $user1['nama'] ?>">
               <button type="reset" class="btn btn-secondary" data-dismiss="modal">Resset</button>
               <button type="submit" class="btn btn-primary">Save Data</button>

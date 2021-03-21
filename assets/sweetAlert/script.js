@@ -82,14 +82,20 @@ const flashdataa = $('.flash-dataa').data('flashdata');
     )
   }
   
-  // // register
-  //   const pesanTambahData = $('.flash-pesanTambahData').data('flashdata');
-  //   if (flashdatalogin) {
-  //     Swal.fire(
-  //       flashdatalogin,
-  //       '',
-  //       'success'
-  //     )
-  //   }
+
+
+  // Untuk tobol hapus
+  $('.tombol-hapus').on('click',function(e){
+    e.PreventDefault();
+    const href=$this.attr('href');
+
+    Swal.fire({
+      title:'apakah inggin mengapus'
+    }).then((result)=>{
+      if(result.value){
+        document.location.href=href;
+      }
+    })
+  });
 
   

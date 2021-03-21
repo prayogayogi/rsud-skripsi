@@ -180,7 +180,8 @@ class Dashboard extends CI_Controller
         'hcv' => ('-'),
         'hbsag' => ('-'),
         'sypilis' => ('-'),
-        'tgl_donor' => strtotime($this->input->post('tgl_donor', true)),
+        'tgl_donor' => time(),
+        'tanggal' => date('Y-m-d'),
         'no_hp' => $this->input->post('no_hp', true),
         'petugas' => $this->input->post('petugas', true)
       ];
@@ -281,6 +282,9 @@ class Dashboard extends CI_Controller
     redirect('dashboard/getStokDarah');
   }
 
+
+
+  // Testing
   public function getPerGolongan()
   {
     $sql = "SELECT nama_pasien, COUNT(gol_darah) as jumlah

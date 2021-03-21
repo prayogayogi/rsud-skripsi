@@ -41,7 +41,9 @@
                   <th>Gambar</th>
                   <th>Setatus</th>
                   <th>Tgl Kerja</th>
-                  <th>Action</th>
+                  <?php if ($user1['role_id'] == $user1['role_id']) { ?>
+                    <th>Action</th>
+                  <?php  } ?>
                 </tr>
               </thead>
               <tbody>
