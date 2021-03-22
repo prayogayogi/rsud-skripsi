@@ -28,22 +28,18 @@
             </div>
             <div class="card-body">
               <div class="buttons">
-                <div class="section-title mt-0">Jumlah Golongan darah tahun</div>
+                <div class="section-title mt-0">Jumlah Golongan darah</div>
                 <button type="button" class="btn btn-primary">
                   Jumlah <span class="badge bg-transparent"><?= $jumlah; ?></span>
                 </button>
 
                 <div class="section-title mt-0">Jumlah Golongan darah berdasarkan jenis kelamin</div>
                 <button type="button" class="btn btn-primary">
-                  Laki-Laki<span class="badge bg-transparent"><?= $lakiLaki; ?></span>
+                  Laki-Laki<span class="badge bg-transparent"><?= $laki; ?></span>
                 </button>
                 <button type="button" class="btn btn-danger">
                   Perempuan <span class="badge bg-transparent"><?= $perempuan; ?></span>
                 </button>
-                <!-- <div class="section-title">Jumlah Rs Yang Dilayani</div>
-                <button type="button" class="btn btn-dark">
-                  RSIA AL BARA<span class="badge bg-transparent">4</span>
-                </button> -->
 
               </div>
             </div>

@@ -25,8 +25,6 @@ class Dashboard extends CI_Controller
       $data['inputanCari'] = $this->session->userdata('kunci');
     }
 
-    // var_dump($da);
-    // var_dump($data['inputanCari']);
     $this->db->like('gol_darah', $data['inputanCari']);
     $this->db->from('data_donor');
     $config['total_rows'] = $this->db->count_all_results();

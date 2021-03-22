@@ -73,7 +73,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                       <a class="dropdown-item text-danger tombol-hapus" href="<?= base_url('dashboard/hapusDataPendonor/') . $data['id']; ?>">Hapus</a>
 
-                      <a class="dropdown-item text-warning" href="<?= base_url('dashboard/detailDataPendonor/') . $data['nama_pendonor']; ?>">Detail</a>
+                      <!-- <a class="dropdown-item text-warning" href="<?= base_url('dashboard/detailDataPendonor/') . $data['nama_pendonor']; ?>">Detail</a> -->
                     </div>
                   </div>
                 </div>

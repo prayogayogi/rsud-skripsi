@@ -16,9 +16,9 @@ class Laporan extends CI_Controller
 
   public function index()
   {
-    $data['lakiLaki'] = $this->m_laporan->lakiLaki();
-    $data['perempuan'] = $this->m_laporan->perempuan();
+
     $data['hiv'] = $this->m_laporan->hiv();
+
     $data['hcv'] = $this->m_laporan->hcv();
     $data['hbsag'] = $this->m_laporan->hbsag();
     $data['sypilis'] = $this->m_laporan->sypilis();
@@ -27,6 +27,8 @@ class Laporan extends CI_Controller
     $data['title'] = 'Laporan';
     $data['getTahun'] = $this->m_laporan->getTahun();
 
+    $data['laki'] = $this->m_laporan->lakiLakiget();
+    $data['perempuan'] = $this->m_laporan->perempuanget();
     $data['jumlah'] = $this->m_laporan->filterTahunJumlah();
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
