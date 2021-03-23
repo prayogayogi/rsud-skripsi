@@ -23,7 +23,7 @@ class M_master extends CI_Model
     if ($cari) {
       $this->db->like('gol_darah', $cari);
     }
-    return $this->db->get('data_donor', $start, $mulai);
+    return $this->db->get('data_donor', $start, $mulai, 'DESC');
   }
 
 

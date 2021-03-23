@@ -85,17 +85,43 @@ const flashdataa = $('.flash-dataa').data('flashdata');
 
 
   // Untuk tobol hapus
-  $('.tombol-hapus').on('click',function(e){
-    e.PreventDefault();
-    const href=$this.attr('href');
+  $('.tombol-hapuss').on('click', function (e) {
+    e.preventDefault();
+    const href = $(this).attr('href');
 
     Swal.fire({
-      title:'apakah inggin mengapus'
+      title:'Yakin Inggin Hapus.?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Hapus'
     }).then((result)=>{
       if(result.value){
         document.location.href=href;
       }
     })
+
+  });
+
+  // Untuk tobol Logout
+  $('.logout').on('click', function (e) {
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal.fire({
+      title:'Kamu Yakin Inggin Inggin Keluar.?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Keluar'
+    }).then((result)=>{
+      if(result.value){
+        document.location.href=href;
+      }
+    })
+
   });
 
   

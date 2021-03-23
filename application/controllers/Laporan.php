@@ -18,7 +18,6 @@ class Laporan extends CI_Controller
   {
 
     $data['hiv'] = $this->m_laporan->hiv();
-
     $data['hcv'] = $this->m_laporan->hcv();
     $data['hbsag'] = $this->m_laporan->hbsag();
     $data['sypilis'] = $this->m_laporan->sypilis();
@@ -41,8 +40,16 @@ class Laporan extends CI_Controller
     $data['title'] = "Laporan";
     $dat = $this->input->post('tahun');
 
+    $data['hiv'] = $this->m_laporan->hiv();
+    $data['hcv'] = $this->m_laporan->hcv();
+    $data['hbsag'] = $this->m_laporan->hbsag();
+    $data['sypilis'] = $this->m_laporan->sypilis();
+    $data['laki'] = $this->m_laporan->lakiLakiget();
+    $data['perempuan'] = $this->m_laporan->perempuanget();
     $data['tahun'] = $this->m_laporan->filterTahun($dat);
     $data['tadhun'] = $this->m_laporan->filterTahunJumlah($dat);
+    var_dump($data['tadhun']);
+    die;
     $this->load->view('cetak/adminCetak', $data);
   }
 }

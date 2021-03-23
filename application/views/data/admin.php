@@ -41,9 +41,7 @@
                   <th>Gambar</th>
                   <th>Setatus</th>
                   <th>Tgl Kerja</th>
-                  <?php if ($user1['role_id'] == $user1['role_id']) { ?>
-                    <th>Action</th>
-                  <?php  } ?>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -72,11 +70,13 @@
                       </td>
                     <?php } ?>
                     <td><?= date('d-m-Y', $admin['tgl_daftar']); ?></td>
+
                     <td>
-                      <a href="<?= base_url('admin/hapus/') . $admin['id']; ?>" class="btn btn-danger btn-sm" name="hapus" onclick="return confirm ('Anda Yakin Inggin Hapus..?')"><i class="fas fa-trash-alt"></i></a>
+                      <a href="<?= base_url('admin/hapus/') . $admin['id']; ?>" class="btn btn-danger btn-sm tombol-hapuss" name="hapus"><i class="fas fa-trash-alt"></i></a>
                       <br><br>
                       <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalEditAdmin<?= $admin['id']; ?>" name="edit"><i class="fas fa-edit"></i></a>
                     </td>
+
                   <tr>
                   <?php endforeach; ?>
               </tbody>

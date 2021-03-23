@@ -56,7 +56,7 @@
               </li>
             <?php } ?>
             <li class="sidebar-item  ">
-              <a href="<?= base_url('register/logout'); ?>" onclick=" return confirm('Anda Yakin Inggin Keluar..?')" class='sidebar-link'>
+              <a href="<?= base_url('register/logout'); ?>" class='sidebar-link logout'>
                 <i data-feather="log-out" width="20"></i>
                 <span>Log Out</span>
               </a>

@@ -53,7 +53,7 @@
               <a class="dropdown-item mb-1" href="#" data-toggle="modal" data-target="#exampleModal2">
                 <i data-feather="user"></i>Ubah Password</a>
             <?php } ?>
-            <a class="dropdown-item" href="<?= base_url('register/logout') ?>" onclick="return confirm ('Kamu Yakin Inggin Keluar..?')"><i data-feather="log-out"></i> Logout</a>
+            <a class="dropdown-item logout" href="<?= base_url('register/logout') ?>"><i data-feather="log-out"></i> Logout</a>
           </div>
         </li>
         </li>

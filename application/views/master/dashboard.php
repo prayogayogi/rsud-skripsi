@@ -118,7 +118,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <th>Agama</th>
                   <th>Alamat</th>
                   <th>No Hp</th>
-                  <th>Bisa Donor</th>
+                  <th>Keterangan</th>
                 </tr>
               </thead>
               <tbody>
