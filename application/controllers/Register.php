@@ -23,7 +23,7 @@ class Register extends CI_Controller
 
   public function aksi_login()
   {
-    $this->form_validation->set_rules('email', 'Username', 'required|trim|valid_email', ['required' => 'Email harus Di Isi.!']);
+    $this->form_validation->set_rules('email', 'Username', 'required|trim|valid_email', ['required' => 'Username harus Di Isi.!']);
     $this->form_validation->set_rules('password1', 'Username', 'required|trim', ['required' => 'Password Harus di Isi.!']);
 
     if ($this->form_validation->run()) {

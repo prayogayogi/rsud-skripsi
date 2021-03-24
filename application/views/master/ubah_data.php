@@ -28,7 +28,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
           </div>
           <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Save Data</button>
-
         </form>
       </div>
     </div>

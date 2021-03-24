@@ -14,12 +14,14 @@
             <th>Agama</th>
             <th>Alamat</th>
             <th>No Hp</th>
-            <th>Bisa Donor</th>
+            <th>Keterangan</th>
+
             <!-- pengkondisian untuk petugas tidak bisa lihat -->
             <?php if ($user1['role_id'] == 1) { ?>
               <th>Ambil Darah</th>
             <?php } ?>
             <!-- akhir pengkonsisian -->
+
           </tr>
         </thead>
         <tbody>
@@ -59,6 +61,7 @@
 
               <td><?= $stok['agama']; ?></td>
               <td><?= $stok['alamat_pendonor']; ?></td>
+
               <!-- untuk No Hp -->
               <?php if ($stok['no_hp'] != 0) { ?>
                 <td><?= $stok['no_hp'] ?></td>
@@ -82,7 +85,7 @@
 
               <?php if ($user1['role_id'] == 1) { ?>
                 <td class="text-center">
-                  <a href="<?= base_url('dashboard/ambilDarah/') . $stok['id'] ?>" onclick="return confirm('Yakin Inggin Mengambil Darah Yang Ini.?')"><span class="btn btn-success"><i class="fas fa-check-circle"></i></span></a>
+                  <a href="<?= base_url('dashboard/ambilDarah/') . $stok['id'] ?>"><span class="btn btn-success"><i class="fas fa-check-circle"></i></span></a>
                 </td>
               <?php } ?>
 

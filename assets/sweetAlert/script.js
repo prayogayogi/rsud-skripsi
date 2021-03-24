@@ -124,4 +124,24 @@ const flashdataa = $('.flash-dataa').data('flashdata');
 
   });
 
+  // Untuk tobol ambil darah
+  $('.ambil-darah').on('click', function (e) {
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal.fire({
+      title:'Kamu Yakin Inggin Inggin Keluar.?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Keluar'
+    }).then((result)=>{
+      if(result.value){
+        document.location.href=href;
+      }
+    })
+
+  });
+
   
