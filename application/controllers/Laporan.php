@@ -48,8 +48,8 @@ class Laporan extends CI_Controller
     $data['perempuan'] = $this->m_laporan->perempuanget();
     $data['tahun'] = $this->m_laporan->filterTahun($dat);
     $data['tadhun'] = $this->m_laporan->filterTahunJumlah($dat);
-    var_dump($data['tadhun']);
-    die;
+    // var_dump($data['tadhun']);
+    // die;
     $this->load->view('cetak/adminCetak', $data);
   }
 }

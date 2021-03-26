@@ -231,25 +231,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                   <?php if ($stok['gol_darah'] === 'A') { ?>
                     <div class="progress progress-succes">
-                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
+                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
                     </div>
                   <?php }  ?>
 
                   <?php if ($stok['gol_darah'] === 'B') { ?>
                     <div class="progress progress-primary">
-                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
+                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
                     </div>
                   <?php }  ?>
 
                   <?php if ($stok['gol_darah'] === 'AB') { ?>
                     <div class="progress progress-danger">
-                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
+                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
                     </div>
                   <?php }  ?>
 
                   <?php if ($stok['gol_darah'] === 'O') { ?>
                     <div class="progress progress-warning">
-                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
+                      <div class="progress-bar" role="progressbar" style="width: <?= $stok['jumlah'] ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?= $stok['jumlah'] ?>"></div>
                     </div>
                   <?php }  ?>
 

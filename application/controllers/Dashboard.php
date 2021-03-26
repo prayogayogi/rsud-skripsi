@@ -78,10 +78,12 @@ class Dashboard extends CI_Controller
     WHERE nama_pasien = 'stok utd'
     GROUP BY gol_darah";
     $data['get'] = $this->db->query($sql)->result_array();
-
+    // var_dump($data['get']);
+    // die;
     // untuk get stok darah
     $data['stokDarah'] = $this->m_master->getStokDarah()->num_rows();
     // akhir get stok darah
+
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
     $this->load->view('master/dashboard', $data);
