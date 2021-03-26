@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $title ?></title>
+  <!-- Favicons -->
+  <link href="<?= base_url('assets/') ?>favicon.png" rel="icon">
+
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/css/bootstrap.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/vendors/chartjs/Chart.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">

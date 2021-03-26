@@ -62,7 +62,7 @@ class Register extends CI_Controller
   {
     $this->session->sess_destroy('userdata');
     $this->session->unset_userdata('$data');
-    redirect('register');
+    redirect('homeLoginController');
   }
 
 
