@@ -10,33 +10,29 @@ class m_laporan extends CI_Model
 
 
   // Untuk Laporan Jumlah Hiv
-  public function hiv()
+  public function hiv($tahun)
   {
-    $tahun = date('Y');
     $query = "SELECT * FROM data_donor WHERE YEAR(tanggal)='$tahun' AND hiv='+'";
     return $this->db->query($query)->num_rows();
   }
 
   // Untuk Laporan Jumlah Hcv
-  public function hcv()
+  public function hcv($tahun)
   {
-    $tahun = date('Y');
     $query = "SELECT * FROM data_donor WHERE YEAR(tanggal)='$tahun' AND hcv='+'";
     return $this->db->query($query)->num_rows();
   }
 
   // Untuk Laporan Jumlah Hbsag
-  public function hbsag()
+  public function hbsag($tahun)
   {
-    $tahun = date('Y');
     $query = "SELECT * FROM data_donor WHERE YEAR(tanggal)='$tahun' AND hbsag='+'";
     return $this->db->query($query)->num_rows();
   }
 
   // Untuk Laporan Jumlah Sypilis
-  public function sypilis()
+  public function sypilis($tahun)
   {
-    $tahun = date('Y');
     $query = "SELECT * FROM data_donor WHERE YEAR(tanggal)='$tahun' AND sypilis='+'";
     return $this->db->query($query)->num_rows();
   }
@@ -59,34 +55,31 @@ class m_laporan extends CI_Model
   }
 
   // Filter Data Berdasarkan Tahun Menampilakn semua data
-  public function filterTahun($tahun)
-  {
-    $query = "SELECT * FROM data_donor WHERE YEAR (tanggal) = '$tahun' ORDER BY tanggal ASC";
-    return $this->db->query($query)->result_array();
-  }
+  // public function filterTahun($tahun)
+  // {
+  //   $query = "SELECT * FROM data_donor WHERE YEAR (tanggal) = '$tahun' ORDER BY tanggal ASC";
+  //   return $this->db->query($query)->result_array();
+  // }
 
 
   // Filter Data Berdasarkan Tahun Menampilakn jumlah
-  public function filterTahunJumlah()
+  public function filterTahunJumlah($tahun)
   {
-    $tahun = date('Y');
     $query = "SELECT * FROM data_donor WHERE YEAR (tanggal) = '$tahun' ORDER BY tanggal ASC";
     return $this->db->query($query)->num_rows();
   }
 
 
   // Untuk laporan jumlah Laki-laki 
-  public function lakiLakiget()
+  public function lakiLakiget($tahun)
   {
-    $tahun = date('Y');
     $query = "SELECT * FROM data_donor WHERE YEAR(tanggal)='$tahun' AND jenis_kelamin='Laki-Laki'";
     return $this->db->query($query)->num_rows();
   }
 
   // Untuk Laporan Jumlah Perempuan
-  public function perempuanget()
+  public function perempuanget($tahun)
   {
-    $tahun = date('Y');
     $query = "SELECT * FROM data_donor WHERE YEAR(tanggal)='$tahun' AND jenis_kelamin='Perempuan'";
     return $this->db->query($query)->num_rows();
   }

@@ -10,6 +10,9 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
    <title> <?= $title; ?> </title>
+
+   <!-- Favicons -->
+   <link href="<?= base_url('assets/') ?>favicon.png" rel="icon">
  </head>
 
  <body>
@@ -32,39 +35,60 @@
        <div class="bor font-weight-bold">
          <hr>
        </div>
+       <h5 class="text-center font-weight-bold mt-4">LAPORAN DONOR DARAH LENGKAP UTD RSUD MUKOMUKO</h5>
+       <h5 class="text-center font-weight-bold mb-5"><?= $tahun ?></h5>
      </div>
    </section>
 
    <section class="tab">
      <div class="container">
-       <div class="row">
-         <div class="col">
-           <table class="table table-bordered">
-             <thead>
-               <tr>
-                 <th scope="col">No</th>
-                 <th scope="col">Nama</th>
-                 <th scope="col">Gol Darah</th>
-                 <th scope="col">Alamat Pendonor</th>
-                 <th scope="col">Tanggal Donor</th>
-               </tr>
-             </thead>
-             <tbody>
-               <?php
-                $no = 1;
-                foreach ($tahun as $row) : ?>
-                 <tr>
-                   <th scope="row"><?= $no++ ?></th>
-                   <td><?= $row['nama_pendonor']; ?></td>
-                   <td><?= $row['gol_darah']; ?></td>
-                   <td><?= $row['alamat_pendonor']; ?></td>
-                   <td><?= $row['tanggal']; ?></td>
-                 </tr>
-               <?php endforeach ?>
-             </tbody>
-           </table>
-         </div>
-       </div>
+
+       <table class="table table-bordered">
+         <thead>
+           <tr>
+             <th scope="col">No</th>
+             <th>Jenis Laporan</th>
+             <th scope="col">Jumlah</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <th scope="row">1</th>
+             <td> Jumlah Darah Masuk</td>
+             <td><?= $jumlah; ?></td>
+           </tr>
+           <tr>
+             <th scope="row">2</th>
+             <td>Jumlah Darah Masuk Jenis Kelamin Laki-Laki</td>
+             <td><?= $laki; ?></td>
+           </tr>
+           <tr>
+             <th scope="row">3</th>
+             <td>Jumlah Darah Masuk Jenis Kelamin Perempuan</td>
+             <td><?= $perempuan; ?></td>
+           </tr>
+           <tr>
+             <th scope="row">4</th>
+             <td>Jumlah Reaktif Hiv</td>
+             <td colspan="2"><?= $hiv; ?></td>
+           </tr>
+           <tr>
+             <th scope="row">5</th>
+             <td>Jumlah Reaktif Hcv</td>
+             <td colspan="2"><?= $hcv; ?></td>
+           </tr>
+           <tr>
+             <th scope="row">6</th>
+             <td>Jumlah Reaktif Hbsag</td>
+             <td colspan="2"><?= $hbsag; ?></td>
+           </tr>
+           <tr>
+             <th scope="row">7</th>
+             <td>Jumlah Reaktif Sypilis</td>
+             <td colspan="2"><?= $sypilis; ?></td>
+           </tr>
+         </tbody>
+       </table>
      </div>
    </section>
 
