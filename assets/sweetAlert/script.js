@@ -90,7 +90,7 @@ const flashdataa = $('.flash-dataa').data('flashdata');
     const href = $(this).attr('href');
 
     Swal.fire({
-      title:'Yakin Inggin Hapus.?',
+      title:'Yakin Ingin Hapus.?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -110,7 +110,7 @@ const flashdataa = $('.flash-dataa').data('flashdata');
     const href = $(this).attr('href');
 
     Swal.fire({
-      title:'Kamu Yakin Inggin Inggin Keluar.?',
+      title:'Kamu Yakin Ingin Keluar.?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -130,7 +130,7 @@ const flashdataa = $('.flash-dataa').data('flashdata');
     const href = $(this).attr('href');
 
     Swal.fire({
-      title:'Kamu Yakin Inggin Inggin Keluar.?',
+      title:'Kamu Yakin Ingin Keluar.?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

@@ -1,5 +1,8 @@
+<link href="<?= base_url('assets/') ?>favicon.png" rel="icon">
+
 <body>
   <div id="app">
+    <!-- Favicons -->
     <div id="sidebar" class='active'>
       <div class="sidebar-wrapper active">
         <div class="sidebar-header text-center">

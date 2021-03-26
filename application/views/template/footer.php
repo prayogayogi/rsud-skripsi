@@ -11,6 +11,8 @@
   </footer>
 </div>
 </div>
+
+<!-- Script -->
 <script src="<?= base_url() ?>assets/assets/js/feather-icons/feather.min.js"></script>
 <script src="<?= base_url() ?>assets/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script src="<?= base_url() ?>assets/assets/js/app.js"></script>
