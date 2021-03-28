@@ -11,12 +11,12 @@
 
   <!-- Style Css -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/css/bootstrap.css">
-  <link rel="stylesheet" href="<?= base_url() ?>assets/assets/vendors/chartjs/Chart.min.css">
-  <link rel="stylesheet" href="<?= base_url() ?>assets/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+  <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/assets/vendors/chartjs/Chart.min.css"> -->
+  <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/assets/vendors/perfect-scrollbar/perfect-scrollbar.css"> -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/assets/css/app.css">
   <!-- <link rel="shortcut icon" href="<?= base_url() ?>assets/favicon.png" type="image/x-icon"> -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
-  <link rel="stylesheet" href="<?= base_url() ?>assets/dataTable/voler/style.css" type="css">
+  <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/dataTable/voler/style.css" type="css"> -->
 </head>
 
 <body>

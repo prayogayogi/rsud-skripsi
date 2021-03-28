@@ -115,7 +115,6 @@ class Dashboard extends CI_Controller
 
     $data['start'] = $this->uri->segment(4);
     $data['pendonor'] = $this->m_master->tampil_data_pagination($config['per_page'], $data['start'], $data['inputanCari'])->result_array();
-
     $data['title'] = 'Tambah Data Pendonor';
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
@@ -162,13 +161,12 @@ class Dashboard extends CI_Controller
       $this->load->view('master/form_view_tambah_pendonor', $data);
       $this->load->view('template/footer', $data);
     } else {
-      $data['alamat'] = str_replace(' ', '', $this->input->post('alamat', true));
       $data = [
         'nama_pendonor' => $this->input->post('nama_pendonor', true),
         'nama_pasien' => $this->input->post('nama_pasien', true),
         'ruang_pasien' => $this->input->post('ruang_pasien', true),
         'gol_darah' => $this->input->post('gol_darah', true),
-        'alamat_pendonor' => $data['alamat'],
+        'alamat_pendonor' => $this->input->post('alamat', true),
         'agama' => $this->input->post('agama', true),
         'no_tali' => $this->input->post('no_tali', true),
         'pekerjaan' => $this->input->post('pekerjaan', true),

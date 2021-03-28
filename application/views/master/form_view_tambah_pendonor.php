@@ -108,52 +108,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?= form_error('hb', '<small class="text-danger ml-2">', '</small>') ?>
                 <small id="emailHelp" class="form-text text-muted">Hb Darah Minimal Harus 12</small>
               </div>
-              <!-- <div class="form-group">
-                <label for="hiv">Hiv</label>
-                <select class="custom-select form-control" id="hiv" name="hiv">
-                  <option selected>Penyakit Hiv</option>
-                  <option value="-"> - </option>
-                  <option value="+"> + </option>
-                </select>
-                <?= form_error('hiv', '<small class="text-danger ml-2">', '</small>') ?>
-              </div>
-              <div class="form-group">
-                <label for="hcv">Hcv</label>
-                <select class="custom-select form-control" id="hcv" name="hcv">
-                  <option selected>Penyakit Hcv</option>
-                  <option value="-"> - </option>
-                  <option value="+"> + </option>
-                </select>
-                <?= form_error('hcv', '<small class="text-danger ml-2">', '</small>') ?>
-              </div>
-              <div class="form-group">
-                <label for="hbsag">HbSag</label>
-                <select class="custom-select form-control" id="hbsag" name="hbsag">
-                  <option selected>Penyakit HbSag</option>
-                  <option value="-"> - </option>
-                  <option value="+"> + </option>
-                </select>
-                <?= form_error('hbsag', '<small class="text-danger ml-2">', '</small>') ?>
-              </div>
-              <div class="form-group">
-                <label for="sypilis">Sypilis</label>
-                <select class="custom-select form-control" id="sypilis" name="sypilis">
-                  <option selected>Penyakit Sypilis</option>
-                  <option value="-"> - </option>
-                  <option value="+"> + </option>
-                </select>
-                <?= form_error('sypilis', '<small class="text-danger ml-2">', '</small>') ?>
-              </div> -->
+
               <div class="form-group mb-3">
                 <label for="no_hp">No Hanphone</label>
                 <input type="number" name="no_hp" id="no_hp" placeholder="Masukan No Hanphone" class="form-control" value="<?php echo set_value('no_hp'); ?>" autocomplete="off">
                 <?= form_error('no_hp', '<small class="text-danger ml-2">', '</small>') ?>
               </div>
-              <!-- <div class="form-group mb-3">
-                <label for="no_hp">Tgl Donor</label>
-                <input type="text" name="tgl_donor" id="no_hp" placeholder="Masukan Tgl Donor" class="form-control" value="<?php echo set_value('no_hp'); ?>" autocomplete="off">
-                <?= form_error('no_hp', '<small class="text-danger ml-2">', '</small>') ?>
-              </div> -->
+
               <input type="hidden" name="petugas" id="petugas" value="<?= $user1['nama'] ?>">
               <button type="reset" class="btn btn-secondary" data-dismiss="modal">Resset</button>
               <button type="submit" class="btn btn-primary">Save Data</button>

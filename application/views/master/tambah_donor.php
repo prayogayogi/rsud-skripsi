@@ -101,7 +101,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Form Edit Data Pendonor</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Form Ubah Data Pendonor</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -116,26 +116,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="form-group">
                   <label for="gender">Jenis Gol Darah</label>
                   <input type="text" name="gol_darah" id="nama" value="<?= $data['gol_darah'] ?>" class="form-control">
-                  <!-- <div class="input-group ">
-                    <div class="input-group-prepend">
-                      <label class="input-group-text" for="inputGroupSelect01" name="gol_darah">Pilih</label>
-                    </div>
-                    <select class="custom-select form-control" id="inputGroupSelect01" name="gol_darah">
-                      <option value="">Gol Darah</option>
-                      <option value="A">Gol A</option>
-                      <option value="B">Gol B</option>
-                      <option value="AB">Gol AB</option>
-                      <option value="O">Gol O</option>
-                    </select>
-                  </div> -->
                 </div>
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
                   <input type="text" name="alamat" id="alamat" value="<?= $data['alamat_pendonor']; ?>" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="alamat">Tanggal Donor</label>
-                  <input type="text" name="alamat" id="alamat" value="<?= $data['tanggal'] ?>" readonly class="form-control">
+                  <label for="tgl_donor">Tanggal Donor</label>
+                  <input type="text" id="tgl_donor" value="<?= date('d-m-Y', $data['tgl_donor']) ?>" readonly class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="hiv">Hiv</label>
