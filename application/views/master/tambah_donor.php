@@ -44,7 +44,36 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <tr>
               <td><?= ++$start ?></td>
               <td><?= $data['nama_pendonor'] ?></td>
-              <td><?= $data['gol_darah'] ?></td>
+
+              <!-- gol A -->
+              <?php if ($data['gol_darah'] == "A") { ?>
+                <td><span class="badge bg-success">
+                    <?= $data['gol_darah']; ?>
+                  </span></td>
+              <?php } ?>
+
+              <!-- gol B -->
+              <?php if ($data['gol_darah'] == "B") { ?>
+                <td><span class="badge bg-primary">
+                    <?= $data['gol_darah']; ?>
+                  </span></td>
+              <?php } ?>
+
+              <!-- gol AB -->
+              <?php if ($data['gol_darah'] == "AB") { ?>
+                <td><span class="badge bg-danger">
+                    <?= $data['gol_darah']; ?>
+                  </span></td>
+              <?php } ?>
+
+              <!-- gol O -->
+              <?php if ($data['gol_darah'] == "O") { ?>
+                <td><span class="badge bg-warning">
+                    <?= $data['gol_darah']; ?>
+                  </span></td>
+              <?php } ?>
+
+
               <td><?= $data['jenis_kelamin'] ?></td>
               <td>
                 <?php if ($data['alamat_pendonor'] != '') { ?>

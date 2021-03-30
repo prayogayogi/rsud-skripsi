@@ -60,13 +60,16 @@ class Register extends CI_Controller
   // log out
   public function logout()
   {
+    if ($this->session->userdata('email')) {
+      redirect('dashboard');
+    }
     $this->session->sess_destroy('userdata');
     $this->session->unset_userdata('$data');
     redirect('homeLoginController');
   }
 
 
-  // registration
+  // registration ini untuk registrasi user baru, dan ini tidak di pakai.
   public function registration()
   {
     $data['title'] = 'Registration';
