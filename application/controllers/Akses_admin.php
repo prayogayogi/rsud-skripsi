@@ -5,7 +5,7 @@ class Akses_admin extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('m_master');
+    $this->load->model('M_master');
 
     if (empty($this->session->userdata('email'))) {
       redirect('register');
@@ -13,7 +13,7 @@ class Akses_admin extends CI_Controller
   }
   public function index()
   {
-    $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['user1'] = $this->M_master->dataAdmin()->row_array();
     $data['pendonor'] = $this->db->get('data_donor')->result_array();
     $data['title'] = 'Data Stok Darah';
     $this->load->view('template/sidebar', $data);

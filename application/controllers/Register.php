@@ -6,7 +6,7 @@ class Register extends CI_Controller
   {
     parent::__construct();
     $this->load->library('form_validation');
-    $this->load->model('m_master');
+    $this->load->model('M_master');
   }
 
   // login
@@ -96,7 +96,7 @@ class Register extends CI_Controller
         'aktif' => 1,
         'tgl_daftar' => time()
       ];
-      $this->m_master->input_user($data);
+      $this->M_master->input_user($data);
       $this->session->set_flashdata('pesanlog', 'Berhasil Ditambah');
       redirect('register');
     } else {

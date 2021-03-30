@@ -6,8 +6,8 @@ class Dashboard extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('m_master');
-    $this->load->model('m_tambah');
+    $this->load->model('M_master');
+    $this->load->model('M_tambah');
     $this->load->library('pagination');
 
     if (empty($this->session->userdata('email'))) {
@@ -63,14 +63,14 @@ class Dashboard extends CI_Controller
     $config['attributes'] = ['class' => 'page-link'];
     $this->pagination->initialize($config);
     $data['start'] = $this->uri->segment(3);
-    $data['user'] = $this->m_master->tampil_data($config['per_page'], $data['start'], $data['inputanCari'])->result_array();
+    $data['user'] = $this->M_master->tampil_data($config['per_page'], $data['start'], $data['inputanCari'])->result_array();
 
     // Tampilan view
-    $data['gol_A'] = $this->m_master->hitungJumlahGolA();
-    $data['gol_B'] = $this->m_master->hitungJumlahGolB();
-    $data['gol_AB'] = $this->m_master->hitungJumlahGolAB();
-    $data['gol_O'] = $this->m_master->hitungJumlahGolO();
-    $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['gol_A'] = $this->M_master->hitungJumlahGolA();
+    $data['gol_B'] = $this->M_master->hitungJumlahGolB();
+    $data['gol_AB'] = $this->M_master->hitungJumlahGolAB();
+    $data['gol_O'] = $this->M_master->hitungJumlahGolO();
+    $data['user1'] = $this->M_master->dataAdmin()->row_array();
     $data['title'] = 'Dashboard';
 
     $sql = "SELECT nama_pasien,gol_darah, COUNT(gol_darah) as jumlah
@@ -80,7 +80,7 @@ class Dashboard extends CI_Controller
     $data['get'] = $this->db->query($sql)->result_array();
 
     // untuk get stok darah
-    $data['stokDarah'] = $this->m_master->getStokDarah()->num_rows();
+    $data['stokDarah'] = $this->M_master->getStokDarah()->num_rows();
     // akhir get stok darah
 
     $this->load->view('template/sidebar', $data);
@@ -93,7 +93,7 @@ class Dashboard extends CI_Controller
   // Tambah Data Pendonor
   public function tambah_data_pendonor()
   {
-    $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['user1'] = $this->M_master->dataAdmin()->row_array();
     // $data['numrows'] = $this->db->get('data_donor')->num_rows();
 
     // Untuk Ambil Data Kyword Cari
@@ -114,7 +114,7 @@ class Dashboard extends CI_Controller
     $this->pagination->initialize($config);
 
     $data['start'] = $this->uri->segment(4);
-    $data['pendonor'] = $this->m_master->tampil_data_pagination($config['per_page'], $data['start'], $data['inputanCari'])->result_array();
+    $data['pendonor'] = $this->M_master->tampil_data_pagination($config['per_page'], $data['start'], $data['inputanCari'])->result_array();
     $data['title'] = 'Tambah Data Pendonor';
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
@@ -126,8 +126,8 @@ class Dashboard extends CI_Controller
   // view tambah data penonor 
   public function tambahPendonor()
   {
-    $data['pendonor'] = $this->m_master->tampil()->result_array();
-    $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['pendonor'] = $this->M_master->tampil()->result_array();
+    $data['user1'] = $this->M_master->dataAdmin()->row_array();
     $data['title'] = 'Tambah Data Pendonor';
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
@@ -153,8 +153,8 @@ class Dashboard extends CI_Controller
     $this->form_validation->set_rules('no_hp', 'No hp', 'numeric|min_length[12]', ['min_length' => 'Minimal 12 angka']);
 
     if ($this->form_validation->run() == false) {
-      $data['pendonor'] = $this->m_master->tampil_data()->result_array();
-      $data['user1'] = $this->m_master->dataAdmin()->row_array();
+      $data['pendonor'] = $this->M_master->tampil_data()->result_array();
+      $data['user1'] = $this->M_master->dataAdmin()->row_array();
       $data['title'] = 'Tambah Data Pendonor';
       $this->load->view('template/sidebar', $data);
       $this->load->view('template/header', $data);
@@ -182,7 +182,7 @@ class Dashboard extends CI_Controller
         'no_hp' => $this->input->post('no_hp', true),
         'petugas' => $this->input->post('petugas', true)
       ];
-      $this->m_tambah->tambahDataPendonor($data);
+      $this->M_tambah->tambahDataPendonor($data);
       $this->session->set_flashdata('data', 'Berhasil di tamabah.');
       redirect('dashboard/tambah_data_pendonor');
     }
@@ -194,7 +194,7 @@ class Dashboard extends CI_Controller
     $id_hapus = [
       'id' => $id
     ];
-    $this->m_master->hapusDataPendonor($id_hapus);
+    $this->M_master->hapusDataPendonor($id_hapus);
     $this->session->set_flashdata('data', 'Berhasil Di Hapus.');
     redirect('dashboard/tambah_data_pendonor');
   }
@@ -225,18 +225,18 @@ class Dashboard extends CI_Controller
   // Cari Data Penonor
   public function cariData()
   {
-    $data['gol_A'] = $this->m_master->hitungJumlahGolA();
-    $data['gol_B'] = $this->m_master->hitungJumlahGolB();
-    $data['gol_AB'] = $this->m_master->hitungJumlahGolAB();
-    $data['gol_O'] = $this->m_master->hitungJumlahGolO();
-    $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['gol_A'] = $this->M_master->hitungJumlahGolA();
+    $data['gol_B'] = $this->M_master->hitungJumlahGolB();
+    $data['gol_AB'] = $this->M_master->hitungJumlahGolAB();
+    $data['gol_O'] = $this->M_master->hitungJumlahGolO();
+    $data['user1'] = $this->M_master->dataAdmin()->row_array();
     $data['title'] = 'Dashboard';
 
-    $data['stokDarah'] = $this->m_master->getStokDarah()->num_rows();
+    $data['stokDarah'] = $this->M_master->getStokDarah()->num_rows();
     $cari_berdasarkan = $this->input->post('cari_berdasarkan', true);
     $yang_dicari = $this->input->post('yang_dicari', true);
     if ($this->input->post('yang_dicari', true)) {
-      $data['user'] = $this->m_master->cariData($yang_dicari, $cari_berdasarkan);
+      $data['user'] = $this->M_master->cariData($yang_dicari, $cari_berdasarkan);
       $this->load->view('template/sidebar', $data);
       $this->load->view('template/header', $data);
       $this->load->view('master/dashboard', $data);
@@ -254,7 +254,7 @@ class Dashboard extends CI_Controller
   public function getStokDarah()
   {
     $data['getStokDarah'] = $this->db->get_where('data_donor', ['nama_pasien' => 'stok utd'])->result_array();
-    $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['user1'] = $this->M_master->dataAdmin()->row_array();
     $data['title'] = 'Stok Darah';
     $data['user'] = $this->db->get('data_donor')->result_array();
     $this->load->view('template/sidebar', $data);

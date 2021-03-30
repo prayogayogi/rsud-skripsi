@@ -6,8 +6,8 @@ class Laporan extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('m_laporan');
-    $this->load->model('m_master');
+    $this->load->model('M_laporan');
+    $this->load->model('M_master');
 
     if (empty($this->session->userdata('email'))) {
       redirect('register');
@@ -17,18 +17,18 @@ class Laporan extends CI_Controller
   public function index()
   {
     $tahun = date('Y');
-    $data['hiv'] = $this->m_laporan->hiv($tahun);
-    $data['hcv'] = $this->m_laporan->hcv($tahun);
-    $data['hbsag'] = $this->m_laporan->hbsag($tahun);
-    $data['sypilis'] = $this->m_laporan->sypilis($tahun);
-    $data['user1'] = $this->m_master->dataAdmin()->row_array();
-    $data['user'] = $this->m_laporan->tampil()->result_array();
+    $data['hiv'] = $this->M_laporan->hiv($tahun);
+    $data['hcv'] = $this->M_laporan->hcv($tahun);
+    $data['hbsag'] = $this->M_laporan->hbsag($tahun);
+    $data['sypilis'] = $this->M_laporan->sypilis($tahun);
+    $data['user1'] = $this->M_master->dataAdmin()->row_array();
+    $data['user'] = $this->M_laporan->tampil()->result_array();
     $data['title'] = 'Laporan';
-    $data['getTahun'] = $this->m_laporan->getTahun($tahun);
+    $data['getTahun'] = $this->M_laporan->getTahun($tahun);
 
-    $data['laki'] = $this->m_laporan->lakiLakiget($tahun);
-    $data['perempuan'] = $this->m_laporan->perempuanget($tahun);
-    $data['jumlah'] = $this->m_laporan->filterTahunJumlah($tahun);
+    $data['laki'] = $this->M_laporan->lakiLakiget($tahun);
+    $data['perempuan'] = $this->M_laporan->perempuanget($tahun);
+    $data['jumlah'] = $this->M_laporan->filterTahunJumlah($tahun);
 
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/header', $data);
@@ -41,16 +41,16 @@ class Laporan extends CI_Controller
     $data['title'] = "Laporan";
     $data['tahun'] = $this->input->post('tahun');
 
-    $data['hiv'] = $this->m_laporan->hiv($data['tahun']);
-    $data['hcv'] = $this->m_laporan->hcv($data['tahun']);
-    $data['hbsag'] = $this->m_laporan->hbsag($data['tahun']);
-    $data['sypilis'] = $this->m_laporan->sypilis($data['tahun']);
-    $data['laki'] = $this->m_laporan->lakiLakiget($data['tahun']);
-    $data['perempuan'] = $this->m_laporan->perempuanget($data['tahun']);
-    $data['jumlah'] = $this->m_laporan->filterTahunJumlah($data['tahun']);
+    $data['hiv'] = $this->M_laporan->hiv($data['tahun']);
+    $data['hcv'] = $this->M_laporan->hcv($data['tahun']);
+    $data['hbsag'] = $this->M_laporan->hbsag($data['tahun']);
+    $data['sypilis'] = $this->M_laporan->sypilis($data['tahun']);
+    $data['laki'] = $this->M_laporan->lakiLakiget($data['tahun']);
+    $data['perempuan'] = $this->M_laporan->perempuanget($data['tahun']);
+    $data['jumlah'] = $this->M_laporan->filterTahunJumlah($data['tahun']);
 
     // Ini Mnegambil Data Semua data darah
-    // $data['th'] = $this->m_laporan->filterTahun($data['tahun']);
+    // $data['th'] = $this->M_laporan->filterTahun($data['tahun']);
 
 
     $this->load->view('cetak/adminCetak', $data);

@@ -6,7 +6,7 @@ class Petugas extends CI_Controller
   {
     parent::__construct();
     $this->load->library('form_validation');
-    $this->load->model('m_master');
+    $this->load->model('M_master');
 
     if (empty($this->session->userdata('email'))) {
       redirect('register');
@@ -15,7 +15,7 @@ class Petugas extends CI_Controller
 
   public function index()
   {
-    $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['user1'] = $this->M_master->dataAdmin()->row_array();
     $data['data'] = $this->db->get_where('user', ['role_id' => 2])->result_array();
     $data['title'] = 'Data Petugas';
     $this->load->view('template/sidebar', $data);
@@ -49,7 +49,7 @@ class Petugas extends CI_Controller
       $fotoo = $foto;
     }
     if ($this->form_validation->run() == false) {
-      $data['user1'] = $this->m_master->dataAdmin()->row_array();
+      $data['user1'] = $this->M_master->dataAdmin()->row_array();
       $data['data'] = $this->db->get_where('user', ['role_id' => 2])->result_array();
       $data['title'] = 'Data Petugas';
       $this->load->view('template/sidebar', $data);
@@ -66,7 +66,7 @@ class Petugas extends CI_Controller
         'aktif' => 1,
         'tgl_daftar' => time()
       ];
-      $this->m_master->inputAdmin($data);
+      $this->M_master->inputAdmin($data);
       $this->session->set_flashdata('pesanPetugas', 'Ditambah');
       redirect('petugas');
     }

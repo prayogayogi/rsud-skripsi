@@ -6,7 +6,7 @@ class Admin extends CI_Controller
   {
     parent::__construct();
     $this->load->library('form_validation');
-    $this->load->model('m_master');
+    $this->load->model('M_master');
     $this->load->library('pagination');
 
     if (empty($this->session->userdata('email'))) {
@@ -17,7 +17,7 @@ class Admin extends CI_Controller
   // View Data Admin
   public function index()
   {
-    $data['user1'] = $this->m_master->dataAdmin()->row_array();
+    $data['user1'] = $this->M_master->dataAdmin()->row_array();
     $data['data'] = $this->db->get_where('user', ['role_id' => 1])->result_array();
     $data['title'] = 'Data Admin';
     $this->load->view('template/sidebar', $data);
@@ -48,7 +48,7 @@ class Admin extends CI_Controller
     }
 
     if ($this->form_validation->run() == false) {
-      $data['user1'] = $this->m_master->dataAdmin()->row_array();
+      $data['user1'] = $this->M_master->dataAdmin()->row_array();
       $data['data'] = $this->db->get_where('user', ['role_id' => 1])->result_array();
       $data['title'] = 'Data Admin';
       $this->load->view('template/sidebar', $data);
@@ -65,7 +65,7 @@ class Admin extends CI_Controller
         'aktif' => 1,
         'tgl_daftar' => time()
       ];
-      $this->m_master->inputAdmin($data);
+      $this->M_master->inputAdmin($data);
       $this->session->set_flashdata('pesan', 'Ditambah');
       redirect('admin');
     }
@@ -127,15 +127,15 @@ class Admin extends CI_Controller
     $this->form_validation->set_rules('passwordBaru', 'Password Baru', 'required|trim|min_length[4]');
 
     if ($this->form_validation->run() == FALSE) {
-      $data['gol_A'] = $this->m_master->hitungJumlahGolA();
-      $data['gol_B'] = $this->m_master->hitungJumlahGolB();
-      $data['gol_AB'] = $this->m_master->hitungJumlahGolAB();
-      $data['gol_O'] = $this->m_master->hitungJumlahGolO();
-      $data['user1'] = $this->m_master->dataAdmin()->row_array();
+      $data['gol_A'] = $this->M_master->hitungJumlahGolA();
+      $data['gol_B'] = $this->M_master->hitungJumlahGolB();
+      $data['gol_AB'] = $this->M_master->hitungJumlahGolAB();
+      $data['gol_O'] = $this->M_master->hitungJumlahGolO();
+      $data['user1'] = $this->M_master->dataAdmin()->row_array();
       $data['numrows'] = $this->db->get('data_donor')->num_rows();
 
       // untuk get stok darah
-      $data['stokDarah'] = $this->m_master->getStokDarah()->result_array();
+      $data['stokDarah'] = $this->M_master->getStokDarah()->result_array();
       // akhir get stok darah
 
       $data['title'] = 'Dashboard';
@@ -152,7 +152,7 @@ class Admin extends CI_Controller
           $data = [
             'password' => password_hash($this->input->post('passwordBaru', true), PASSWORD_DEFAULT)
           ];
-          $this->m_master->ubahPasswordAdmin($where, $data);
+          $this->M_master->ubahPasswordAdmin($where, $data);
           $this->session->set_flashdata('password', 'Diubah');
           redirect('dashboard');
         } else {
