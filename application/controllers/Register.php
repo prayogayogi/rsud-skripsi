@@ -60,9 +60,6 @@ class Register extends CI_Controller
   // log out
   public function logout()
   {
-    if ($this->session->userdata('email')) {
-      redirect('dashboard');
-    }
     $this->session->sess_destroy('userdata');
     $this->session->unset_userdata('$data');
     redirect('homeLoginController');

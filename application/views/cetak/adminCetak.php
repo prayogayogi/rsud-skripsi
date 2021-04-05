@@ -59,52 +59,85 @@
            </tr>
            <tr>
              <th scope="row">2</th>
+             <td>Jumlah Darah Masuk Gol Darah A</td>
+             <td><?= $golA; ?></td>
+           </tr>
+           <tr>
+             <th scope="row">3</th>
+             <td>Jumlah Darah Masuk Gol Darah B</td>
+             <td><?= $golB; ?></td>
+           </tr>
+           <tr>
+             <th scope="row">4</th>
+             <td>Jumlah Darah Masuk Gol Darah AB</td>
+             <td><?= $golAb; ?></td>
+           </tr>
+           <tr>
+             <th scope="row">5</th>
+             <td>Jumlah Darah Masuk Gol Darah O</td>
+             <td><?= $golO; ?></td>
+           </tr>
+           <tr>
+             <th scope="row">6</th>
              <td>Jumlah Darah Masuk Jenis Kelamin Laki-Laki</td>
              <td><?= $laki; ?></td>
            </tr>
            <tr>
-             <th scope="row">3</th>
+             <th scope="row">7</th>
              <td>Jumlah Darah Masuk Jenis Kelamin Perempuan</td>
              <td><?= $perempuan; ?></td>
            </tr>
            <tr>
-             <th scope="row">4</th>
+             <th scope="row">8</th>
              <td>Jumlah Reaktif Hiv</td>
              <td colspan="2"><?= $hiv; ?></td>
            </tr>
            <tr>
-             <th scope="row">5</th>
+             <th scope="row">9</th>
              <td>Jumlah Reaktif Hcv</td>
              <td colspan="2"><?= $hcv; ?></td>
            </tr>
            <tr>
-             <th scope="row">6</th>
+             <th scope="row">10</th>
              <td>Jumlah Reaktif Hbsag</td>
              <td colspan="2"><?= $hbsag; ?></td>
            </tr>
            <tr>
-             <th scope="row">7</th>
+             <th scope="row">11</th>
              <td>Jumlah Reaktif Sypilis</td>
              <td colspan="2"><?= $sypilis; ?></td>
+           </tr>
+           <tr>
+             <td colspan="2" class="font-weight-bold text-center">Jumlah Total</td>
+             <td class="font-weight-bold"><?= $jumlah +  $golA +  $golB +  $golAb +  $golO + $laki + $perempuan + $hiv + $hcv + $hbsag + $sypilis; ?></td>
            </tr>
          </tbody>
        </table>
      </div>
    </section>
 
-   <!-- Optional JavaScript; choose one of the two! -->
+
+   <section class="ttd">
+     <div class="container">
+       <div class="row">
+         <div class="col">
+           <p class="d-flex justify-content-end font-weight-bold" style="margin-top: 80px;">Mukomuko, <?= $tahun ?></p>
+           <p class="d-flex justify-content-end font-weight-bold" style="margin-top: -15px;margin-right:35px;">Petugas UTD</p>
+           <p class="d-flex justify-content-end font-weight-bold underline" style="margin-top: 60px;margin-right:35px;"><?= $petugas['nama']; ?></p>
+         </div>
+       </div>
+     </div>
+
+   </section>
+
+   <!-- Untuk Print File -->
    <script>
      window.print();
    </script>
-   <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+
    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-   <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    -->
  </body>
 
  </html>

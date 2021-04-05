@@ -37,6 +37,35 @@ class M_laporan extends CI_Model
     return $this->db->query($query)->num_rows();
   }
 
+
+  // Gol Darah A
+  public function golA($tahun)
+  {
+    $query = "SELECT * FROM data_donor WHERE YEAR(tanggal)='$tahun' AND gol_darah='A'";
+    return $this->db->query($query)->num_rows();
+  }
+
+  // Gol Darah B
+  public function golB($tahun)
+  {
+    $query = "SELECT * FROM data_donor WHERE YEAR(tanggal)='$tahun' AND gol_darah='B'";
+    return $this->db->query($query)->num_rows();
+  }
+
+  // Gol Darah B
+  public function golAb($tahun)
+  {
+    $query = "SELECT * FROM data_donor WHERE YEAR(tanggal)='$tahun' AND gol_darah='AB'";
+    return $this->db->query($query)->num_rows();
+  }
+
+  // Gol Darah B
+  public function golO($tahun)
+  {
+    $query = "SELECT * FROM data_donor WHERE YEAR(tanggal)='$tahun' AND gol_darah='O'";
+    return $this->db->query($query)->num_rows();
+  }
+
   // Get tahun Di Data Base
   public function getTahun()
   {

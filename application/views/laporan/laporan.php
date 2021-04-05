@@ -24,20 +24,33 @@
         <div class="col-12 mt-4 col-lg-6">
           <div class="card">
             <div class="card-header">
-              <h4>Data pendonor tahun <?= date('Y'); ?></h4>
+              <h4>Data Pendonor Tahun <?= date('Y'); ?></h4>
             </div>
             <div class="card-body">
               <div class="buttons">
-                <div class="section-title mt-0">Jumlah Golongan darah</div>
-                <button type="button" class="btn btn-primary">
+                <div class="section-title mt-0">Jumlah Golongan Darah</div>
+                <button type="button" class="btn btn-sm btn-primary">
                   Jumlah <span class="badge bg-transparent"><?= $jumlah; ?></span>
                 </button>
+                <div class="section-title mt-0">Jumlah Golongan Darah Berdasarkan Golongan Darah</div>
+                <button type="button" class="btn btn-sm btn-primary">
+                  GOL (A) <span class="badge bg-transparent"><?= $golA; ?></span>
+                </button>
+                <button type="button" class="btn btn-sm btn-warning">
+                  GOL (B) <span class="badge bg-transparent"><?= $golB; ?></span>
+                </button>
+                <button type="button" class="btn btn-sm btn-dark">
+                  GOL (AB) <span class="badge bg-transparent"><?= $golAb; ?></span>
+                </button>
+                <button type="button" class="btn btn-sm btn-danger">
+                  GOL (O) <span class="badge bg-transparent"><?= $golO; ?></span>
+                </button>
 
-                <div class="section-title mt-0">Jumlah Golongan darah berdasarkan jenis kelamin</div>
-                <button type="button" class="btn btn-primary">
+                <div class="section-title mt-0">Jumlah Golongan Darah Berdasarkan Jenis Kelamin</div>
+                <button type="button" class="btn brn-sm btn-primary">
                   Laki-Laki<span class="badge bg-transparent"><?= $laki; ?></span>
                 </button>
-                <button type="button" class="btn btn-danger">
+                <button type="button" class="btn btn-sm btn-danger">
                   Perempuan <span class="badge bg-transparent"><?= $perempuan; ?></span>
                 </button>
 
@@ -46,29 +59,15 @@
           </div>
         </div>
 
-        <!-- <div class="col-12 mt-4 col-lg-2">
-          <div class="card ">
-            <div class="card-header text-center">
-              <h3>Jumlah </h3>
-            </div>
-            <div class="card-body">
-              <div id="radialBars"></div>
-              <div class="text-center mb-5">
-                <h1 class='text-green'>
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div> -->
 
         <div class="col-12 mt-4 col-lg-6">
           <div class="card">
             <div class="card-header">
-              <h4>Data pendonor <?= date('Y') ?></h4>
+              <h4>Data Pendonor Tahun<?= date('Y') ?></h4>
             </div>
             <div class="card-body">
               <div class="buttons">
-                <div class="section-title mt-0">Jumlah uji saring infeksi menular lewat tranfusi darah</div>
+                <div class="section-title mt-0">Jumlah Uji Saring Infeksi Menular Lewat Tranfusi Darah</div>
                 <button type="button" class="btn btn-primary">
                   HIV<span class="badge bg-transparent"><?= $hiv; ?></span>
                 </button>
@@ -86,51 +85,3 @@
           </div>
         </div>
     </section>
-
-
-    <!-- untuk table -->
-    <div class="col col-6 d-none">
-      <div class="table-responsive">
-        <table class="table">
-          <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Gol Darah</th>
-            <th>Jenis Kelamin</th>
-            <th>Alamat</th>
-            <th>No Hp</th>
-            <th>Agama</th>
-            <th>Tgl Donor</th>
-            <th>Kelayakan</th>
-          </tr>
-
-          <?php
-          $no = 1;
-          foreach ($user as $data) : ?>
-            <tr>
-              <td><?= $no++ ?></td>
-              <td><?= $data['nama_pendonor'] ?></td>
-              <td><?= $data['gol_darah'] ?></td>
-              <td><?= $data['jenis_kelamin'] ?></td>
-              <td><?= $data['alamat_pendonor'] ?></td>
-              <?php if ($data['no_hp'] != 0) { ?>
-                <td><?= $data['no_hp'] ?></td>
-              <?php } else { ?>
-                <td><a class="text-info">Tidak Ada</a></td>
-              <?php } ?>
-              <td><?= $data['agama'] ?></td>
-              <td><?= date('d-m-Y', $data['tgl_donor']); ?></td>
-              <?php
-              if (time() >= ($data['tgl_donor'] + 7776000)) { ?>
-
-                <!-- bisa donor -->
-                <td> <span class="badge badge-pill badge-info bg-info">Bisa</span></td>
-              <?php } else { ?>
-                <!-- tidak bisa donor -->
-                <td> <span class="badge badge-pill badge-info bg-danger"> Tidak bisa</span></td>
-              <?php } ?>
-            </tr>
-          <?php endforeach; ?>
-        </table>
-      </div>
-    </div>
