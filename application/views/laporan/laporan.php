@@ -7,7 +7,7 @@
     </section>
     <section class="content">
       <form method="POST" action="<?= base_url('laporan/getTahun') ?>" target="blank" class="d-flex">
-        <div class="input-group-appen col col-1 mr-2">
+        <div class="input-group-appen col-3 col-md-1 mr-2">
           <select class="custom-select form-control btn btn-sm btn-outline-primary" name="tahun">
             <option value="<?= date('Y') ?>">Tahun</option>
 
@@ -47,7 +47,7 @@
                 </button>
 
                 <div class="section-title mt-0">Jumlah Golongan Darah Berdasarkan Jenis Kelamin</div>
-                <button type="button" class="btn brn-sm btn-primary">
+                <button type="button" class="btn btn-sm btn-primary">
                   Laki-Laki<span class="badge bg-transparent"><?= $laki; ?></span>
                 </button>
                 <button type="button" class="btn btn-sm btn-danger">

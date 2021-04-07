@@ -1,10 +1,10 @@
 <div>
   <footer>
     <div class="footer clearfix mb-0 text-muted">
-      <div class="float-left">
+      <div class="float-lg-left text-center">
         <p><?= date('Y', time()); ?> &copy; UTD RSUD MUKOMUKO</p>
       </div>
-      <div class="float-right">
+      <div class="float-lg-right text-center">
         <p>Always smiling <span class='text-danger'><i data-feather="heart"></i></span><a><?= $user1['nama'] ?></a></p>
       </div>
     </div>

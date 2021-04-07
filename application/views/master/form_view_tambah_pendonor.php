@@ -12,7 +12,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <section class="kontent">
         <form action="<?= base_url('dashboard/aksi_tambahdataRsud') ?>" method="post">
           <div class="row mt-2">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <div class="form-group">
                 <label for="nama_pendonor">Nama Pendonor</label>
                 <input type="text" name="nama_pendonor" id="nama_pendonor" placeholder="Masukan Nama Pendonor" class="form-control" value="<?php echo set_value('nama_pendonor'); ?>" autofocus autocomplete="off">
@@ -95,7 +95,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <div class="form-group">
                 <label for="bb_tensi">Bb Tensi</label>
                 <input type="text" name="bb_tensi" id="bb_tensi" placeholder="Tensi Pendonor" class="form-control" value="<?php echo set_value('bb_tensi'); ?>" autocomplete="off">

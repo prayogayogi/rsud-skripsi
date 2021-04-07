@@ -95,7 +95,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <div class="input-group-append">
                     <input type="text" name="kyword" style="width: 250px" class="form-control ml-1" placeholder="Search Data" autofocus autocomplete="off">
                   </div>
-                  <div class="input-group-append">
+                  <div class="mt-2 mt-md-0 input-group-append">
                     <button class="btn btn-primary ml-2" type="submit" id="button-addon2">Search</button>
                   </div>
               </form>

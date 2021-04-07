@@ -121,8 +121,10 @@
      <div class="container">
        <div class="row">
          <div class="col">
-           <p class="d-flex justify-content-end font-weight-bold" style="margin-top: 80px;">Mukomuko, <?= $tahun ?></p>
-           <p class="d-flex justify-content-end font-weight-bold" style="margin-top: -15px;margin-right:35px;">Petugas UTD</p>
+           <p class="d-flex justify-content-end font-weight-bold" style="margin-top: 80px;">Mukomuko,
+             <?php echo date('d, F, Y'); ?>
+           </p>
+           <p class="d-flex justify-content-end font-weight-bold" style="margin-top: -15px;margin-right:45px;">Petugas UTD</p>
            <p class="d-flex justify-content-end font-weight-bold underline" style="margin-top: 60px;margin-right:35px;"><?= $petugas['nama']; ?></p>
          </div>
        </div>
