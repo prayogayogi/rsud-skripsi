@@ -6,8 +6,7 @@ class Dashboard extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('M_master');
-    $this->load->model('M_tambah');
+    $this->load->model(['M_master', 'M_tambah']);
     $this->load->library('pagination');
 
     if (empty($this->session->userdata('email'))) {
@@ -153,7 +152,7 @@ class Dashboard extends CI_Controller
     $this->form_validation->set_rules('no_hp', 'No hp', 'numeric|min_length[12]', ['min_length' => 'Minimal 12 angka']);
 
     if ($this->form_validation->run() == false) {
-      $data['pendonor'] = $this->M_master->tampil_data()->result_array();
+      // $data['pendonor'] = $this->M_master->tampil_data()->result_array();
       $data['user1'] = $this->M_master->dataAdmin()->row_array();
       $data['title'] = 'Tambah Data Pendonor';
       $this->load->view('template/sidebar', $data);

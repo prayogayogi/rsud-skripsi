@@ -31,8 +31,8 @@
         <div class="sidebar-menu">
           <ul class="menu">
             <li class='sidebar-title'>Main Menu</li>
-            <li class="sidebar-item">
-              <a href="<?= base_url('dashboard') ?>" class='sidebar-link'>
+            <li class="sidebar-item <?= (current_url() == base_url('dashboard')) || (current_url() == base_url('dashboard/getStokDarah')) ? 'active' : '' ?>">
+              <a href="<?= base_url('dashboard') ?>" class="sidebar-link">
                 <i data-feather="home" width="20"></i>
                 <span>Dashboard</span>
               </a>
@@ -40,7 +40,7 @@
 
 
             <?php if ($user1['role_id'] == 1) { ?>
-              <li class="sidebar-item">
+              <li class="sidebar-item <?= (current_url() == base_url('dashboard/tambah_data_pendonor')) || (current_url() == base_url('dashboard/tambahPendonor')) ? 'active' : '' ?>">
                 <a href="<?= base_url('dashboard/tambah_data_pendonor') ?>" class='sidebar-link'>
                   <i data-feather="layers" width="20"></i>
                   <span>Data PenDonor</span>
@@ -49,7 +49,7 @@
             <?php } ?>
 
             <?php if ($user1['role_id'] == 2) { ?>
-              <li class="sidebar-item  ">
+              <li class="sidebar-item <?= (current_url() == base_url('dashboard/getStokDarah')) ? 'active' : '' ?>">
                 <a href="<?= base_url('dashboard/getStokDarah'); ?>" class='sidebar-link'>
                   <i data-feather="briefcase" width="20"></i>
                   <span>Stok Darah</span>
@@ -57,27 +57,27 @@
               </li>
             <?php } ?>
             <?php if ($user1['role_id'] == 1) { ?>
-              <li class="sidebar-item  ">
+              <li class="sidebar-item <?= (current_url() == base_url('admin')) ? 'active' : '' ?>">
                 <a href="<?= base_url('admin'); ?>" class='sidebar-link'>
                   <i data-feather="user" width="20"></i>
                   <span>Data Admin</span>
                 </a>
               </li>
-              <li class="sidebar-item  ">
+              <li class="sidebar-item <?= (current_url() == base_url('petugas')) ? 'active' : '' ?>">
                 <a href="<?= base_url('petugas'); ?>" class='sidebar-link'>
                   <i data-feather="user" width="20"></i>
                   <span>Data Petugas</span>
                 </a>
               </li>
 
-              <li class="sidebar-item  ">
+              <li class="sidebar-item <?= (current_url() == base_url('laporan')) ? 'active' : '' ?>">
                 <a href="<?= base_url('laporan'); ?>" class='sidebar-link'>
                   <i data-feather="file-text" width="20"></i>
                   <span>Laporan</span>
                 </a>
               </li>
             <?php } ?>
-            <li class="sidebar-item  ">
+            <li class="sidebar-item">
               <a href="<?= base_url('register/logout'); ?>" class='sidebar-link logout'>
                 <i data-feather="log-out" width="20"></i>
                 <span>Log Out</span>

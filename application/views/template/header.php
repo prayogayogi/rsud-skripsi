@@ -33,6 +33,10 @@
             <i data-feather="settings"></i>
           </div>
           <div class="dropdown-menu dropdown-menu-right">
+            <?php if ($user1['role_id'] == 3) { ?>
+              <a class=" dropdown-item mb-4" href="<?= base_url('auth/profile') ?>" style="margin-top: -20px;">
+                <i data-feather="user"></i>Master Admin</a>
+            <?php } ?>
             <a class=" dropdown-item mb-1" href="<?= base_url('auth/profile') ?>" style="margin-top: -20px;" data-toggle="modal" data-target="#exampleModal1">
               <i data-feather="user"></i>Profile</a>
             <?php if ($user1['role_id'] == 1) { ?>
@@ -60,8 +64,7 @@
         <div class="modal-body d-flex justify-content-center">
           <div class="card" style="width: 25rem;">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item mt-4">NAMA <small class="h5 ml-5">: <?= $user1['nama']; ?></small>
-              </li>
+              <li class="list-group-item mt-4">NAMA <small class="h5 ml-5">: <?= $user1['nama']; ?></small></li>
               <li class="list-group-item mt-4">EMAIL <small class="h5 ml-5">: <?= $user1['email']; ?></small></li>
               <li class="list-group-item mt-4">TGL MASUK <small class="h5 ml-2">: <?= date('d-M-Y', ($user1['tgl_daftar'])); ?></small></li>
               <li class="list-group-item mt-4">JABATAN <small class="h5 ml-4">:

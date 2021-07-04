@@ -9,8 +9,7 @@
       <form method="POST" action="<?= base_url('laporan/getTahun') ?>" target="blank" class="d-flex">
         <div class="input-group-appen col-3 col-md-1 mr-2">
           <select class="custom-select form-control btn btn-sm btn-outline-primary" name="tahun">
-            <option value="<?= date('Y') ?>">Tahun</option>
-
+            <option value="<?= date('Y') ?>">-- Tahun --</option>
             <?php foreach ($getTahun as $row) : ?>
               <option value="<?= $row['tahun'] ?>"><?= $row['tahun'] ?></option>
             <?php endforeach; ?>
